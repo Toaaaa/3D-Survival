@@ -14,24 +14,41 @@ public class InputController : MonoBehaviour
 
     public Action jumpAction;
 
+    PlayerInput input;
+
+    private void OnEnable()
+    {
+        input = new PlayerInput();
+
+        input.Player.Move.performed += OnMove;
+        input.Player.Move.canceled += OnMoveStop;
+        input.Player.Jump.started += OnJump;
+
+        input.Enable();
+    }
+
+    private void OnDisable()
+    {
+        input.Player.Move.performed -= OnMove;
+        input.Player.Move.canceled -= OnMoveStop;
+        input.Player.Jump.started -= OnJump;
+
+        input.Disable();
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            curMoveInput = context.ReadValue<Vector2>();
-        }
-        else if(context.phase == InputActionPhase.Canceled)
-        {
-            curMoveInput = Vector2.zero;
-        }
+        curMoveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnMoveStop(InputAction.CallbackContext context)
+    {
+        curMoveInput = Vector2.zero;
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
-        {
-            jumpAction?.Invoke();
-        }
+        jumpAction?.Invoke();
     }
 
     public void OnLook(InputAction.CallbackContext context)
