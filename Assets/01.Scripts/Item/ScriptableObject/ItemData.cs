@@ -14,6 +14,7 @@ public enum ConsumableType // 소비 아이템 효과
     Health,
     Stamina,
     Hunger,
+    Water
     // 추후 추가
 }
 [System.Serializable]
