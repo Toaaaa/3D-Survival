@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
 using UnityEngine;
 
 public class PlayerHandler : MonoBehaviour
@@ -10,13 +11,21 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private float jumpPower;
     public float JumpPower { get => jumpPower; }
 
+    [Header("Look")]
+    private bool isFP;
+
     InputController input;
-    Rigidbody rigid;    
+    Rigidbody rigid;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
         input = GetComponent<InputController>();
+    }
+
+    private void Start()
+    {
+        input.jumpAction += Jump;
     }
 
     private void FixedUpdate()
@@ -33,5 +42,15 @@ public class PlayerHandler : MonoBehaviour
         moveDir.y = rigid.velocity.y;
 
         rigid.velocity = moveDir;
+    }
+
+    private void Jump()
+    {
+        rigid.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+    }
+
+    private void Look()
+    {
+        
     }
 }
