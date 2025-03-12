@@ -36,30 +36,40 @@ public class PlayerCondition : MonoBehaviour
     {
         if (conditions.TryGetValue(ConditionType.Water, out Condition water))
         {
-            water.PassiveSubtract();
+            water.PassiveChanging();
             isFreezing = water.curValue <= 0 ? true : false;
         }
 
         if (conditions.TryGetValue(ConditionType.Hunger, out Condition hunger))
         {
-            hunger.PassiveSubtract();
+            hunger.PassiveChanging();
 
             // Hunger가 0 이하일 경우 Health 감소
             if (hunger.CurValue <= 0)
             {
                 if (conditions.TryGetValue(ConditionType.Health, out Condition health))
                 {
-                    health.PassiveSubtract();
+                    health.PassiveChanging();
                 }
             }
         }
+
+        if (conditions.TryGetValue(ConditionType.Stamina, out Condition stamina))
+        {
+            stamina.PassiveChanging();
+        }
     }
 
-    public void UseStamina(float value)
+    public bool UseStamina(float value)
     {
         if(conditions.TryGetValue(ConditionType.Stamina, out Condition stamina))
         {
-            stamina.Subtract(value);
+            if (stamina.curValue <= 0)
+            {
+                return false;
+            }
+            stamina.ChangCondition(value);
         }
+        return true;
     }
 }

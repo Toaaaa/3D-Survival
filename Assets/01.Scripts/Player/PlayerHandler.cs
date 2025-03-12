@@ -63,16 +63,23 @@ public class PlayerHandler : MonoBehaviour
 
     public void Run()
     {
-        CharacterManager.Instance.Player.condition.UseStamina(runStamina);
+        Debug.Log("이건 호출되지롱");
         runCoroutine = StartCoroutine(RunStaminaUsing());
     }
 
-    IEnumerator RunStaminaUsing()
+    public IEnumerator RunStaminaUsing()
     {
         while (isRun)
         {
-            CharacterManager.Instance.Player.condition.UseStamina(runStamina * Time.deltaTime);         
-        }
-        yield return null;
+            if(!CharacterManager.Instance.Player.condition.UseStamina(runStamina * Time.deltaTime))
+            {
+                if (CharacterManager.Instance.Player.condition.UseStamina(runStamina))
+                {
+                    isRun = false;
+                    yield break;
+                }
+            }
+            yield return null;
+        }      
     }
 }

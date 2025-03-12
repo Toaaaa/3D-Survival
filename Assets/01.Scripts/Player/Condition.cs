@@ -25,16 +25,10 @@ public class Condition
 
     public float MaxValue { get => maxValue; }
 
-    public void Add(float value)
+    public void ChangCondition(float value)
     {
-        if (curValue == maxValue) return;
-        curValue = Mathf.Min(value + curValue, maxValue);
-    }
-
-    public void Subtract(float value)
-    {
-        if (curValue == 0) return; 
-        curValue = Mathf.Max(curValue - value, 0);
+        if (curValue > maxValue || curValue == 0) return;
+        curValue = Mathf.Clamp(curValue + value, 0 , maxValue);
     }
 
     public float GetPercentage()
@@ -42,8 +36,8 @@ public class Condition
         return curValue / maxValue;
     }
 
-    public void PassiveSubtract()
+    public void PassiveChanging()
     {
-        Subtract(passiveValue * Time.deltaTime);
+        ChangCondition(passiveValue * Time.deltaTime);
     }
 }

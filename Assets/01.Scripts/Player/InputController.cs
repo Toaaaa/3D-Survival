@@ -25,7 +25,7 @@ public class InputController : MonoBehaviour
         input.Player.Move.canceled += OnMoveStop;
         input.Player.Jump.started += OnJump;
         input.Player.Run.performed += OnRun;
-        input.Player.Run.canceled += OnRun;
+        input.Player.Run.canceled += OnRunStop;
 
         input.Enable();
     }
@@ -36,7 +36,7 @@ public class InputController : MonoBehaviour
         input.Player.Move.canceled -= OnMoveStop;
         input.Player.Jump.started -= OnJump;
         input.Player.Run.performed -= OnRun;
-        input.Player.Run.canceled -= OnRun;
+        input.Player.Run.canceled -= OnRunStop;
 
         input.Disable();
     }
@@ -65,6 +65,7 @@ public class InputController : MonoBehaviour
     public void OnRunStop(InputAction.CallbackContext context)
     {
         CharacterManager.Instance.Player.handler.isRun = false;
+        StopCoroutine(CharacterManager.Instance.Player.handler.RunStaminaUsing());
     }
     public void OnLook(InputAction.CallbackContext context)
     {
