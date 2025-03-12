@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class TargetInRange : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool isInRange;
+    public float range = 13f;
+
+    private void Awake()
     {
-        
+        GetComponentInParent<Monster>().InRange += GetIsInRange;// 몬스터의 InRange func에 GetIsInRange를 추가.
+        GetComponent<SphereCollider>().radius = range;// 스피어 콜라이더의 반지름을 설정.
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool GetIsInRange()
     {
-        
+        return isInRange;
+    }
+
+    // trigger 로 플레이어 범위내 판정
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isInRange = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isInRange = false;
+        }
     }
 }
