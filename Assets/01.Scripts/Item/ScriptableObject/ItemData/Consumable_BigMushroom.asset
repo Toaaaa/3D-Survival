@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458351644cc38943a675b7bb1ccaa1e, type: 3}
+  m_Name: Consumable_BigMushroom
+  m_EditorClassIdentifier: 
+  displayName: "\uD070 \uBC84\uC12F"
+  description: "\uB3CC\uC5F0\uBCC0\uC774 \uAC70\uB300 \uBC84\uC12F\uC785\uB2C8\uB2E4.
+    \uC2DD\uC6A9\uC73C\uB85C \uC4F8 \uC218 \uC788\uC744 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4."
+  type: 2
+  icon: {fileID: 0}
+  drobPrefab: {fileID: 0}
+  canStack: 1
+  maxStackAmount: 16
+  ItemsConsumables:
+  - type: 0
+    value: 10
+  - type: 2
+    value: 20
