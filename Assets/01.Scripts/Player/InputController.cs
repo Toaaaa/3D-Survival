@@ -13,6 +13,7 @@ public class InputController : MonoBehaviour
     public Vector2 CurMouseDelta { get => curMouseDelta; }
 
     public Action jumpAction;
+    public Action runAction;
 
     PlayerInput input;
 
@@ -23,6 +24,8 @@ public class InputController : MonoBehaviour
         input.Player.Move.performed += OnMove;
         input.Player.Move.canceled += OnMoveStop;
         input.Player.Jump.started += OnJump;
+        input.Player.Run.performed += OnRun;
+        input.Player.Run.canceled += OnRun;
 
         input.Enable();
     }
@@ -32,6 +35,8 @@ public class InputController : MonoBehaviour
         input.Player.Move.performed -= OnMove;
         input.Player.Move.canceled -= OnMoveStop;
         input.Player.Jump.started -= OnJump;
+        input.Player.Run.performed -= OnRun;
+        input.Player.Run.canceled -= OnRun;
 
         input.Disable();
     }
@@ -51,6 +56,16 @@ public class InputController : MonoBehaviour
         jumpAction?.Invoke();
     }
 
+    public void OnRun(InputAction.CallbackContext context)
+    {
+        CharacterManager.Instance.Player.handler.isRun = true;
+        runAction?.Invoke();
+    }
+
+    public void OnRunStop(InputAction.CallbackContext context)
+    {
+        CharacterManager.Instance.Player.handler.isRun = false;
+    }
     public void OnLook(InputAction.CallbackContext context)
     {
         curMouseDelta = context.ReadValue<Vector2>();

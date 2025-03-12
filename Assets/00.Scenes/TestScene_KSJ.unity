@@ -714,6 +714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handler: {fileID: 0}
   condition: {fileID: 0}
+  input: {fileID: 0}
 --- !u!114 &1795796746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,8 +727,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca9df065b2a35764f80f6ec6d7d91975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  walkSpeed: 10
   jumpPower: 200
+  freezingSpeed: 5
+  runSpeed: 20
+  runStamina: 10
+  isRun: 0
 --- !u!114 &1795796749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,6 +762,7 @@ MonoBehaviour:
     curValue: 0
     maxValue: 100
     passiveValue: 20
+  isFreezing: 0
 --- !u!1 &1865215466
 GameObject:
   m_ObjectHideFlags: 0

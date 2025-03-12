@@ -7,13 +7,13 @@ public class Player : MonoBehaviour
 {
     public PlayerHandler handler;
     public PlayerCondition condition;
-    InputController input;
+    public InputController input;
+
     private void Awake()
     {        
         CharacterManager.Instance.Player = this;
         input = gameObject.AddComponent<InputController>();
         handler = GetComponent<PlayerHandler>();   
-        condition = GetComponent<PlayerCondition>();
-        
+        condition = GetComponent<PlayerCondition>();      
     }
 }
