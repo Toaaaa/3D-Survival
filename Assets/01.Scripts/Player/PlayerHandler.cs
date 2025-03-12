@@ -13,9 +13,6 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private float runStamina;
     [HideInInspector]public bool isRun = false;
 
-    [Header("Look")]
-    private bool isFP;
-
     InputController input;
     Rigidbody rigid;
 

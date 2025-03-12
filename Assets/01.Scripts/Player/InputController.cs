@@ -25,7 +25,10 @@ public class InputController : MonoBehaviour
         input.Player.Move.canceled += OnMoveStop;
         input.Player.Jump.started += OnJump;
         input.Player.Run.performed += OnRun;
-        input.Player.Run.canceled += OnRunStop;
+        input.Player.Run.canceled += OnRunStop;      
+        input.Player.CameraChange.started += CameraChange;
+        input.Player.Look.performed += OnLook;
+        input.Player.Look.canceled += OnLookCancle;
 
         input.Enable();
     }
@@ -36,39 +39,54 @@ public class InputController : MonoBehaviour
         input.Player.Move.canceled -= OnMoveStop;
         input.Player.Jump.started -= OnJump;
         input.Player.Run.performed -= OnRun;
-        input.Player.Run.canceled -= OnRunStop;
+        input.Player.Run.canceled -= OnRunStop;    
+        input.Player.CameraChange.started -= CameraChange;
+        input.Player.Look.performed -= OnLook;
+        input.Player.Look.canceled -= OnLookCancle;
 
         input.Disable();
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    private void OnMove(InputAction.CallbackContext context)
     {
         curMoveInput = context.ReadValue<Vector2>();
     }
 
-    public void OnMoveStop(InputAction.CallbackContext context)
+    private void OnMoveStop(InputAction.CallbackContext context)
     {
         curMoveInput = Vector2.zero;
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    private void OnJump(InputAction.CallbackContext context)
     {
         jumpAction?.Invoke();
     }
 
-    public void OnRun(InputAction.CallbackContext context)
+    private void OnRun(InputAction.CallbackContext context)
     {
         CharacterManager.Instance.Player.handler.isRun = true;
         runAction?.Invoke();
     }
 
-    public void OnRunStop(InputAction.CallbackContext context)
+    private void OnRunStop(InputAction.CallbackContext context)
     {
         CharacterManager.Instance.Player.handler.isRun = false;
         StopCoroutine(CharacterManager.Instance.Player.handler.RunStaminaUsing());
     }
-    public void OnLook(InputAction.CallbackContext context)
+    private void OnLook(InputAction.CallbackContext context)
     {
-        curMouseDelta = context.ReadValue<Vector2>();
+        curMouseDelta = context.ReadValue<Vector2>();           
+    }
+
+    private void OnLookCancle(InputAction.CallbackContext context)
+    {
+        curMouseDelta = Vector2.zero;
+    }
+
+    private void CameraChange(InputAction.CallbackContext context)
+    {        
+        GameObject cameraContainer = GameObject.Find("CameraContainer");
+        CameraController controller = cameraContainer.GetComponent<CameraController>();
+        controller.ChangeCamera();
     }
 }

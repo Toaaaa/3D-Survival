@@ -8,10 +8,9 @@ public class PlayerCondition : MonoBehaviour
     [Header("Conditions")]
     [SerializeField] Condition[] conditionsArray = new Condition[4];
     public Condition[] ConditionsArray { get => conditionsArray; }
-    private Dictionary<ConditionType, Condition> conditions 
-        = new Dictionary<ConditionType, Condition>();
+    Dictionary<ConditionType, Condition> conditions = new Dictionary<ConditionType, Condition>();
     public Dictionary<ConditionType, Condition> Conditions { get => conditions; }
-
+    
     [HideInInspector]public bool isFreezing = false;
     private void Awake()
     {

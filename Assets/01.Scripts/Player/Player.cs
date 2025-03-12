@@ -12,7 +12,10 @@ public class Player : MonoBehaviour
     private void Awake()
     {        
         CharacterManager.Instance.Player = this;
-        input = gameObject.AddComponent<InputController>();
+        if (input == null)
+        {
+            input = gameObject.AddComponent<InputController>();
+        }    
         handler = GetComponent<PlayerHandler>();   
         condition = GetComponent<PlayerCondition>();      
     }
