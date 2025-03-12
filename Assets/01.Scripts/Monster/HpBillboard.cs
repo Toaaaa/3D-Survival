@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class HpBillboard : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Transform cam;
+    private void Start()
     {
-        
+        cam = Camera.main.transform;
     }
-
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
+        transform.Rotate(0, 180, 0);
     }
 }
