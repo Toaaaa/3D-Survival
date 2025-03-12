@@ -28,6 +28,8 @@ public class Monster : MonoBehaviour
     [Header("Monster AI")]
     [SerializeField] private Transform target;
     [SerializeField] private float lostDistance = 15; // 타겟을 잃어버리는 거리.
+    [SerializeField] private Vector3 originPos; // 처음 위치.
+    [SerializeField] private float AwayDistance = 35; // 처음 구역에서 최대로 멀어질 수 있는 거리. (해당 거리 이상으로 떨어지면 모든 행동을 중지하고 원래 위치로 타겟을 설정하여 돌아감.)
     NavMeshAgent navMeshAgent;
     Animator anim;
     State state = State.Idle;
@@ -36,6 +38,7 @@ public class Monster : MonoBehaviour
         Idle,
         Chase,
         Attack,
+        Return, // 원래 위치로 돌아가는 상태.
     }// 몬스터 상태
     public Func<bool> InRange;
 
@@ -50,21 +53,22 @@ public class Monster : MonoBehaviour
         anim = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         target = CharacterManager.Instance.Player.transform;
+        originPos = transform.position;// 처음 위치 저장.
         StartCoroutine(StateMachine());// 몬스터 상태 머신 시작.
     }
     private void Update()
     {
-        if (hp <= 0)
-        {
-            isDead = true;
-            gameObject.SetActive(false);
-        }
-        if (hpBar != null)
-        {
-            hpBar.sizeDelta = new Vector2(hp / maxHp * 2, hpBar.sizeDelta.y);
-        }
+        HpStatus();// 체력 상태 관리 전반.
+
         // 몬스터 AI
         if (isDead) return;
+        if(Vector3.Distance(originPos,this.transform.position) >= AwayDistance || state == State.Return)// 만약 처음 위치에서 awayDistance 이상 떨어지면 원래 구역으로 우선적으로 복귀.
+        {
+            target = null;
+            ChangeState(State.Return); ;
+            navMeshAgent.SetDestination(originPos);
+            return;
+        }
         if (InRange() && target == null)// 범위 내에 플레이어가 있고, 타겟이 없을 때
         {
             target = CharacterManager.Instance.Player.transform;
@@ -78,6 +82,19 @@ public class Monster : MonoBehaviour
         if (target == null) return; // 타겟이 없거나, 범위 밖일때는 return.
         navMeshAgent.SetDestination(target.position);
     }
+
+    private void HpStatus()
+    {
+        if (hp <= 0)
+        {
+            isDead = true;
+            gameObject.SetActive(false);
+        }
+        if (hpBar != null)
+        {
+            hpBar.sizeDelta = new Vector2(hp / maxHp * 2, hpBar.sizeDelta.y);
+        }
+    }// 체력관련 메서드.
     private void ChangeState(State newState)
     {
         state = newState;
@@ -146,7 +163,6 @@ public class Monster : MonoBehaviour
             yield return new WaitForSeconds(curAnimStateInfo.length);// 애니메이션의 한 사이클 동안 대기
         }
     }
-
     IEnumerator Attack()
     {
         var curAnimStateInfo = anim.GetCurrentAnimatorStateInfo(0);
@@ -172,6 +188,23 @@ public class Monster : MonoBehaviour
                 */
                 yield return new WaitForSeconds(curAnimStateInfo.length * 2f);// 공격 animation 의 두 배만큼 대기
             }
+        }
+    }
+    IEnumerator Return()
+    {
+        var curAnimStateInfo = anim.GetCurrentAnimatorStateInfo(0);
+
+        if (curAnimStateInfo.IsName("Chase") == false)
+        {
+            anim.Play("Chase", 0, 0);
+            yield return null;// SetDestination 을 위해 frame.
+        }
+
+        // 목표까지의 남은 거리가 멈추는 지점보다 작거나 같으면 StateMachine 을 공격으로 변경
+        if (Vector3.Distance(originPos, this.transform.position) <= 5f)// 원래 위치에 근접하면 Return 상태 종료.
+        {
+            ChangeState(State.Idle);
+            yield break;
         }
     }
 }

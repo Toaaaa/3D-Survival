@@ -3115,6 +3115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4373080667063482954, guid: 8205d36f5448674429e263cd4800fd0a,
         type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373080667063482954, guid: 8205d36f5448674429e263cd4800fd0a,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6296,9 +6301,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 737040506}
-  - component: {fileID: 737040510}
-  - component: {fileID: 737040509}
-  - component: {fileID: 737040508}
   - component: {fileID: 737040507}
   m_Layer: 0
   m_Name: NavGrid
@@ -6316,11 +6318,11 @@ Transform:
   m_GameObject: {fileID: 737040505}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.0078054885, w: 0.99996954}
-  m_LocalPosition: {x: 12.251446, y: 0.98989815, z: 4.2476254}
-  m_LocalScale: {x: 19.814194, y: 1, z: 30.597807}
+  m_LocalPosition: {x: -14.65, y: 0.69, z: 6.52}
+  m_LocalScale: {x: 19.814196, y: 1, z: 30.597807}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1226868077}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.894}
 --- !u!114 &737040507
 MonoBehaviour:
@@ -6335,12 +6337,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_CollectObjects: 1
+  m_Size: {x: 40, y: 2, z: 40}
+  m_Center: {x: 0, y: 0, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 39
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -6353,77 +6355,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 9c2bd56d1e5531b41a90c10499988cb6, type: 2}
   m_BuildHeightMesh: 0
---- !u!65 &737040508
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 737040505}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &737040509
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 737040505}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &737040510
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 737040505}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &737904041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10615,7 +10546,6 @@ Transform:
   m_Children:
   - {fileID: 3297243226616482919}
   - {fileID: 443373133}
-  - {fileID: 737040506}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1229822155
@@ -13226,6 +13156,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TigerAI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095601554446078293, guid: d3056326a2f279642b0f85606598dd78,
+        type: 3}
+      propertyPath: AwayDistance
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19520,4 +19455,5 @@ SceneRoots:
   - {fileID: 597657717}
   - {fileID: 1119575402}
   - {fileID: 956773193}
+  - {fileID: 737040506}
   - {fileID: 1226868077}
