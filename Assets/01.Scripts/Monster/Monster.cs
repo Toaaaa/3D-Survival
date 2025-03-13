@@ -93,7 +93,9 @@ public class Monster : MonoBehaviour
             if(isDead == false)
             {
                 isDead = true;
+                Debug.Log("isdead 적용");
                 DropItem();
+                gameObject.SetActive(false);
                 ChangeState(State.Dead);
             }
         }
@@ -104,7 +106,7 @@ public class Monster : MonoBehaviour
     }// 체력관련 메서드.
     private void DropItem()
     {
-
+        MonsterManager.Instance.monsterDropManager.DropItem(monsterName,this.transform.position);
     }// 처치시 아이템 드랍.
     private void ChangeState(State newState)
     {
@@ -125,7 +127,6 @@ public class Monster : MonoBehaviour
 
     IEnumerator StateMachine()
     {
-        while (hp > 0)
             yield return StartCoroutine(state.ToString());
     }
     IEnumerator Idle()
@@ -181,7 +182,7 @@ public class Monster : MonoBehaviour
         anim.Play("Attack", 0, 0);
         if (target != null) 
         {
-            target.GetComponent<Player>().condition.Conditions[ConditionType.Health].curValue -= attackPower;// 공격력만큼 플레이어에게 데미지를 줌.
+            //target.GetComponent<Player>().condition.Conditions[ConditionType.Health].curValue -= attackPower;// 공격력만큼 플레이어에게 데미지를 줌.
         }
         // 거리가 멀어지면
         if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
@@ -195,7 +196,7 @@ public class Monster : MonoBehaviour
             else
             {                
                 if (!curAnimStateInfo.IsName("Attack_Idle") && target != null)
-                    target.GetComponent<Player>().condition.Conditions[ConditionType.Health].curValue -= attackPower;// 공격력만큼 플레이어에게 데미지를 줌.   
+                    //target.GetComponent<Player>().condition.Conditions[ConditionType.Health].curValue -= attackPower;// 공격력만큼 플레이어에게 데미지를 줌.   
 
                 yield return new WaitForSeconds(curAnimStateInfo.length * 2f);// 공격 animation 의 두 배만큼 대기
             }
@@ -217,10 +218,5 @@ public class Monster : MonoBehaviour
             ChangeState(State.Idle);
             yield break;
         }
-    }
-    IEnumerator Dead()
-    {
-        yield return new WaitForSeconds(2f);
-        gameObject.SetActive(false);
     }
 }
