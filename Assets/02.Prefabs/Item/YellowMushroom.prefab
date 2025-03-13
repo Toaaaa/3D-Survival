@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5675201781666096218}
   - component: {fileID: 7463328236167371837}
   - component: {fileID: 6491926594609997371}
-  - component: {fileID: 7837413216827603866}
   - component: {fileID: 2761265728939446532}
+  - component: {fileID: 3827924539691330867}
   m_Layer: 0
   m_Name: YellowMushroom
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1142533336069913911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.26, y: 0.148, z: -1.697}
+  m_LocalPosition: {x: 0, y: 0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7837413216827603866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142533336069913911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 504351f6a9e670c47b64c16021473432, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 192904a6198814d4fa9272a626e6def8, type: 2}
 --- !u!136 &2761265728939446532
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -122,3 +109,16 @@ CapsuleCollider:
   m_Height: 0.24608955
   m_Direction: 1
   m_Center: {x: 0.010598879, y: 0.12304479, z: 0.0068399794}
+--- !u!114 &3827924539691330867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142533336069913911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbac37dec8e536d46abcfe592b226fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 192904a6198814d4fa9272a626e6def8, type: 2}

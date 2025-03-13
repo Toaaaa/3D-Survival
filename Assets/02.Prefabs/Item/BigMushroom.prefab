@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1635559203320102843}
   - component: {fileID: 8706263960801787833}
   - component: {fileID: 5994898065718836221}
-  - component: {fileID: 2991395810455846365}
+  - component: {fileID: 8916473711820727102}
   m_Layer: 0
   m_Name: BigMushroom
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5482443779694857726}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.62, y: 0.165, z: -2.664}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 0.52, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -108,7 +108,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f5e25367993acbf438c5aeffe76fa5e2, type: 3}
---- !u!114 &2991395810455846365
+--- !u!114 &8916473711820727102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5482443779694857726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 504351f6a9e670c47b64c16021473432, type: 3}
+  m_Script: {fileID: 11500000, guid: dbac37dec8e536d46abcfe592b226fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 0c6e49e05ef06b84aa3e3c816665ea78, type: 2}

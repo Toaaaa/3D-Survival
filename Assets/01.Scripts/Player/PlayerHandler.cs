@@ -116,4 +116,10 @@ public class PlayerHandler : MonoBehaviour
         return false;
     }
 
+    public void Attack()
+    {
+        //무기 장착 여부 관련해서 에니메이터 재생
+        animator.AttackPuch();
+    }
+
 }

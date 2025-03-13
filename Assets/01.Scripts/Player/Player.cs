@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     public PlayerCondition condition;
     public InputController input;
     public PlayerInventory inventory;
+    public PlayerAttack playerAttack;
+    public Building building;
+
 
     private void Awake()
     {        
@@ -20,5 +23,7 @@ public class Player : MonoBehaviour
         handler = GetComponent<PlayerHandler>();   
         condition = GetComponent<PlayerCondition>();
         inventory = GetComponent<PlayerInventory>();
+        playerAttack = GetComponent<PlayerAttack>();
+        building = GetComponent<Building>();
     }
 }
