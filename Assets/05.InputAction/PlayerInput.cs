@@ -71,6 +71,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TPLook"",
+                    ""type"": ""Value"",
+                    ""id"": ""49ed2c2b-61aa-45ef-9ae3-dcb563c36c47"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""CameraChange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1055df2f-e652-424e-97fd-7d8b6a0553b2"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TPLook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +205,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_CameraChange = m_Player.FindAction("CameraChange", throwIfNotFound: true);
+        m_Player_TPLook = m_Player.FindAction("TPLook", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +272,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_CameraChange;
+    private readonly InputAction m_Player_TPLook;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -260,6 +282,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @CameraChange => m_Wrapper.m_Player_CameraChange;
+        public InputAction @TPLook => m_Wrapper.m_Player_TPLook;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +307,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @CameraChange.started += instance.OnCameraChange;
             @CameraChange.performed += instance.OnCameraChange;
             @CameraChange.canceled += instance.OnCameraChange;
+            @TPLook.started += instance.OnTPLook;
+            @TPLook.performed += instance.OnTPLook;
+            @TPLook.canceled += instance.OnTPLook;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -303,6 +329,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @CameraChange.started -= instance.OnCameraChange;
             @CameraChange.performed -= instance.OnCameraChange;
             @CameraChange.canceled -= instance.OnCameraChange;
+            @TPLook.started -= instance.OnTPLook;
+            @TPLook.performed -= instance.OnTPLook;
+            @TPLook.canceled -= instance.OnTPLook;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -327,5 +356,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnCameraChange(InputAction.CallbackContext context);
+        void OnTPLook(InputAction.CallbackContext context);
     }
 }

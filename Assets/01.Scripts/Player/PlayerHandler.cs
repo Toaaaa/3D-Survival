@@ -60,7 +60,6 @@ public class PlayerHandler : MonoBehaviour
 
     public void Run()
     {
-        Debug.Log("이건 호출되지롱");
         runCoroutine = StartCoroutine(RunStaminaUsing());
     }
 

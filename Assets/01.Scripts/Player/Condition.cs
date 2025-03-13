@@ -18,7 +18,11 @@ public class Condition
     public ConditionType Type { get => type; }
 
     public float curValue;
-    public float CurValue { get => curValue; set => curValue = value; }
+    public float CurValue 
+    { get => curValue; 
+      set { if (value < 0) return;
+            curValue = value; } 
+    }
     
     [SerializeField] float maxValue;
     [SerializeField] float passiveValue;

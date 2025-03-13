@@ -19,11 +19,11 @@ public class CameraController : MonoBehaviour
     private float curLookUp;
     private float curLookRight;
     private bool isCursor = false;
-    
+    [HideInInspector]public bool isFPCamear= true;
 
     private void Start()
     {
-        input = GetComponent<InputController>();
+        input = GetComponentInParent<InputController>();
         Cursor.lockState = CursorLockMode.Locked;
         fpCamera.gameObject.SetActive(true);
         tpCamera.gameObject.SetActive(false);
@@ -31,19 +31,17 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-         FPLook();
-    }
-
-    private void CursorToggle()
-    {
-        isCursor = !isCursor;
-        Cursor.lockState = isCursor ? CursorLockMode.Locked : CursorLockMode.None;
+        if (isCursor) return;
+        
+        FPLook();
+        
     }
 
     public void ChangeCamera()
     {
         bool isFPCameraActive = fpCamera.gameObject.activeSelf;
-        
+
+        isFPCamear = !isFPCamear;
         fpCamera.gameObject.SetActive(!isFPCameraActive);
         tpCamera.gameObject.SetActive(isFPCameraActive);
 
@@ -53,12 +51,22 @@ public class CameraController : MonoBehaviour
     {
         Vector2 mouseDelta = input.CurMouseDelta;
 
-        Debug.Log($"{curLookUp}");
         curLookUp += mouseDelta.y * mouseSensitivity;
         curLookRight += mouseDelta.x * mouseSensitivity;
 
         curLookUp = Mathf.Clamp(curLookUp, maxLookDown, maxLookUp);
 
-        fpCamera.transform.localRotation = Quaternion.Euler(-curLookUp, curLookRight, 0);
+        transform.root.localRotation = Quaternion.Euler(-curLookUp, curLookRight, 0);
+    }
+
+    private void TPLook()
+    {
+
+    }
+
+    private void CursorToggle()
+    {
+        isCursor = !isCursor;
+        Cursor.lockState = isCursor ? CursorLockMode.Locked : CursorLockMode.None;
     }
 }

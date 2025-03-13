@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
@@ -75,7 +76,7 @@ public class InputController : MonoBehaviour
     }
     private void OnLook(InputAction.CallbackContext context)
     {
-        curMouseDelta = context.ReadValue<Vector2>();           
+        curMouseDelta = context.ReadValue<Vector2>();    
     }
 
     private void OnLookCancle(InputAction.CallbackContext context)
@@ -84,7 +85,7 @@ public class InputController : MonoBehaviour
     }
 
     private void CameraChange(InputAction.CallbackContext context)
-    {        
+    {
         GameObject cameraContainer = GameObject.Find("CameraContainer");
         CameraController controller = cameraContainer.GetComponent<CameraController>();
         controller.ChangeCamera();
