@@ -1,0 +1,77 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Build;
+using UnityEngine;
+
+public class PlayerHandler : MonoBehaviour
+{
+    [Header("Movement")]
+    [SerializeField] private float walkSpeed;
+    [SerializeField] private float jumpPower;
+    [SerializeField] private float freezingSpeed;
+    [SerializeField] private float runSpeed;
+    [SerializeField] private float runStamina;
+    [HideInInspector]public bool isRun = false;
+
+    InputController input;
+    Rigidbody rigid;
+
+    Coroutine runCoroutine;
+
+    private void Start()
+    {
+        rigid = GetComponent<Rigidbody>();
+        input = GetComponent<InputController>();
+        input.jumpAction += Jump;
+        input.runAction += Run;
+    }
+
+    private void FixedUpdate()
+    {
+        if (CharacterManager.Instance.Player.condition.isFreezing)
+        {
+            Move(freezingSpeed);
+        }
+        else if(isRun)
+        {
+            Move(runSpeed);
+        }
+        else Move(walkSpeed);
+
+    }
+
+    private void Move(float speed)
+    {
+        Vector2 _inputVector = input.CurMoveInput;
+        Vector3 moveDir = transform.forward * _inputVector.y + transform.right * _inputVector.x;
+        moveDir *= speed;
+        moveDir.y = rigid.velocity.y;
+        rigid.velocity = moveDir;
+    }
+
+    private void Jump()
+    {
+        rigid.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+    }
+
+    public void Run()
+    {
+        runCoroutine = StartCoroutine(RunStaminaUsing());
+    }
+
+    public IEnumerator RunStaminaUsing()
+    {
+        while (isRun)
+        {
+            if(!CharacterManager.Instance.Player.condition.UseStamina(runStamina * Time.deltaTime))
+            {
+                if (CharacterManager.Instance.Player.condition.UseStamina(runStamina))
+                {
+                    isRun = false;
+                    yield break;
+                }
+            }
+            yield return null;
+        }      
+    }
+}
