@@ -46,8 +46,8 @@ public class PlayerAttack : MonoBehaviour
 
             else if(hit.collider.TryGetComponent(out Monster monster))
             {
-                Debug.Log("적 공격 성공");
-                //몬스터 데미지 입는 로직 추가
+                Debug.Log("적 공격 성공");               
+                monster.OnHit(attackPower);
                 return true;
             }    
         }
