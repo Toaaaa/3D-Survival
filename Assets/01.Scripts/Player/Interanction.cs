@@ -54,7 +54,6 @@ public class Interanction : MonoBehaviour
 
         promptItemInfo.gameObject.SetActive(true);
         promptItemInfo.text = curItercable.GetInteractPrompt();
-        
     }
 
     private void OnIntercat()
