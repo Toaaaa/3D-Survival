@@ -13,7 +13,7 @@ public class PlayerInventory : MonoBehaviour
     public Transform dropPosition;
 
     public ItemSlot[] slots; 
-    public int slotNumber = 14; 
+    public int slotNumber = 12; 
 
     public InputController controller;
     public PlayerCondition condition;
@@ -80,7 +80,7 @@ public class PlayerInventory : MonoBehaviour
             ThrowItem(itemData);
         } 
     }
-    void ThrowItem(ItemData itemdata)
+    public void ThrowItem(ItemData itemdata)
     {
         Instantiate(ItemData.drobPrefab, dropPosition.position, Quaternion.Euler(Vector3.one * 360));
         TriggerUpdateUI();
