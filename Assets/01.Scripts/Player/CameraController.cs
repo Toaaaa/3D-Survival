@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
     [Header("TPCamera")]
     [SerializeField] Camera tpCamera;
 
+    private Camera curCamera;
     private float curLookUp;
     private float curLookRight;
     private bool isCursor = false;
@@ -27,6 +28,7 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         fpCamera.gameObject.SetActive(true);
         tpCamera.gameObject.SetActive(false);
+        curCamera = fpCamera;
     }
 
     private void LateUpdate()
@@ -40,8 +42,9 @@ public class CameraController : MonoBehaviour
     public void ChangeCamera()
     {
         bool isFPCameraActive = fpCamera.gameObject.activeSelf;
-
+    
         isFPCamear = !isFPCamear;
+        curCamera = isFPCamear ? fpCamera : tpCamera;
         fpCamera.gameObject.SetActive(!isFPCameraActive);
         tpCamera.gameObject.SetActive(isFPCameraActive);
 
@@ -56,7 +59,8 @@ public class CameraController : MonoBehaviour
 
         curLookUp = Mathf.Clamp(curLookUp, maxLookDown, maxLookUp);
 
-        transform.root.localRotation = Quaternion.Euler(-curLookUp, curLookRight, 0);
+        curCamera.transform.localRotation = Quaternion.Euler(-curLookUp, 0, 0);
+        transform.root.localRotation = Quaternion.Euler(0, curLookRight, 0);
     }
 
     private void TPLook()
