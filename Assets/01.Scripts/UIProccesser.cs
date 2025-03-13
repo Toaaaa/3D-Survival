@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIProccesser : MonoBehaviour
 {
-    public ItemSlots[] slots;
+    public UIItemSlots[] slots;
     public Image ProccessingItemIcon;
     public Image ProccessedItemIcon;
     public TextMeshProUGUI neededQuantityTxt;
