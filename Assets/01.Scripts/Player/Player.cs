@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public PlayerHandler handler;
     public PlayerCondition condition;
     public InputController input;
+    public PlayerInventory inventory;
 
     private void Awake()
     {        
@@ -18,5 +19,6 @@ public class Player : MonoBehaviour
         }    
         handler = GetComponent<PlayerHandler>();   
         condition = GetComponent<PlayerCondition>();
+        inventory = GetComponent<PlayerInventory>();
     }
 }

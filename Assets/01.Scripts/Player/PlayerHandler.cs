@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Build;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 
 public class PlayerHandler : MonoBehaviour
 {
@@ -11,8 +12,12 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private float freezingSpeed;
     [SerializeField] private float runSpeed;
     [SerializeField] private float runStamina;
+    [SerializeField] private LayerMask groundLayer;
+
+
     [HideInInspector]public bool isRun = false;
 
+    PlayerAnimator animator;
     InputController input;
     Rigidbody rigid;
 
@@ -20,6 +25,7 @@ public class PlayerHandler : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<PlayerAnimator>();
         rigid = GetComponent<Rigidbody>();
         input = GetComponent<InputController>();
         input.jumpAction += Jump;
@@ -32,12 +38,16 @@ public class PlayerHandler : MonoBehaviour
         {
             Move(freezingSpeed);
         }
-        else if(isRun)
+        else if (isRun)
         {
             Move(runSpeed);
         }
-        else Move(walkSpeed);
+        else
+        {
+            Move(walkSpeed);
+        }
 
+        animator.IsGrouded(IsGrounded());
     }
 
     private void Move(float speed)
@@ -47,11 +57,19 @@ public class PlayerHandler : MonoBehaviour
         moveDir *= speed;
         moveDir.y = rigid.velocity.y;
         rigid.velocity = moveDir;
+        
+        animator.Run(isRun);
+
+        animator.Move(_inputVector);
     }
 
     private void Jump()
     {
+        if (!IsGrounded()) return;
+
         rigid.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+        animator.Jump();
+        animator.IsGrouded(IsGrounded());
     }
 
     public void Run()
@@ -74,4 +92,28 @@ public class PlayerHandler : MonoBehaviour
             yield return null;
         }      
     }
+
+    public void Gather()
+    {
+        animator.Gather();
+    }
+
+    private bool IsGrounded()
+    {
+        Ray[] rays = new Ray[4]
+        {
+            new Ray(transform.position + (transform.forward * 0.3f) + (transform.up * 0.01f),Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.3f) + (transform.up * 0.01f),Vector3.down),
+            new Ray(transform.position + (transform.right* 0.3f) + (transform.up * 0.01f),Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.3f) + (transform.up * 0.01f),Vector3.down)
+        };
+
+        for (int i = 0; i < rays.Length; i++)
+        {
+            if (Physics.Raycast(rays[i], 0.1f, groundLayer)) return true;            
+        }
+         
+        return false;
+    }
+
 }
