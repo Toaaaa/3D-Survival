@@ -56,4 +56,11 @@ public class Interanction : MonoBehaviour
         promptItemInfo.text = curItercable.GetInteractPrompt();
         
     }
+
+    private void OnIntercat()
+    {
+        if (curIteractGameObject = null) return;
+        CharacterManager.Instance.Player.handler.Gather();
+        curItercable.OnInteract();
+    }
 }

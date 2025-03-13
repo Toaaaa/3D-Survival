@@ -80,6 +80,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Gather"",
+                    ""type"": ""Button"",
+                    ""id"": ""d97c3f2b-2077-4a0c-93e1-5ccc1a615ab0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""TPLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59cebf3e-e3da-4c7a-9563-47a45803709a"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gather"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +226,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_CameraChange = m_Player.FindAction("CameraChange", throwIfNotFound: true);
         m_Player_TPLook = m_Player.FindAction("TPLook", throwIfNotFound: true);
+        m_Player_Gather = m_Player.FindAction("Gather", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,6 +294,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_CameraChange;
     private readonly InputAction m_Player_TPLook;
+    private readonly InputAction m_Player_Gather;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -283,6 +305,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @CameraChange => m_Wrapper.m_Player_CameraChange;
         public InputAction @TPLook => m_Wrapper.m_Player_TPLook;
+        public InputAction @Gather => m_Wrapper.m_Player_Gather;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -310,6 +333,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @TPLook.started += instance.OnTPLook;
             @TPLook.performed += instance.OnTPLook;
             @TPLook.canceled += instance.OnTPLook;
+            @Gather.started += instance.OnGather;
+            @Gather.performed += instance.OnGather;
+            @Gather.canceled += instance.OnGather;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -332,6 +358,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @TPLook.started -= instance.OnTPLook;
             @TPLook.performed -= instance.OnTPLook;
             @TPLook.canceled -= instance.OnTPLook;
+            @Gather.started -= instance.OnGather;
+            @Gather.performed -= instance.OnGather;
+            @Gather.canceled -= instance.OnGather;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -357,5 +386,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnCameraChange(InputAction.CallbackContext context);
         void OnTPLook(InputAction.CallbackContext context);
+        void OnGather(InputAction.CallbackContext context);
     }
 }

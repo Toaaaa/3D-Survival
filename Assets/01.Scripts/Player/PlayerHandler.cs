@@ -14,9 +14,10 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private float runStamina;
     [SerializeField] private LayerMask groundLayer;
 
-    [HideInInspector]public bool isRun = false;
-    
 
+    [HideInInspector]public bool isRun = false;
+
+    PlayerAnimator animator;
     InputController input;
     Rigidbody rigid;
 
@@ -24,6 +25,7 @@ public class PlayerHandler : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<PlayerAnimator>();
         rigid = GetComponent<Rigidbody>();
         input = GetComponent<InputController>();
         input.jumpAction += Jump;
@@ -36,12 +38,16 @@ public class PlayerHandler : MonoBehaviour
         {
             Move(freezingSpeed);
         }
-        else if(isRun)
+        else if (isRun)
         {
             Move(runSpeed);
         }
-        else Move(walkSpeed);
+        else
+        {
+            Move(walkSpeed);
+        }
 
+        animator.IsGrouded(IsGrounded());
     }
 
     private void Move(float speed)
@@ -51,6 +57,10 @@ public class PlayerHandler : MonoBehaviour
         moveDir *= speed;
         moveDir.y = rigid.velocity.y;
         rigid.velocity = moveDir;
+        
+        animator.Run(isRun);
+
+        animator.Move(_inputVector);
     }
 
     private void Jump()
@@ -58,6 +68,8 @@ public class PlayerHandler : MonoBehaviour
         if (!IsGrounded()) return;
 
         rigid.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+        animator.Jump();
+        animator.IsGrouded(IsGrounded());
     }
 
     public void Run()
@@ -81,6 +93,11 @@ public class PlayerHandler : MonoBehaviour
         }      
     }
 
+    public void Gather()
+    {
+        animator.Gather();
+    }
+
     private bool IsGrounded()
     {
         Ray[] rays = new Ray[4]
@@ -93,9 +110,10 @@ public class PlayerHandler : MonoBehaviour
 
         for (int i = 0; i < rays.Length; i++)
         {
-            if (Physics.Raycast(rays[i], 0.1f, groundLayer)) return true;
+            if (Physics.Raycast(rays[i], 0.1f, groundLayer)) return true;            
         }
-
+         
         return false;
     }
+
 }
