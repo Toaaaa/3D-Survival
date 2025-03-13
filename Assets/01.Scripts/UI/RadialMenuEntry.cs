@@ -7,12 +7,14 @@ using DG.Tweening;
 public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private string name;
+    [SerializeField] private string description;
     [SerializeField] private RawImage icon;
     [SerializeField] private GameObject prefab;
 
     private RectTransform rect;
 
     public string Name { get => name; set => name = value; }
+    public string Description { get => description; set => description = value; }
 
     private void Start()
     {
@@ -44,13 +46,18 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("OnPointerEnter");
+        BuildUI.Instance.radialMenu.nameObject.SetActive(true);
+        BuildUI.Instance.radialMenu.descriptionObject.SetActive(true);
+        
         rect.DOComplete();
         rect.DOScale(Vector3.one * 1.5f, .3f).SetEase(Ease.OutQuad);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        BuildUI.Instance.radialMenu.nameObject.SetActive(false);
+        BuildUI.Instance.radialMenu.descriptionObject.SetActive(false);
+        
         rect.DOComplete();
         rect.DOScale(Vector3.one, .3f).SetEase(Ease.OutQuad);
     }

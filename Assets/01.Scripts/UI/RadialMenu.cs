@@ -11,9 +11,16 @@ public class RadialMenu : MonoBehaviour
     [SerializeField] private float radius = 300f;
     [SerializeField] List<Texture> icons;
     [SerializeField] List<GameObject> buildPrefabs;
-    
 
+    [SerializeField] public GameObject nameObject;
+    [SerializeField] public GameObject descriptionObject;
+    
     private List<RadialMenuEntry> entries;
+
+    private void Awake()
+    {
+        BuildUI.Instance.radialMenu = this;
+    }
 
     private void Start()
     {
@@ -60,6 +67,9 @@ public class RadialMenu : MonoBehaviour
                     Destroy(entry);
                 };
         }
+        
+        nameObject.SetActive(false);
+        descriptionObject.SetActive(false);
         
         entries.Clear();
     }
