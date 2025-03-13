@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 
 public class RadialMenu : MonoBehaviour
 {
@@ -35,11 +36,12 @@ public class RadialMenu : MonoBehaviour
         }
     }
 
-    private void AddEntry(Texture pIcon)
+    private void AddEntry(Texture pIcon,GameObject pPrefab)
     {
         GameObject entry = Instantiate(entryPrefab, transform);
         
         RadialMenuEntry rme = entry.GetComponent<RadialMenuEntry>();
+        rme.SetPrefab(pPrefab);
         rme.SetIcon(pIcon);
         
         entries.Add(rme);
@@ -47,15 +49,18 @@ public class RadialMenu : MonoBehaviour
 
     public void OpenMenu()
     {
+        Cursor.lockState = CursorLockMode.None;
         for (int i = 0; i < 5; i++)
         {
-            AddEntry(icons[i]);
+            AddEntry(icons[i], buildPrefabs[i]);
         }
         Rearrange();
     }
 
     public void CloseMenu()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        
         for (int i = 0; i < 5; i++)
         {
             RectTransform rect = entries[i].GetComponent<RectTransform>();

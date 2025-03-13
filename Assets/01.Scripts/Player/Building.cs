@@ -15,11 +15,6 @@ public class Building : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B) && currentPreview == null)
-        {
-            // B키를 눌렀을 때 프리뷰 오브젝트 생성
-            CreatePreviewObject();
-        }
 
         if (currentPreview != null)
         {
@@ -38,8 +33,9 @@ public class Building : MonoBehaviour
     }
 
     // 프리뷰 오브젝트 생성
-    void CreatePreviewObject()
+    public void CreatePreviewObject(GameObject preview)
     {
+        previewPrefab = preview;
         currentPreview = Instantiate(previewPrefab);
 
         // 모든 자식 오브젝트의 Renderer를 수집
@@ -142,6 +138,7 @@ public class Building : MonoBehaviour
             GameObject newObject = Instantiate(previewPrefab, currentPreview.transform.position, rotation);
             Collider newCollider = newObject.GetComponent<Collider>();
             newCollider.isTrigger = false;
+            previewPrefab = null;
             Destroy(currentPreview);
         }
     }

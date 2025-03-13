@@ -29,7 +29,7 @@ public class playertest : MonoBehaviour
     void Start()
     {
         Cursor.visible = false; // 마우스 커서를 보이지 않도록 설정
-
+        // Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>(); // Rigidbody 컴포넌트 가져오기
         
     }
