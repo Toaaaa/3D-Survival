@@ -71,4 +71,13 @@ public class PlayerCondition : MonoBehaviour
         }
         return true;
     }
+
+    //몬스터 공격에 가져다 쓰시면 되요
+    public void TakeDamage(int attackPower)
+    {
+        if (conditions.TryGetValue(ConditionType.Health, out Condition health))
+        {
+            health.ChangCondition(-attackPower);
+        }
+    }
 }

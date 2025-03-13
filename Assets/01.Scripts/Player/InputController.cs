@@ -31,6 +31,7 @@ public class InputController : MonoBehaviour
         input.Player.Look.performed += OnLook;
         input.Player.Look.canceled += OnLookCancle;
         input.Player.Gather.started += OnInterack;
+        input.Player.Attack.started += OnAttack;
 
         input.Enable();
     }
@@ -46,6 +47,7 @@ public class InputController : MonoBehaviour
         input.Player.Look.performed -= OnLook;
         input.Player.Look.canceled -= OnLookCancle;
         input.Player.Gather.started -= OnInterack;
+        input.Player.Attack.started -= OnAttack;
 
         input.Disable();
     }
@@ -101,5 +103,10 @@ public class InputController : MonoBehaviour
     private void OnInven(InputAction.CallbackContext context)
     {
 
+    }
+
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        CharacterManager.Instance.Player.handler.Attack();
     }
 }

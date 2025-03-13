@@ -10,6 +10,7 @@ public class PlayerAnimator : MonoBehaviour
     static readonly int IsJump = Animator.StringToHash("IsJump");
     static readonly int IsGroud = Animator.StringToHash("IsGroud");
     static readonly int IsGather = Animator.StringToHash("IsGather");
+    static readonly int IsPunch = Animator.StringToHash("IsPunch");
 
     Animator animator;
     private void Awake()
@@ -40,5 +41,10 @@ public class PlayerAnimator : MonoBehaviour
     public void Gather()
     {
         animator.SetTrigger(IsGather);
+    }
+
+    public void AttackPuch()
+    {
+        animator.SetTrigger(IsPunch);
     }
 }
