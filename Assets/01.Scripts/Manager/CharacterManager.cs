@@ -17,8 +17,10 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+
     private Player player;
     public Player Player { get => player; set => player = value; }
+
 
     private void Awake()
     {
