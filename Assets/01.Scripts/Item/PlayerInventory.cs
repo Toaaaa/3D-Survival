@@ -82,7 +82,7 @@ public class PlayerInventory : MonoBehaviour
     }
     public void ThrowItem(ItemData itemdata)
     {
-        Instantiate(ItemData.drobPrefab, dropPosition.position, Quaternion.Euler(Vector3.one * 360));
+        Instantiate(ItemData.drobPrefab, dropPosition.position, Quaternion.identity);
         TriggerUpdateUI();
     }
 

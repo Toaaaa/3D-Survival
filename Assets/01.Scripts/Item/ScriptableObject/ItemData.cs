@@ -17,6 +17,8 @@ public enum ConsumableType // 소비 아이템 효과
     Water
     // 추후 추가
 }
+
+
 [System.Serializable]
 
 public class ItemDataConsumable // 소비 아이템 설정
@@ -45,4 +47,9 @@ public class ItemData : ScriptableObject
 
     [Header("Consumable")]
     public ItemDataConsumable[] ItemsConsumables;
+
+    [Header("Equip")]
+    public GameObject equipPrefab;
+
+
 }
