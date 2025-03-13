@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Resources : MonoBehaviour
 {
-    //public ItemData itemToGive;
+    public ItemData itemToGive;
     public int quantityPerHit = 1;
     public int originCapacy;
     public int capacy;
@@ -36,7 +36,7 @@ public class Resources : MonoBehaviour
         {
             if (capacy <= 0) break;
             capacy--;
-            //Instantiate(itemToGive.dropPrefab, hitPoint + Vector3.up, Quaternion.LookRotation(hitNormal, Vector3.up));
+            Instantiate(itemToGive.drobPrefab, hitPoint + Vector3.up, Quaternion.LookRotation(hitNormal, Vector3.up));
         }
 
         if (capacy <= 0)
