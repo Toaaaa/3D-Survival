@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6725138322253468343}
   - component: {fileID: 8077330794074651831}
   - component: {fileID: 3774862296883638291}
+  - component: {fileID: 6518605934588921264}
   m_Layer: 0
   m_Name: WhiteFlower
   m_TagString: Untagged
@@ -98,3 +99,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: b683aaf9ce86b284eb2b7cf5fcf2425b, type: 2}
+--- !u!136 &6518605934588921264
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6231734033798768239}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.17047668
+  m_Height: 0.46199435
+  m_Direction: 1
+  m_Center: {x: -0.001291059, y: 0.23099717, z: -0.012308046}

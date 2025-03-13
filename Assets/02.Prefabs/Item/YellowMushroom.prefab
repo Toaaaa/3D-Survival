@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7463328236167371837}
   - component: {fileID: 6491926594609997371}
   - component: {fileID: 7837413216827603866}
+  - component: {fileID: 2761265728939446532}
   m_Layer: 0
   m_Name: YellowMushroom
   m_TagString: Untagged
@@ -98,3 +99,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 192904a6198814d4fa9272a626e6def8, type: 2}
+--- !u!136 &2761265728939446532
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142533336069913911}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.094169945
+  m_Height: 0.24608955
+  m_Direction: 1
+  m_Center: {x: 0.010598879, y: 0.12304479, z: 0.0068399794}
