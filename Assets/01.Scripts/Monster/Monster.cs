@@ -115,7 +115,7 @@ public class Monster : MonoBehaviour
         /*
         if (other.CompareTag("AttackBox"))// 공격의 판정박스에 닿았을 때.
         {
-            Player player = other.GetComponent<PlayerAttackBox>().player;
+            Player player = other.GetComponentInParent<Player>();
             if (player == null || player.attackCount <= 0) return; // 플레이어의 공격이 아니거나 공격 판정 잔여 횟수가 0일때는 return.
             hp -= player.GetDamage();
             player.attackCount--;
