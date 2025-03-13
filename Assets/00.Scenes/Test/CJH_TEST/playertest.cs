@@ -28,7 +28,6 @@ public class playertest : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; // 마우스 커서를 화면 안에서 고정
         Cursor.visible = false; // 마우스 커서를 보이지 않도록 설정
 
         rb = GetComponent<Rigidbody>(); // Rigidbody 컴포넌트 가져오기

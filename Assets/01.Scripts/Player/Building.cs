@@ -87,7 +87,7 @@ public class Building : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
         {
-            if (hit.collider.gameObject.CompareTag("Terrain") && !IsColliding())
+            if (hit.collider.gameObject.CompareTag("Ground") && !IsColliding())
             {
                 foreach (Material material in previewMaterials)
                 {
@@ -118,7 +118,7 @@ public class Building : MonoBehaviour
         Collider[] colliders = Physics.OverlapBox(currentPreview.transform.position, currentPreview.transform.localScale / 2);
         foreach (Collider collider in colliders)
         {
-            if (collider.gameObject != currentPreview && !collider.gameObject.CompareTag("Terrain"))
+            if (collider.gameObject != currentPreview && !collider.gameObject.CompareTag("Ground"))
             {
                 return true;
             }
