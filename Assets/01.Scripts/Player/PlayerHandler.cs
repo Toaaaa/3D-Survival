@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Build;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 
 public class PlayerHandler : MonoBehaviour
 {
@@ -11,7 +12,10 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private float freezingSpeed;
     [SerializeField] private float runSpeed;
     [SerializeField] private float runStamina;
+    [SerializeField] private LayerMask groundLayer;
+
     [HideInInspector]public bool isRun = false;
+    
 
     InputController input;
     Rigidbody rigid;
@@ -51,6 +55,8 @@ public class PlayerHandler : MonoBehaviour
 
     private void Jump()
     {
+        if (!IsGrounded()) return;
+
         rigid.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
     }
 
@@ -73,5 +79,23 @@ public class PlayerHandler : MonoBehaviour
             }
             yield return null;
         }      
+    }
+
+    private bool IsGrounded()
+    {
+        Ray[] rays = new Ray[4]
+        {
+            new Ray(transform.position + (transform.forward * 0.3f) + (transform.up * 0.01f),Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.3f) + (transform.up * 0.01f),Vector3.down),
+            new Ray(transform.position + (transform.right* 0.3f) + (transform.up * 0.01f),Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.3f) + (transform.up * 0.01f),Vector3.down)
+        };
+
+        for (int i = 0; i < rays.Length; i++)
+        {
+            if (Physics.Raycast(rays[i], 0.1f, groundLayer)) return true;
+        }
+
+        return false;
     }
 }
