@@ -17,7 +17,7 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public Player Player;
+    private Player Player;
 
     private void Awake()
     {
