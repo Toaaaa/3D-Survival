@@ -52,7 +52,7 @@ public class Monster : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        target = CharacterManager.Instance.Player.transform;
+        //target = CharacterManager.Instance.Player.transform;
         originPos = transform.position;// 처음 위치 저장.
         StartCoroutine(StateMachine());// 몬스터 상태 머신 시작.
     }
@@ -71,7 +71,7 @@ public class Monster : MonoBehaviour
         }
         if (InRange() && target == null)// 범위 내에 플레이어가 있고, 타겟이 없을 때
         {
-            target = CharacterManager.Instance.Player.transform;
+            //target = CharacterManager.Instance.Player.transform;
             ChangeState(State.Chase);
         }
         else if (!InRange())
