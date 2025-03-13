@@ -14,14 +14,14 @@ public class FieldResource : ItemObject
         respawn = spawner.Respawn;
     }
 
-    //public override void OnInteract()
-    //{
-    //    //아이템데이터에 넣어줌
-    //    //CharacterManager.Instance.Player.ItemData = itemData;
-    //    //액션
-    //    //CharacterManager.Instance.Player.AddItem.Invoke();
-    //    respawn?.Invoke();
+    public override void OnInteract()
+    {
+        //아이템데이터에 넣어줌
+        //CharacterManager.Instance.Player.ItemData = itemData;
+        //액션
+        //CharacterManager.Instance.Player.AddItem.Invoke();
+        respawn?.Invoke();
 
-    //    Destroy(gameObject);
-    //}
+        Destroy(gameObject);
+    }
 }
