@@ -151,6 +151,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4575000506314262896, guid: 4aaffb7af63642f479a5e7354fbd8df8,
+        type: 3}
+      propertyPath: attackDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4814089128355634692, guid: 4aaffb7af63642f479a5e7354fbd8df8,
         type: 3}
       propertyPath: m_LocalPosition.x

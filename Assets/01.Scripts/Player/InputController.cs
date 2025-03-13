@@ -15,6 +15,7 @@ public class InputController : MonoBehaviour
 
     public Action jumpAction;
     public Action runAction;
+    public Action invenAction;
 
     PlayerInput input;
 
@@ -104,8 +105,8 @@ public class InputController : MonoBehaviour
 
     private void OnInven(InputAction.CallbackContext context)
     {
-        //확인 필요 UIInventory 에 토글 로직 있고 Player 에는 PlayerInventory 붙여주셨음
-        //CharacterManager.Instance.Player.inventory.
+        Debug.Log("UI Toggle 왜안돼");
+        invenAction?.Invoke();
     }
 
     private void OnAttack(InputAction.CallbackContext context)

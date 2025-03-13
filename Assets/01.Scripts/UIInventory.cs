@@ -48,7 +48,7 @@ public class UIInventory : MonoBehaviour
 
 
         //InputController에서 액션 생성
-        //controller.inventory += Toggle;
+        controller.invenAction += Toggle;
 
         playerInventory.InventoryUpdated += UpdateUI;
 
@@ -64,6 +64,8 @@ public class UIInventory : MonoBehaviour
             //slots[i].uiInventory = this;
             //slots[i].Clear();
         }
+
+
 
         ClearSelectedItemWindow();
     }
@@ -111,6 +113,7 @@ public class UIInventory : MonoBehaviour
     // 인벤토리 창 열고 닫기
     public void Toggle()
     {
+        Debug.Log("UI Toggle");
         if (IsOpen())
         { inventoryWindow.SetActive(false); }
         else { inventoryWindow.SetActive(true); }
