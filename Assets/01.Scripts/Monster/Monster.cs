@@ -93,7 +93,6 @@ public class Monster : MonoBehaviour
             if(isDead == false)
             {
                 isDead = true;
-                Debug.Log("isdead 적용");
                 DropItem();
                 gameObject.SetActive(false);
                 ChangeState(State.Dead);
@@ -112,21 +111,14 @@ public class Monster : MonoBehaviour
     {
         state = newState;
     }
-    private void OnTriggerEnter(Collider other)// 피격 판정.
+    public void OnHit(float dmg) // 피격시 호출되는 메서드.
     {
-        /*
-        if (other.CompareTag("AttackBox"))// 공격의 판정박스에 닿았을 때.
-        {
-            Player player = other.GetComponentInParent<Player>();
-            if (player == null || player.attackCount <= 0) return; // 플레이어의 공격이 아니거나 공격 판정 잔여 횟수가 0일때는 return.
-            hp -= player.GetDamage();
-            player.attackCount--;
-
-        }*/
+        hp -= dmg;
     }
 
     IEnumerator StateMachine()
     {
+        while(true)
             yield return StartCoroutine(state.ToString());
     }
     IEnumerator Idle()
@@ -136,11 +128,8 @@ public class Monster : MonoBehaviour
         if (curAnimStateInfo.IsName("Idle") == false)
             anim.Play("Idle", 0, 0);
 
-        //재생 시간 동안 대기.
-        for (float i = 0; i < curAnimStateInfo.length; i += Time.deltaTime)
-        {
+        while(state == State.Idle)
             yield return null;
-        }
     }
 
     IEnumerator Chase()
@@ -154,25 +143,20 @@ public class Monster : MonoBehaviour
         }
 
         // 목표까지의 남은 거리가 멈추는 지점보다 작거나 같으면 StateMachine 을 공격으로 변경
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        while (state == State.Chase)
         {
-            if (navMeshAgent.remainingDistance <= 10000f && navMeshAgent.remainingDistance >= 0.1f)// 벽을 사이에 두면 거리가 +-infinity로 되서 한번더 예외처리.
+            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
             {
                 ChangeState(State.Attack);
                 yield break;
             }
-        }
-        else if (navMeshAgent.remainingDistance > lostDistance)// 목표와의 거리가 멀어진 경우
-        {
-            target = null;
-            navMeshAgent.SetDestination(transform.position);
-            yield return null;
-            if (!InRange())
-                ChangeState(State.Idle);// 범위 밖까지 멀어지면 idle로 변경
-        }
-        else
-        {
-            yield return new WaitForSeconds(curAnimStateInfo.length);// 애니메이션의 한 사이클 동안 대기
+            else if (navMeshAgent.remainingDistance > lostDistance)
+            {
+                target = null;
+                ChangeState(State.Idle);
+                yield break;
+            }
+            yield return null; // 한 프레임마다 체크
         }
     }
     IEnumerator Attack()
@@ -182,7 +166,7 @@ public class Monster : MonoBehaviour
         anim.Play("Attack", 0, 0);
         if (target != null) 
         {
-            //target.GetComponent<Player>().condition.Conditions[ConditionType.Health].curValue -= attackPower;// 공격력만큼 플레이어에게 데미지를 줌.
+            target.GetComponent<Player>().condition.Conditions[ConditionType.Health].curValue -= attackPower;// 공격력만큼 플레이어에게 데미지를 줌.
         }
         // 거리가 멀어지면
         if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
@@ -196,7 +180,7 @@ public class Monster : MonoBehaviour
             else
             {                
                 if (!curAnimStateInfo.IsName("Attack_Idle") && target != null)
-                    //target.GetComponent<Player>().condition.Conditions[ConditionType.Health].curValue -= attackPower;// 공격력만큼 플레이어에게 데미지를 줌.   
+                    target.GetComponent<Player>().condition.Conditions[ConditionType.Health].curValue -= attackPower;// 공격력만큼 플레이어에게 데미지를 줌.   
 
                 yield return new WaitForSeconds(curAnimStateInfo.length * 2f);// 공격 animation 의 두 배만큼 대기
             }
@@ -213,7 +197,7 @@ public class Monster : MonoBehaviour
         }
 
         // 목표까지의 남은 거리가 멈추는 지점보다 작거나 같으면 StateMachine 을 공격으로 변경
-        if (Vector3.Distance(originPos, this.transform.position) <= 5f)// 원래 위치에 근접하면 Return 상태 종료.
+        if (Vector3.Distance(originPos, this.transform.position) <= 3.5f)// 원래 위치에 근접하면 Return 상태 종료.
         {
             ChangeState(State.Idle);
             yield break;

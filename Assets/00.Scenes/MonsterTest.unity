@@ -13281,6 +13281,11 @@ PrefabInstance:
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 82331483}
+    - target: {fileID: 7095601554446078293, guid: d3056326a2f279642b0f85606598dd78,
+        type: 3}
+      propertyPath: lostDistance
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8282048069337414370, guid: d3056326a2f279642b0f85606598dd78,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
