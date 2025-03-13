@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 4575000506314262896}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -475,6 +475,7 @@ MonoBehaviour:
   handler: {fileID: 0}
   condition: {fileID: 0}
   input: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!114 &5049031603175120594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,7 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPower: 20
-  attackDistance: 3
+  attackDistance: 1.5
 --- !u!1 &1082382187951626114
 GameObject:
   m_ObjectHideFlags: 0

@@ -141,10 +141,15 @@ PrefabInstance:
       propertyPath: promptItemInfo
       value: 
       objectReference: {fileID: 1740359002}
-    - target: {fileID: 4575000506314262896, guid: 4aaffb7af63642f479a5e7354fbd8df8,
+    - target: {fileID: 2363521788601533864, guid: 4aaffb7af63642f479a5e7354fbd8df8,
         type: 3}
-      propertyPath: attackDistance
-      value: 1.5
+      propertyPath: m_Radius
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363521788601533864, guid: 4aaffb7af63642f479a5e7354fbd8df8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4814089128355634692, guid: 4aaffb7af63642f479a5e7354fbd8df8,
         type: 3}
