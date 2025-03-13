@@ -79,7 +79,13 @@ public class ItemObject : MonoBehaviour, IInteractable
         //CharacterManager.Instance.Player.ItemData = itemData;
         //액션
         //CharacterManager.Instance.Player.AddItem.Invoke();
-        
-        Destroy(gameObject);
+
+        var playerInventory = CharacterManager.Instance.Player.inventory;
+
+        if (playerInventory != null)
+        {
+            playerInventory.AddItem(itemData);
+            Destroy(gameObject);
+        }
     }
 }
