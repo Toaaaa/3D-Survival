@@ -49,6 +49,7 @@ public class UIInventory : MonoBehaviour
 
         //InputController에서 액션 생성
         //controller.inventory += Toggle;
+        
 
         playerInventory.InventoryUpdated += UpdateUI;
 
@@ -149,19 +150,9 @@ public class UIInventory : MonoBehaviour
     
     // 1.사용하기버튼 (구현예정)
 
-    public void OnUseButton(int index)
+    public void OnUseButton()
     {
-        selectedItemIndex = index;
-
-        if (playerInventory.slots[index].ItemData.type == ItemType.Equipable)
-        {
-
-        }
-        else if (playerInventory.slots[index].ItemData.type == ItemType.Consumable)
-        {
-            //onClickUseBtn = playerInventory.slots[selectedItemIndex].ItemData.UseItem();
-        }
-
+        
         if (selectedItem.type == ItemType.Consumable)
         {
             for (int i = 0; i < selectedItem.ItemsConsumables.Length; i++)

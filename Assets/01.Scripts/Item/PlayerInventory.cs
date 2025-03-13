@@ -20,16 +20,12 @@ public class PlayerInventory : MonoBehaviour
 
     public ItemData ItemData;
 
-   
-
-    // 액션추가
-    //CharacterManager.Instance.Player.AddItem += AddItem;
-
-
     public event Action InventoryUpdated;
 
     private void Awake()
     {
+        //CharacterManager.Instance.Player.AddItem += AddItem;
+
         slots = new ItemSlot[slotNumber];
 
         InventoryUpdated += CheckEmptySlot;

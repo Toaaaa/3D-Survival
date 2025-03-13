@@ -14,7 +14,7 @@ public class UIItemSlots : MonoBehaviour // UI아이템슬롯
     public Button button; // 슬롯 칸
     public Image icon; //아이템 이미지
     public TextMeshProUGUI quantityText; // 수량 텍스트
-    public Outline outline;
+    private Outline outline;
 
     // 슬롯 변수
     public int Index; // 슬롯 칸 index
@@ -53,7 +53,7 @@ public class UIItemSlots : MonoBehaviour // UI아이템슬롯
 
     // 슬롯 선택(버튼클릭) -> UI 인벤토리 연결 메서드
 
-    void OnClick()
+    public void OnClick()
     {
         uiInventory.SelectItem(Index);
 
