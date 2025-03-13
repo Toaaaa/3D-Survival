@@ -14,6 +14,7 @@ public class UIProccesser : MonoBehaviour
 
 
     public ItemData selectedItem;
+    public int selectedItemIndex;
 
     private void Awake()
     {
