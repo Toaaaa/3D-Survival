@@ -3,26 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+
 //using static UnityEditor.Progress;
 
 public class PlayerInventory : MonoBehaviour
 {
     // Player 오브젝트에 붙이고,
     // CharacterManager.Instance.Player.playerInventory로 접근
+    public Transform dropPosition;
 
-
-    private ItemSlots[] slots;
+    public ItemSlot[] slots; 
+    public int slotNumber = 14; 
 
     public InputController controller;
     public PlayerCondition condition;
 
     public ItemData ItemData;
 
-    public static event Action<ItemSlots[]> InventoryUpdated;
+   
 
-    void Start()
+    // 액션추가
+    //CharacterManager.Instance.Player.AddItem += AddItem;
+
+
+    public event Action InventoryUpdated;
+
+    private void Awake()
     {
-        
+        slots = new ItemSlot[slotNumber];
+
+        InventoryUpdated += CheckEmptySlot;
+
+        //dropPosition = CharacterManager.Instance.Player.dropPosition;
+
+        //for (int i = 0; i < slots.Length; i++)
+        ////{
+        ////    slots[i] = new itemslot(null, 0); 
+        ////}
     }
 
     void Update()
@@ -32,32 +49,48 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItem(ItemData itemData)
     {
-        if (ItemData.canStack)
+        // 여러개 가질 수 있다면
+        if (itemData.canStack)
         {
-            ItemSlots slot = GetItemStack(itemData);
+            // 아이템 데이터를 넣어서 같은 아이템데이터를 가진 슬롯을 슬롯에 넣어준다.
+            ItemSlot slot = GetItemStack(itemData);
 
-            // 중복가능한 존재하는 슬롯 찾기
+            // 슬롯이 있다면
             if (slot != null)
             {
+                // 슬롯의 개수를 늘리고,
                 slot.quantity++;
+                // InventoryUpdated 액션을 invoke해준다.
                 TriggerUpdateUI();
                 return;
             }
         }
 
-        ItemSlots emptySlot = GetEmptySlot();
+        ItemSlot emptySlot = GetEmptySlot(); // 아이템이 없는 슬롯을 가져온다.
 
-        // 빈 슬롯 찾기
+        // 빈 슬롯이 있다면
         if (emptySlot != null)
         {
+            // 그 슬롯의 아이이템은 이것이 된다.
             emptySlot.ItemData = itemData;
             emptySlot.quantity = 1;
+            // // InventoryUpdated 액션을 invoke해준다.
             TriggerUpdateUI();
             return;
         }
+        else
+        {
+            // 땅에 버린다.
+            ThrowItem(itemData);
+        } 
+    }
+    void ThrowItem(ItemData itemdata)
+    {
+        Instantiate(ItemData.drobPrefab, dropPosition.position, Quaternion.Euler(Vector3.one * 360));
+        TriggerUpdateUI();
     }
 
-    ItemSlots GetItemStack(ItemData data)
+    ItemSlot GetItemStack(ItemData data)
     {
         for (int i = 0; i < slots.Length; i++)
         {
@@ -71,7 +104,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     // 빈 슬롯 찾아서 반환 메서드
-    ItemSlots GetEmptySlot()
+    ItemSlot GetEmptySlot()
     {
         for (int i = 0; i < slots.Length; i++)
         {
@@ -80,10 +113,39 @@ public class PlayerInventory : MonoBehaviour
             { return slots[i]; }
         }
         return null;
+
     }
 
     private void TriggerUpdateUI()
     {
-        InventoryUpdated?.Invoke(slots);
+        InventoryUpdated?.Invoke();
+    }
+
+    public void CheckEmptySlot()
+    {
+        for(int i =0; i < slots.Length; i++)
+        {
+            if (slots[i].ItemData != null)
+            {
+                if (slots[i].quantity == 0)
+                {
+                    slots[i].ItemData = null;
+                }
+            }
+        }
+    }
+}
+
+[System.Serializable]
+public class ItemSlot
+{
+    public ItemData ItemData;
+    public int quantity;
+    public int index;
+
+    public ItemSlot(ItemData itemData, int quantity)
+    {
+        ItemData = itemData;
+        this.quantity = quantity;
     }
 }
