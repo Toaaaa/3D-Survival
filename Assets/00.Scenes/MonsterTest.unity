@@ -3218,7 +3218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cba242be54f33d4ea23e1dd96e2d839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 956773194}
+  player: {fileID: 956773194}
 --- !u!4 &333903694
 Transform:
   m_ObjectHideFlags: 0
@@ -8690,6 +8690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b744206af2c734e864d63e45edcc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handler: {fileID: 0}
+  condition: {fileID: 0}
+  input: {fileID: 0}
 --- !u!54 &956773195
 Rigidbody:
   m_ObjectHideFlags: 0

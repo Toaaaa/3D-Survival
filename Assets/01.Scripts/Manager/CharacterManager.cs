@@ -18,7 +18,7 @@ public class CharacterManager : MonoBehaviour
     }
 
 
-    private Player player;
+    [SerializeField]private Player player;
     public Player Player { get => player; set => player = value; }
 
 
