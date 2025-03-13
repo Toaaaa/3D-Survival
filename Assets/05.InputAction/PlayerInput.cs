@@ -98,6 +98,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inven"",
+                    ""type"": ""Button"",
+                    ""id"": ""5df51a43-2843-4859-891c-0f464627c8e4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -232,6 +241,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a30d3e1-584a-49ec-8c02-00582b16424b"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inven"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -248,6 +268,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_TPLook = m_Player.FindAction("TPLook", throwIfNotFound: true);
         m_Player_Gather = m_Player.FindAction("Gather", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Inven = m_Player.FindAction("Inven", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -317,6 +338,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_TPLook;
     private readonly InputAction m_Player_Gather;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Inven;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -329,6 +351,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @TPLook => m_Wrapper.m_Player_TPLook;
         public InputAction @Gather => m_Wrapper.m_Player_Gather;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @Inven => m_Wrapper.m_Player_Inven;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -362,6 +385,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Inven.started += instance.OnInven;
+            @Inven.performed += instance.OnInven;
+            @Inven.canceled += instance.OnInven;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -390,6 +416,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Inven.started -= instance.OnInven;
+            @Inven.performed -= instance.OnInven;
+            @Inven.canceled -= instance.OnInven;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -417,5 +446,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnTPLook(InputAction.CallbackContext context);
         void OnGather(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnInven(InputAction.CallbackContext context);
     }
 }
