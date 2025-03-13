@@ -31,6 +31,8 @@ public class InputController : MonoBehaviour
         input.Player.Look.performed += OnLook;
         input.Player.Look.canceled += OnLookCancle;
         input.Player.Gather.started += OnInterack;
+        input.Player.Attack.started += OnAttack;
+        input.Player.Inven.started += OnInven;
 
         input.Enable();
     }
@@ -46,6 +48,8 @@ public class InputController : MonoBehaviour
         input.Player.Look.performed -= OnLook;
         input.Player.Look.canceled -= OnLookCancle;
         input.Player.Gather.started -= OnInterack;
+        input.Player.Attack.started -= OnAttack;
+        input.Player.Inven.started -= OnInven;
 
         input.Disable();
     }
@@ -96,5 +100,16 @@ public class InputController : MonoBehaviour
     private void OnInterack(InputAction.CallbackContext context)
     {
         CharacterManager.Instance.Player.handler.Gather();
+    }
+
+    private void OnInven(InputAction.CallbackContext context)
+    {
+        //확인 필요 UIInventory 에 토글 로직 있고 Player 에는 PlayerInventory 붙여주셨음
+        //CharacterManager.Instance.Player.inventory.
+    }
+
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        CharacterManager.Instance.Player.handler.Attack();
     }
 }
