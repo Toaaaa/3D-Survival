@@ -1226,7 +1226,7 @@ MonoBehaviour:
   jumpPower: 200
   freezingSpeed: 5
   runSpeed: 20
-  runStamina: -10
+  runStamina: -20
   isRun: 0
 --- !u!114 &1795796749
 MonoBehaviour:
