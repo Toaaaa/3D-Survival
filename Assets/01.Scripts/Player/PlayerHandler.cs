@@ -18,14 +18,10 @@ public class PlayerHandler : MonoBehaviour
 
     Coroutine runCoroutine;
 
-    private void Awake()
+    private void Start()
     {
         rigid = GetComponent<Rigidbody>();
         input = GetComponent<InputController>();
-    }
-
-    private void Start()
-    {
         input.jumpAction += Jump;
         input.runAction += Run;
     }

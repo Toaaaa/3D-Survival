@@ -17,6 +17,6 @@ public class Player : MonoBehaviour
             input = gameObject.AddComponent<InputController>();
         }    
         handler = GetComponent<PlayerHandler>();   
-        condition = GetComponent<PlayerCondition>();      
+        condition = GetComponent<PlayerCondition>();
     }
 }
