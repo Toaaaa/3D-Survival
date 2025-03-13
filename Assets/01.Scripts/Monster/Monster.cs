@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Monster : MonoBehaviour
 {
     [Header("Monster Status")]
+    public string monsterName;
     [SerializeField] private bool isDead = false;
     [SerializeField] private float maxHp = 20;
     [SerializeField] private float _hp;
@@ -39,6 +41,7 @@ public class Monster : MonoBehaviour
         Chase,
         Attack,
         Return, // 원래 위치로 돌아가는 상태.
+        Dead
     }// 몬스터 상태
     public Func<bool> InRange;
 
@@ -87,14 +90,22 @@ public class Monster : MonoBehaviour
     {
         if (hp <= 0)
         {
-            isDead = true;
-            gameObject.SetActive(false);
+            if(isDead == false)
+            {
+                isDead = true;
+                DropItem();
+                ChangeState(State.Dead);
+            }
         }
         if (hpBar != null)
         {
             hpBar.sizeDelta = new Vector2(hp / maxHp * 2, hpBar.sizeDelta.y);
         }
     }// 체력관련 메서드.
+    private void DropItem()
+    {
+
+    }// 처치시 아이템 드랍.
     private void ChangeState(State newState)
     {
         state = newState;
@@ -206,5 +217,10 @@ public class Monster : MonoBehaviour
             ChangeState(State.Idle);
             yield break;
         }
+    }
+    IEnumerator Dead()
+    {
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
     }
 }

@@ -823,6 +823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b56d95c81ed1f40904e1eef63a3276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInRange: 0
+  range: 13
 --- !u!1 &3825117951531314035
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,7 +1001,7 @@ GameObject:
   - component: {fileID: 7095601554446078293}
   - component: {fileID: 153225777869056025}
   m_Layer: 0
-  m_Name: TigerAI
+  m_Name: Tiger
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1104,6 +1106,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f366c798bd4b854b96b478eda4e84f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterName: Tiger
+  isDead: 0
+  maxHp: 20
+  _hp: 0
+  _attackPower: 0
+  hpBar: {fileID: 0}
+  target: {fileID: 0}
+  lostDistance: 15
+  originPos: {x: 0, y: 0, z: 0}
+  AwayDistance: 18
 --- !u!195 &153225777869056025
 NavMeshAgent:
   m_ObjectHideFlags: 0

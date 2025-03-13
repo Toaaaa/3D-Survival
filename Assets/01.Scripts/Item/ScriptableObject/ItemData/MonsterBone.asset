@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0458351644cc38943a675b7bb1ccaa1e, type: 3}
-  m_Name: MonsterTigerBone
+  m_Name: MonsterBone
   m_EditorClassIdentifier: 
-  displayName: "\uD638\uB791\uC774 \uBF08"
-  description: "\uB192\uC740 \uAC15\uB3C4\uB97C \uAC00\uC9C4 \uD638\uB791\uC774 \uBF08."
+  displayName: "\uB3D9\uBB3C\uC758 \uBF08"
+  description: "\uB192\uC740 \uAC15\uB3C4\uB97C \uAC00\uC9C4 \uB3D9\uBB3C\uC758 \uBF08."
   type: 0
   icon: {fileID: 0}
   drobPrefab: {fileID: 8688676192070858699, guid: 27fd9c96f7fd980459423c9a57b0f04d,

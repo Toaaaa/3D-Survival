@@ -13158,7 +13158,7 @@ PrefabInstance:
     - target: {fileID: 5392564918707395579, guid: d3056326a2f279642b0f85606598dd78,
         type: 3}
       propertyPath: m_Name
-      value: TigerAI
+      value: Tiger
       objectReference: {fileID: 0}
     - target: {fileID: 7095601554446078293, guid: d3056326a2f279642b0f85606598dd78,
         type: 3}
@@ -14064,6 +14064,77 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1548843026}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1553343833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1553343836}
+  - component: {fileID: 1553343835}
+  - component: {fileID: 1553343834}
+  m_Layer: 0
+  m_Name: MonsterManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1553343834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553343833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7bcdbd31dd40e841b02c0f836c05680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterDrops:
+  - monsterName: Tiger
+    dropInfo:
+    - Item: {fileID: 8688676192070858699, guid: 27fd9c96f7fd980459423c9a57b0f04d,
+        type: 3}
+      DropRate: 1
+    - Item: {fileID: 8688676192070858699, guid: 2687a9b7c5c4efd41a3b5d8844bca4c6,
+        type: 3}
+      DropRate: 0.7
+  - monsterName: Wolf
+    dropInfo:
+    - Item: {fileID: 8688676192070858699, guid: 27fd9c96f7fd980459423c9a57b0f04d,
+        type: 3}
+      DropRate: 1
+--- !u!114 &1553343835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553343833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6cd10d83b5f9a441910e0b35e53177b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1553343836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553343833}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -157.7671, y: -57.970505, z: -100.67049}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1554147861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17875,6 +17946,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1969510258}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1977125648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2477219742316424569, guid: f01337c4b1a6e774cb6a6f4c3dd02910,
+    type: 3}
+  m_PrefabInstance: {fileID: 2477219743349491535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1977125652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977125648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6cd10d83b5f9a441910e0b35e53177b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1992633453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19215,7 +19304,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2477219742316424569, guid: f01337c4b1a6e774cb6a6f4c3dd02910,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1977125652}
   m_SourcePrefab: {fileID: 100100000, guid: f01337c4b1a6e774cb6a6f4c3dd02910, type: 3}
 --- !u!1001 &4674286093509825516
 PrefabInstance:
@@ -19380,3 +19473,4 @@ SceneRoots:
   - {fileID: 1119575402}
   - {fileID: 956773193}
   - {fileID: 1226868077}
+  - {fileID: 1553343836}

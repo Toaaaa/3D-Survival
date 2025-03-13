@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3473790367363287368}
   - component: {fileID: 7228821372193496871}
   m_Layer: 0
-  m_Name: TigerBone
+  m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504351f6a9e670c47b64c16021473432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 4a3d08c7345104e4fb8ed51e3cd17630, type: 2}
