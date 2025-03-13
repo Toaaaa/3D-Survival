@@ -144,7 +144,7 @@ PrefabInstance:
     - target: {fileID: 4575000506314262896, guid: 4aaffb7af63642f479a5e7354fbd8df8,
         type: 3}
       propertyPath: attackDistance
-      value: 10
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4814089128355634692, guid: 4aaffb7af63642f479a5e7354fbd8df8,
         type: 3}
