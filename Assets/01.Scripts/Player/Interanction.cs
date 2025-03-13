@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Interanction : MonoBehaviour
@@ -9,6 +10,7 @@ public class Interanction : MonoBehaviour
 
     [SerializeField] float maxCheckDistance;
     [SerializeField] LayerMask intercatLayer;
+    [SerializeField] TextMeshProUGUI promptItemInfo;
 
     CameraController controller;
     Camera _camera;
@@ -37,11 +39,21 @@ public class Interanction : MonoBehaviour
         {
             curIteractGameObject = hit.collider.gameObject;
             curItercable = hit.collider.GetComponent<IInteractable>();
+            SetPrompText();
         }
         else
         {
             curIteractGameObject = null;
             curItercable = null;
+            promptItemInfo.gameObject.SetActive(false);
         }
+    }
+    private void SetPrompText()
+    {
+        if (curItercable == null) return;
+
+        promptItemInfo.gameObject.SetActive(true);
+        promptItemInfo.text = curItercable.GetInteractPrompt();
+        
     }
 }
