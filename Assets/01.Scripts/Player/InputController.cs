@@ -97,4 +97,9 @@ public class InputController : MonoBehaviour
     {
         CharacterManager.Instance.Player.handler.Gather();
     }
+
+    private void OnInven(InputAction.CallbackContext context)
+    {
+
+    }
 }
