@@ -41,16 +41,26 @@ public class Building : MonoBehaviour
     void CreatePreviewObject()
     {
         currentPreview = Instantiate(previewPrefab);
-        previewMaterials = currentPreview.GetComponent<MeshRenderer>().materials;
-        
+
+        // 모든 자식 오브젝트의 Renderer를 수집
+        List<Material> materialList = new List<Material>();
+        // 부모와 자식을 포함하여 모든 Renderer 탐색
+        MeshRenderer[] renderers = currentPreview.GetComponentsInChildren<MeshRenderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            materialList.AddRange(renderer.materials);
+        }
+        previewMaterials = materialList.ToArray();
+
+
         foreach (Material material in previewMaterials)
         {
-            if (material.HasProperty("_Color"))  // 컬러 속성이 있는 경우에만
+            if (material.HasProperty("_Color")) // 컬러 속성이 있는 경우에만
             {
                 material.color = Color.green; // 초기 색상 초록색
             }
         }
-        
+
     }
 
     // 프리뷰 오브젝트가 마우스를 따라다니게 함
@@ -81,7 +91,7 @@ public class Building : MonoBehaviour
             {
                 foreach (Material material in previewMaterials)
                 {
-                    if (material.HasProperty("_Color"))  // 컬러 속성이 있는 경우에만
+                    if (material.HasProperty("_Color")) // 컬러 속성이 있는 경우에만
                     {
                         material.color = Color.green; // 건축 가능
                     }
