@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
     {
         //애니메이션 공격 이벤트 함수에 추가
 
-        Ray ray = new Ray (transform.position, transform.forward);
+        Ray ray = new Ray (transform.position + Vector3.up, transform.forward);
         RaycastHit hit;
         Debug.Log("공격");
         if (Physics.Raycast(ray, out hit, attackDistance))
