@@ -179,9 +179,10 @@ public class Monster : MonoBehaviour
         var curAnimStateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
         anim.Play("Attack", 0, 0);
-        /*
-        if (target != null) target.GetComponent<Player>().TakeDamage(attackPower);// 공격력만큼 플레이어에게 데미지를 줌.
-        */
+        if (target != null) 
+        {
+            target.GetComponent<Player>().condition.Conditions[ConditionType.Health].curValue -= attackPower;// 공격력만큼 플레이어에게 데미지를 줌.
+        }
         // 거리가 멀어지면
         if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
         {
@@ -192,11 +193,10 @@ public class Monster : MonoBehaviour
         {
             if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance - 1f) yield return new WaitForSeconds(curAnimStateInfo.length * 2f);// 만약 공격 중(2번째 타격 시전전) 에 플레이어가 범위 밖으로 나가면 공격 취소
             else
-            {
-                /*
+            {                
                 if (!curAnimStateInfo.IsName("Attack_Idle") && target != null)
-                    target.GetComponent<Player>().TakeDamage(attackPower);// 공격력만큼 플레이어에게 데미지를 줌.
-                */
+                    target.GetComponent<Player>().condition.Conditions[ConditionType.Health].curValue -= attackPower;// 공격력만큼 플레이어에게 데미지를 줌.   
+
                 yield return new WaitForSeconds(curAnimStateInfo.length * 2f);// 공격 animation 의 두 배만큼 대기
             }
         }
