@@ -6,7 +6,8 @@ using UnityEngine;
 public class Resources : MonoBehaviour
 {
     public ItemData itemToGive;
-    public int quantityPerHit = 1;
+    //public int quantityPerHit = 1;
+    public int totalquantity;
     public int originCapacy;
     public int capacy;
     public float respawnCoolTime;
@@ -32,15 +33,18 @@ public class Resources : MonoBehaviour
 
     public virtual void Gather(Vector3 hitPoint, Vector3 hitNormal)
     {
-        for (int i = 0; i < quantityPerHit; i++)
-        {
-            if (capacy <= 0) break;
-            capacy--;
-            Instantiate(itemToGive.drobPrefab, hitPoint + Vector3.up, Quaternion.LookRotation(hitNormal, Vector3.up));
-        }
-
+        //for (int i = 0; i < quantityPerHit; i++)
+        //{
+        //    if (capacy <= 0) break;
+        //    capacy--;
+        //    Instantiate(itemToGive.drobPrefab, hitPoint + Vector3.up+hitNormal, Quaternion.LookRotation(hitNormal, Vector3.up));
+        //}
+        capacy -= 1;//장비에 달린 수치만큼 capacy를 빼도록 바꿔야됨
         if (capacy <= 0)
         {
+            
+            ItemObject itemObject = Instantiate(itemToGive.drobPrefab, hitPoint + Vector3.up + hitNormal, Quaternion.LookRotation(hitNormal, Vector3.up)).GetComponent<ItemObject>();
+            itemObject.amount = totalquantity;
             StartCoroutine(RespawnCo());
         }
     }

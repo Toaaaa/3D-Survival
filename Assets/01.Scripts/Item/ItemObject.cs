@@ -13,7 +13,7 @@ public class ItemObject : MonoBehaviour, IInteractable
 {
     //public static ItemObject instance;
     public ItemData itemData;
-
+    public int amount;
     //DataManager dataManager;
 
     //public ItemDatas objectItemData;
@@ -69,7 +69,7 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public string GetInteractPrompt()
     {
-        string str = $"{itemData.displayName}\n{itemData.description}";
+        string str = $"{itemData.displayName}({amount})\n{itemData.description}";
         
         return str;
     }
@@ -80,7 +80,10 @@ public class ItemObject : MonoBehaviour, IInteractable
 
         if (playerInventory != null)
         {
-            playerInventory.AddItem(itemData);
+            for(int i = 0; i< amount; i++)
+            {
+                playerInventory.AddItem(itemData);
+            }
             //CharacterManager.Instance.Player.AddItem.Invoke();
             Destroy(gameObject);
         }
