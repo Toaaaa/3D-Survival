@@ -22,3 +22,6 @@ MonoBehaviour:
   canStack: 1
   maxStackAmount: 64
   ItemsConsumables: []
+  equipPrefab: {fileID: 0}
+  proccessedItem: {fileID: 11400000, guid: 457c9e63c500c35479f8f7ed019f6b4a, type: 2}
+  neededQuantity: 2
