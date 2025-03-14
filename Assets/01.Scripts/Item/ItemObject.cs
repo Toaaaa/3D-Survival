@@ -69,8 +69,8 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public string GetInteractPrompt()
     {
-        //string str = $"{itemData.displayName}\n{itemData.description}";
-        string str = ""; // 수정예정
+        string str = $"{itemData.displayName}\n{itemData.description}";
+        
         return str;
     }
     public virtual void OnInteract()
