@@ -16,15 +16,13 @@ public class Tiger : Monster
         base.Update();
         if(GetHpPercent() <= 0.5f)
         {
-            if (isAlter)
-            {
-                coroutine = StartCoroutine(AlterTime());
-            }
-            else if(!isCoolTime)
+            if (!isAlter && !isCoolTime)
             {
                 coroutine = StartCoroutine(Resummon());
             }
         }
+        if(isAlter)
+            coroutine = StartCoroutine(AlterTime());
     }
     private void OnDestroy()
     {
