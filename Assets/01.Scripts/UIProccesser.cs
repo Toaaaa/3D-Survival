@@ -48,6 +48,8 @@ public class UIProccesser : MonoBehaviour
 
     public void Select(int index)
     {
+        if (inventory.slots[index].ItemData == null) return;
+
         selectedItemIndex = index;
         if (inventory.slots[index].ItemData != null)
         {
