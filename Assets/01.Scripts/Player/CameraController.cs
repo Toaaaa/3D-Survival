@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     private Camera curCamera;
     private float curLookUp;
     private float curLookRight;
-    private bool isCursor = false;
+    public bool isCursor = false;
 
     //[HideInInspector]public bool isFPCamear= true;
     public Camera CurCamera  { get { return curCamera; } set { curCamera = value; } }
@@ -28,6 +28,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         input = GetComponentInParent<InputController>();
+        input.inventory += CursorToggle;
         Cursor.lockState = CursorLockMode.Locked;
         //fpCamera.gameObject.SetActive(true);
         //tpCamera.gameObject.SetActive(false);
@@ -39,20 +40,8 @@ public class CameraController : MonoBehaviour
     {
         if (isCursor) return;
         
-        Look();
-        
+        Look();     
     }
-
-    //public void ChangeCamera()
-    //{
-    //    bool isFPCameraActive = fpCamera.gameObject.activeSelf;
-    
-    //    isFPCamear = !isFPCamear;
-    //    curCamera = isFPCamear ? fpCamera : tpCamera;s
-    //    fpCamera.gameObject.SetActive(!isFPCameraActive);
-    //    tpCamera.gameObject.SetActive(isFPCameraActive);
-
-    //}
 
     private void Look()
     {
@@ -62,14 +51,10 @@ public class CameraController : MonoBehaviour
         curLookRight += mouseDelta.x * mouseSensitivity;
         curLookUp = Mathf.Clamp(curLookUp, maxLookDown, maxLookUp);
 
-        
-
         //y축s
         float heightOffset = Mathf.Lerp(-1f, 4f, (-curLookUp - maxLookDown) / (maxLookUp - maxLookDown));
         //z축
-        float distanceOffset = Mathf.Lerp(-2f, -1f, (-curLookUp - maxLookDown) / (maxLookUp - maxLookDown));
-
-        
+        float distanceOffset = Mathf.Lerp(-2f, -1f, (-curLookUp - maxLookDown) / (maxLookUp - maxLookDown));   
 
         Vector3 cameraTargetPos = tpCamera.transform.localPosition;
         cameraTargetPos.y = heightOffset;
@@ -81,7 +66,7 @@ public class CameraController : MonoBehaviour
     }
 
     private void CursorToggle()
-    {
+    {        
         isCursor = !isCursor;
         Cursor.lockState = isCursor ? CursorLockMode.Locked : CursorLockMode.None;
     }

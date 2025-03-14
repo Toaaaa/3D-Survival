@@ -256,8 +256,5 @@ public class UIInventory : MonoBehaviour
     {
         playerInventory.ThrowItem(selectedItem);
         RemoveSelectedItem();
-    }
-
-
-    
+    }   
 }

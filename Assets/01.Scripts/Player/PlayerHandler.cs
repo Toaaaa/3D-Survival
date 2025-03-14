@@ -20,6 +20,7 @@ public class PlayerHandler : MonoBehaviour
     PlayerAnimator animator;
     InputController input;
     Rigidbody rigid;
+    CameraController cameraController;
 
     Coroutine runCoroutine;
 
@@ -28,6 +29,7 @@ public class PlayerHandler : MonoBehaviour
         animator = GetComponent<PlayerAnimator>();
         rigid = GetComponent<Rigidbody>();
         input = GetComponent<InputController>();
+        cameraController = GetComponentInChildren<CameraController>();
         input.jumpAction += Jump;
         input.runAction += Run;
     }
@@ -93,8 +95,8 @@ public class PlayerHandler : MonoBehaviour
     }
 
     public void Gather()
-    {
-        if (!CharacterManager.Instance.Player.interact.OnIntercat()) return;
+    {        
+        if (!CharacterManager.Instance.Player.interact.OnIntercat()) return;       
         animator.Gather();
     }
 
@@ -118,6 +120,8 @@ public class PlayerHandler : MonoBehaviour
 
     public void Attack()
     {
+        if (cameraController.isCursor) return;
+        
         //무기 장착 여부 관련해서 에니메이터 재생
         animator.AttackPuch();
     }
