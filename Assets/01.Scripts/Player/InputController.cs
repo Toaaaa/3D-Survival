@@ -28,7 +28,7 @@ public class InputController : MonoBehaviour
         input.Player.Jump.started += OnJump;
         input.Player.Run.performed += OnRun;
         input.Player.Run.canceled += OnRunStop;      
-        input.Player.CameraChange.started += OnCameraChange;
+        //input.Player.CameraChange.started += OnCameraChange;
         input.Player.Look.performed += OnLook;
         input.Player.Look.canceled += OnLookCancle;
         input.Player.Gather.started += OnInterack;
@@ -45,7 +45,7 @@ public class InputController : MonoBehaviour
         input.Player.Jump.started -= OnJump;
         input.Player.Run.performed -= OnRun;
         input.Player.Run.canceled -= OnRunStop;    
-        input.Player.CameraChange.started -= OnCameraChange;
+        //input.Player.CameraChange.started -= OnCameraChange;
         input.Player.Look.performed -= OnLook;
         input.Player.Look.canceled -= OnLookCancle;
         input.Player.Gather.started -= OnInterack;
@@ -91,12 +91,12 @@ public class InputController : MonoBehaviour
         curMouseDelta = Vector2.zero;
     }
 
-    private void OnCameraChange(InputAction.CallbackContext context)
-    {
-        GameObject cameraContainer = GameObject.Find("CameraContainer");
-        CameraController controller = cameraContainer.GetComponent<CameraController>();
-        controller.ChangeCamera();
-    }
+    //private void OnCameraChange(InputAction.CallbackContext context)
+    //{
+    //    GameObject cameraContainer = GameObject.Find("CameraContainer");
+    //    CameraController controller = cameraContainer.GetComponent<CameraController>();
+    //    controller.ChangeCamera();
+    //}
 
     private void OnInterack(InputAction.CallbackContext context)
     {
