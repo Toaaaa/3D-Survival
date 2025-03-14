@@ -16,7 +16,7 @@ MonoBehaviour:
   description: "\uBA39\uC744 \uC218 \uC788\uB294 \uBC84\uC12F\uC785\uB2C8\uB2E4.
     \uC18C\uB7C9\uC758 \uCCB4\uB825\uACFC \uD5C8\uAE30\uB97C \uD68C\uBCF5\uC2DC\uD0B5\uB2C8\uB2E4."
   type: 2
-  icon: {fileID: 0}
+  icon: {fileID: 80530288423876006, guid: 7c9547730a778504c9c663fd74dadce2, type: 3}
   drobPrefab: {fileID: 0}
   canStack: 1
   maxStackAmount: 20
@@ -25,3 +25,6 @@ MonoBehaviour:
     value: 5
   - type: 2
     value: 10
+  equipPrefab: {fileID: 0}
+  proccessedItem: {fileID: 0}
+  neededQuantity: 0

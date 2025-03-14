@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
 
 public class RadialMenu : MonoBehaviour
@@ -13,8 +13,8 @@ public class RadialMenu : MonoBehaviour
     [SerializeField] List<Texture> icons;
     [SerializeField] List<GameObject> buildPrefabs;
 
-    [SerializeField] public GameObject nameObject;
-    [SerializeField] public GameObject descriptionObject;
+    [SerializeField] public TextMeshProUGUI nameObject;
+    [SerializeField] public TextMeshProUGUI descriptionObject;
     
     private List<RadialMenuEntry> entries;
 
@@ -26,14 +26,6 @@ public class RadialMenu : MonoBehaviour
     private void Start()
     {
         entries = new List<RadialMenuEntry>();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            Toggle();
-        }
     }
 
     private void AddEntry(Texture pIcon,GameObject pPrefab)
@@ -73,8 +65,8 @@ public class RadialMenu : MonoBehaviour
                 };
         }
         
-        nameObject.SetActive(false);
-        descriptionObject.SetActive(false);
+        nameObject.gameObject.SetActive(false);
+        descriptionObject.gameObject.SetActive(false);
         
         entries.Clear();
     }

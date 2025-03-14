@@ -107,6 +107,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Build"",
+                    ""type"": ""Button"",
+                    ""id"": ""5bdbdac3-b8b1-45f2-9328-d0493ac1eb02"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -252,6 +261,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Inven"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43e73a9c-830d-4cde-b72d-1df860dc16fe"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Build"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -269,6 +289,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_Gather = m_Player.FindAction("Gather", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Inven = m_Player.FindAction("Inven", throwIfNotFound: true);
+        m_Player_Build = m_Player.FindAction("Build", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -339,6 +360,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Gather;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Inven;
+    private readonly InputAction m_Player_Build;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -352,6 +374,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Gather => m_Wrapper.m_Player_Gather;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Inven => m_Wrapper.m_Player_Inven;
+        public InputAction @Build => m_Wrapper.m_Player_Build;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -388,6 +411,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Inven.started += instance.OnInven;
             @Inven.performed += instance.OnInven;
             @Inven.canceled += instance.OnInven;
+            @Build.started += instance.OnBuild;
+            @Build.performed += instance.OnBuild;
+            @Build.canceled += instance.OnBuild;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -419,6 +445,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Inven.started -= instance.OnInven;
             @Inven.performed -= instance.OnInven;
             @Inven.canceled -= instance.OnInven;
+            @Build.started -= instance.OnBuild;
+            @Build.performed -= instance.OnBuild;
+            @Build.canceled -= instance.OnBuild;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -447,5 +476,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnGather(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnInven(InputAction.CallbackContext context);
+        void OnBuild(InputAction.CallbackContext context);
     }
 }

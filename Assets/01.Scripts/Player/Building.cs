@@ -7,11 +7,16 @@ public class Building : MonoBehaviour
     public GameObject previewPrefab; // 프리뷰 프리팹
     private GameObject currentPreview; // 현재 프리뷰 오브젝트
     private Material[] previewMaterials; // 프리뷰 오브젝트의 재질
+    private BoxCollider previewCollider;
     
-    private bool isBuilding = false;
+    public bool runBuilding = false;        // 플레이어가 건축중일때
+    private bool isBuilding = false;        // 건축가능 체크
+    private bool isNeedCraft = false;       // 인벤토리 아이템 갯수 체크
     
     public float maxCheckDistance;
     public LayerMask layerMask;
+    private Camera cam;
+    public Camera Cam {set { cam = value; } }
 
     void Update()
     {
@@ -32,11 +37,53 @@ public class Building : MonoBehaviour
         
     }
 
+    public bool CheckForBuildingInInventory(BuildObject buildObject)
+    {
+        ItemSlot[] slots;
+        slots = CharacterManager.Instance.Player.inventory.slots;
+        int buildObjectNeedCount = 0;
+        
+        foreach (var needItemData in buildObject.needItems.needCraft)
+        {
+            bool itemClear = false;
+            foreach (var slot in slots)
+            {
+                if (needItemData.itemData == slot.ItemData)
+                {
+                    if (slot.quantity > needItemData.needValue)
+                    {
+                        itemClear = true;
+                        buildObjectNeedCount++;
+                        break;
+                    }
+                }
+            }
+            
+            if(itemClear)
+                break;
+        }
+        
+
+        if (buildObjectNeedCount == buildObject.needItems.needCraft.Length)
+        {
+            isNeedCraft = true;
+            return true;
+        }
+        else
+        {
+            isNeedCraft = false;
+            return false;
+        }
+    }
+
     // 프리뷰 오브젝트 생성
     public void CreatePreviewObject(GameObject preview)
     {
+        cam = BuildManager.Instance.cameraController.CurCamera;
         previewPrefab = preview;
         currentPreview = Instantiate(previewPrefab);
+        
+        previewCollider = currentPreview.GetComponent<BoxCollider>();
 
         // 모든 자식 오브젝트의 Renderer를 수집
         List<Material> materialList = new List<Material>();
@@ -56,13 +103,15 @@ public class Building : MonoBehaviour
                 material.color = Color.green; // 초기 색상 초록색
             }
         }
+        
+        runBuilding = true;
 
     }
 
     // 프리뷰 오브젝트가 마우스를 따라다니게 함
     void FollowMouse()
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit , maxCheckDistance, layerMask))
         {
@@ -79,7 +128,7 @@ public class Building : MonoBehaviour
     // 건축 가능 여부 확인 및 색상 변경
     void UpdatePreviewColor()
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
         {
@@ -111,7 +160,9 @@ public class Building : MonoBehaviour
     // 다른 오브젝트와 충돌 여부 확인
     bool IsColliding()
     { 
-        Collider[] colliders = Physics.OverlapBox(currentPreview.transform.position, currentPreview.transform.localScale / 2);
+        Vector3 worldSize = Vector3.Scale(previewCollider.size, previewPrefab.transform.lossyScale);
+        
+        Collider[] colliders = Physics.OverlapBox(currentPreview.transform.position, worldSize / 2, previewCollider.transform.rotation);
         foreach (Collider collider in colliders)
         {
             if (collider.gameObject != currentPreview && !collider.gameObject.CompareTag("Ground"))
@@ -125,7 +176,7 @@ public class Building : MonoBehaviour
     // 실제 오브젝트 생성
     void PlaceObject()
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
         {
@@ -138,8 +189,19 @@ public class Building : MonoBehaviour
             GameObject newObject = Instantiate(previewPrefab, currentPreview.transform.position, rotation);
             Collider newCollider = newObject.GetComponent<Collider>();
             newCollider.isTrigger = false;
+            previewMaterials = null;
             previewPrefab = null;
             Destroy(currentPreview);
         }
+        runBuilding = false;
+    }
+
+    public void ClearPreview()
+    {
+        runBuilding = false;
+        previewMaterials = null;
+        previewPrefab = null;
+        Destroy(currentPreview);
+        currentPreview = null;
     }
 }

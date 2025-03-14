@@ -15,7 +15,7 @@ public class InputController : MonoBehaviour
 
     public Action jumpAction;
     public Action runAction;
-    public Action invenAction;
+    public Action inventory;
 
     PlayerInput input;
 
@@ -34,6 +34,7 @@ public class InputController : MonoBehaviour
         input.Player.Gather.started += OnInterack;
         input.Player.Attack.started += OnAttack;
         input.Player.Inven.started += OnInven;
+        input.Player.Build.started += OnBuild;
 
         input.Enable();
     }
@@ -51,6 +52,7 @@ public class InputController : MonoBehaviour
         input.Player.Gather.started -= OnInterack;
         input.Player.Attack.started -= OnAttack;
         input.Player.Inven.started -= OnInven;
+        input.Player.Build.started -= OnBuild;
 
         input.Disable();
     }
@@ -105,7 +107,15 @@ public class InputController : MonoBehaviour
 
     private void OnInven(InputAction.CallbackContext context)
     {
-        invenAction?.Invoke();
+        //확인 필요 UIInventory 에 토글 로직 있고 Player 에는 PlayerInventory 붙여주셨음
+        inventory?.Invoke();
+    }
+
+    private void OnBuild(InputAction.CallbackContext context)
+    {
+        BuildUI.Instance.radialMenu.Toggle();
+        if(CharacterManager.Instance.Player.building.runBuilding)
+            CharacterManager.Instance.Player.building.ClearPreview();
     }
 
     private void OnAttack(InputAction.CallbackContext context)
