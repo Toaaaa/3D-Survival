@@ -19,11 +19,7 @@ public class Interanction : MonoBehaviour
     {
         _camera = Camera.main;
         controller = GetComponentInChildren<CameraController>();
-    }
-
-    private void Update()
-    {
-        InvokeRepeating("CheckInterable", 0, 0.1f);      
+        InvokeRepeating("CheckInterable", 0, 0.1f);
     }
 
     private void CheckInterable()

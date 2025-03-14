@@ -52,6 +52,8 @@ public class UIInventory : MonoBehaviour
         playerInventory = CharacterManager.Instance.Player.inventory;
         controller = CharacterManager.Instance.Player.input;
         conditions = CharacterManager.Instance.Player.condition;
+        playerEquipment = CharacterManager.Instance.Player.equipment;
+
 
 
         //InputController에서 액션 생성
