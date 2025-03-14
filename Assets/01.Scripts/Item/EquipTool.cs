@@ -16,7 +16,7 @@ public class EquipTool : Equip
 
     [Header("Combat")]
     public bool doesDealDamage;
-    public int damage; // 무기의 힘
+    
     public float attackDistance; // 무기 장착 시 상승하는 플레이어 공격 사거리
-    public float attackPower; // 무기 장착 시 상승하는 플레이어 공격력
+    public float attackPower; // 무기 장착 시 상승하는 플레이어 공격력 = 몬스터에게 입히는 데미지
 }
