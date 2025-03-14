@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     private Camera curCamera;
     private float curLookUp;
     private float curLookRight;
-    private bool isCursor = false;
+    public bool isCursor = false;
 
     //[HideInInspector]public bool isFPCamear= true;
     public Camera CurCamera  { get { return curCamera; } set { curCamera = value; } }
@@ -28,6 +28,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         input = GetComponentInParent<InputController>();
+        input.inventory += CursorToggle;
         Cursor.lockState = CursorLockMode.Locked;
         //fpCamera.gameObject.SetActive(true);
         //tpCamera.gameObject.SetActive(false);
