@@ -1108,14 +1108,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Tiger
   isDead: 0
-  maxHp: 20
+  maxHp: 40
   _hp: 0
   _attackPower: 5
   hpBar: {fileID: 5337554770228661003}
   target: {fileID: 0}
   lostDistance: 13
-  originPos: {x: 0, y: 0, z: 0}
   AwayDistance: 18
+  alter: {fileID: 5392564918707395579, guid: 0da00c5faa55e23499a9fe98c4205828, type: 3}
 --- !u!195 &153225777869056025
 NavMeshAgent:
   m_ObjectHideFlags: 0
