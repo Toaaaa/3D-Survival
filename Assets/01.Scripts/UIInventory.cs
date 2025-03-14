@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class UIInventory : MonoBehaviour
 {
     public UIItemSlots[] uiSlots;
+    
     public PlayerInventory playerInventory;
+    public PlayerEquipment playerEquipment;
 
 
     public GameObject inventoryWindow; // 인벤토리창
@@ -35,8 +37,9 @@ public class UIInventory : MonoBehaviour
 
     private InputController controller;
     private PlayerCondition conditions;
+    
 
-  
+
 
     private void Start()
     {
@@ -49,6 +52,7 @@ public class UIInventory : MonoBehaviour
 
         //InputController에서 액션 생성
         //controller.inventory += Toggle;
+        
 
         playerInventory.InventoryUpdated += UpdateUI;
 
@@ -95,7 +99,8 @@ public class UIInventory : MonoBehaviour
 
         for(int i=0; i<uiSlots.Length; i++)
         {
-            if (playerInventory.slots[i].ItemData != null)
+            ItemSlot itemSlot = playerInventory.slots[i];
+            if (itemSlot.ItemData != null)
             {
                 uiSlots[i].icon.sprite = playerInventory.slots[i].ItemData.icon;
                 uiSlots[i].quantityText.text = playerInventory.slots[i].quantity.ToString();
@@ -123,9 +128,9 @@ public class UIInventory : MonoBehaviour
 
     public void SelectItem(int index)
     {
-        if (uiSlots[index].ItemData == null) return;
+        if (playerInventory.slots[index].ItemData == null) return;
 
-        selectedItem = uiSlots[index].ItemData;
+        selectedItem = playerInventory.slots[index].ItemData;
         selectedItemIndex = index;
 
         selectedItemName.text = selectedItem.displayName;
@@ -146,54 +151,86 @@ public class UIInventory : MonoBehaviour
         
         dropButton.SetActive(true);
     }
-    
+
+    // 선택한 아이템을 쓰고난 뒤, 호출하는 함수
+    void RemoveSelectedItem()
+    {
+        playerInventory.slots[selectedItemIndex].quantity--; // 슬롯 안의 아이템 개수가 하나 줄어든다.
+
+        // 아이템 개수가 0개였다면
+        if(playerInventory.slots[selectedItemIndex].quantity <= 0)
+        {
+            // 장비라면, 벗어준다.
+            if (uiSlots[selectedItemIndex].equipped)
+            {
+                playerEquipment.UnEquip(playerInventory.slots[selectedItemIndex].ItemData);
+            }
+
+            // 장비가 아니라면, 슬롯을 비워준다.
+            playerInventory.slots[selectedItemIndex].quantity = 0;
+            playerInventory.slots[selectedItemIndex].ItemData = null;
+            UpdateUI();
+         }
+        else
+        {
+            UpdateUI();
+        }
+    }
+
     // 1.사용하기버튼 (구현예정)
 
-    public void OnUseButton(int index)
+    public void OnUseButton()
     {
-        selectedItemIndex = index;
-
-        if (playerInventory.slots[index].ItemData.type == ItemType.Equipable)
-        {
-
-        }
-        else if (playerInventory.slots[index].ItemData.type == ItemType.Consumable)
-        {
-            //onClickUseBtn = playerInventory.slots[selectedItemIndex].ItemData.UseItem();
-        }
-
         if (selectedItem.type == ItemType.Consumable)
         {
             for (int i = 0; i < selectedItem.ItemsConsumables.Length; i++)
             {
                 switch (selectedItem.ItemsConsumables[i].type)
                 {
-                    // 소비 타입에 따른 함수 호출
+                    //소비 타입에 따른 함수 호출 -playerCondition에서 만들어야 함
+
                     //case ConsumableType.Health:
-                    //    conditions.EatHealthItem(selectedItem.ItemsConsumables[i].value); break;
-                    //case ConsumableType.Stamina:
-                    //    conditions.EatStaminaItem(selectedItem.ItemsConsumables[i].value); break;
-                    //case ConsumableType.Speed:
-                    //    conditions.EatSpeedItem(); break;
+                    ////conditions.UseItem(selectedItem.ItemsConsumables[i].value); break;
+                    //// case consumabletype.stamina:
+                    //// conditions.eatstaminaitem(selectedItem.ItemsConsumables[i].value); break;
+                    //// case consumabletype.water:
+                    //// conditions.eatspeeditem(); break;
+                    //case ConsumableType.Hunger:
                 }
-            } 
+            }
+            // 사용한 뒤에 selectItem을 초기화한다.
+            RemoveSelectedItem();
         }
-        }
+    }
 
     // 2. 착용하기 버튼
     public void OnEquipButton()
     {
-
+        selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
+        if (uiSlots[selectedItemIndex].equipped) { playerEquipment.UnEquip(selectedItem); }
+        uiSlots[selectedItemIndex].equipped = true;
+        playerEquipment.Equip(selectedItem);
+        UpdateUI();
     }
     // 3. 해제하기 버튼
     public void OnUnEquipButton()
     {
+        selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
+        uiSlots[selectedItemIndex].equipped = false;
+        playerEquipment.UnEquip(selectedItem);
+        UpdateUI();
 
+        //if (selectedItemIndex == )
+        //{
+        //    SelectItem(selectedItemIndex);
+        //}
     }
     // 버리기 버튼
-    public void OnDropButton(int index) 
+    public void OnDropButton() 
     {
-        
+        selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
+        playerInventory.ThrowItem(selectedItem);
+        RemoveSelectedItem();
     }
 
     
