@@ -9,8 +9,8 @@ public class Monster : MonoBehaviour
 {
     [Header("Monster Status")]
     public string monsterName;
-    [SerializeField] private bool isDead = false;
-    [SerializeField] private float maxHp = 20;
+    [SerializeField] protected bool isDead = false;
+    [SerializeField] protected float maxHp = 40;
     [SerializeField] private float _hp;
     public float hp
     {
@@ -25,17 +25,17 @@ public class Monster : MonoBehaviour
     }
 
     [Header("HP Bar")]
-    [SerializeField] private RectTransform hpBar;// 체력이 최대일때는 Width가 2.
+    [SerializeField] protected RectTransform hpBar;// 체력이 최대일때는 Width가 2.
 
     [Header("Monster AI")]
     [SerializeField] private Transform target;
     [SerializeField] private float lostDistance = 15; // 타겟을 잃어버리는 거리.
-    [SerializeField] private Vector3 originPos; // 처음 위치.
     [SerializeField] private float AwayDistance = 18; // 처음 구역에서 최대로 멀어질 수 있는 거리. (해당 거리 이상으로 떨어지면 모든 행동을 중지하고 원래 위치로 타겟을 설정하여 돌아감.)
+    public Vector3 originPos { get; set; } // 처음 위치.
     NavMeshAgent navMeshAgent;
     Animator anim;
-    State state = State.Idle;
-    enum State
+    protected State state = State.Idle;
+    protected enum State
     {
         Idle,
         Chase,
@@ -59,7 +59,7 @@ public class Monster : MonoBehaviour
         originPos = transform.position;// 처음 위치 저장.
         StartCoroutine(StateMachine());// 몬스터 상태 머신 시작.
     }
-    private void Update()
+    protected virtual void Update()
     {
         HpStatus();// 체력 상태 관리 전반.
 
@@ -86,34 +86,25 @@ public class Monster : MonoBehaviour
         navMeshAgent.SetDestination(target.position);
     }
 
-    private void HpStatus()
+    protected virtual void HpStatus()
     {
-        if (hp <= 0)
-        {
-            if(isDead == false)
-            {
-                isDead = true;
-                DropItem();
-                gameObject.SetActive(false);
-                ChangeState(State.Dead);
-            }
-        }
-        if (hpBar != null)
-        {
-            hpBar.sizeDelta = new Vector2(hp / maxHp * 2, hpBar.sizeDelta.y);
-        }
+        
     }// 체력관련 메서드.
-    private void DropItem()
+    protected void DropItem()
     {
         MonsterManager.Instance.monsterDropManager.DropItem(monsterName,this.transform.position);
     }// 처치시 아이템 드랍.
-    private void ChangeState(State newState)
+    protected void ChangeState(State newState)
     {
         state = newState;
     }
     public void OnHit(float dmg) // 피격시 호출되는 메서드.
     {
         hp -= dmg;
+    }
+    protected virtual float GetHpPercent()
+    {
+        return hp / maxHp;
     }
 
     IEnumerator StateMachine()
