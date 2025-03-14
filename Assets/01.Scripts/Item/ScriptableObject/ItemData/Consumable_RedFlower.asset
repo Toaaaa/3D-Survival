@@ -17,10 +17,13 @@ MonoBehaviour:
     \uAF43\uAFC0\uB85C \uC18C\uB7C9\uC758 \uD5C8\uAE30\uB97C \uCC44\uC6B8 \uC218
     \uC788\uC744 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4."
   type: 2
-  icon: {fileID: 0}
+  icon: {fileID: 7344338289535680897, guid: 7c9547730a778504c9c663fd74dadce2, type: 3}
   drobPrefab: {fileID: 0}
   canStack: 1
   maxStackAmount: 20
   ItemsConsumables:
   - type: 2
     value: 10
+  equipPrefab: {fileID: 0}
+  proccessedItem: {fileID: 0}
+  neededQuantity: 0
