@@ -15,6 +15,7 @@ public class Building : MonoBehaviour
     
     public float maxCheckDistance;
     public LayerMask layerMask;
+    public LayerMask colliderMask;
     private Camera cam;
     public Camera Cam {set { cam = value; } }
 
@@ -162,7 +163,9 @@ public class Building : MonoBehaviour
     { 
         Vector3 worldSize = Vector3.Scale(previewCollider.size, previewPrefab.transform.lossyScale);
         
-        Collider[] colliders = Physics.OverlapBox(currentPreview.transform.position, worldSize / 2, previewCollider.transform.rotation);
+        Collider[] colliders = 
+            Physics.OverlapBox(currentPreview.transform.position, 
+                worldSize / 2, previewCollider.transform.rotation, colliderMask);
         foreach (Collider collider in colliders)
         {
             if (collider.gameObject != currentPreview && !collider.gameObject.CompareTag("Ground"))

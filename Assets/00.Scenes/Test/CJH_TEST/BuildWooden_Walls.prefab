@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7563745329645704868}
   - component: {fileID: 5956088619494110146}
   - component: {fileID: 1934764582219080632}
+  - component: {fileID: 2334423998484175753}
   m_Layer: 0
   m_Name: BuildWooden_Walls
   m_TagString: Untagged
@@ -71,6 +72,24 @@ MonoBehaviour:
   needItem:
   - {fileID: 11400000, guid: 04105bda51147334b89858be90597c33, type: 2}
   values: 02000000
+  needItems:
+    needCraft: []
+--- !u!208 &2334423998484175753
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3480568317829231255}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.73, y: 1.25, z: 0.2}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.15, y: 1.27, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4144070059735214113
 GameObject:
   m_ObjectHideFlags: 0

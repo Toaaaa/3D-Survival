@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1782208163474111646}
   - component: {fileID: 7282409023035387132}
   - component: {fileID: 7640024003951364232}
+  - component: {fileID: -6830885025800559720}
   m_Layer: 0
   m_Name: Build_WireFence
   m_TagString: Untagged
@@ -123,3 +124,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 04105bda51147334b89858be90597c33, type: 2}
   - {fileID: 11400000, guid: 4a3d08c7345104e4fb8ed51e3cd17630, type: 2}
   values: 0300000003000000
+  needItems:
+    needCraft: []
+--- !u!208 &-6830885025800559720
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2668183264673480068}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.58, y: 0.76500005, z: 0.125}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.016, y: 0.52900004, z: 0.013}
+  m_TimeToStationary: 0.5
