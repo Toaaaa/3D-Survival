@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8479455179401522320}
   - component: {fileID: 5443623664331074088}
   - component: {fileID: 1076750258946537861}
-  - component: {fileID: 5682228558679583581}
+  - component: {fileID: -7766220572964961273}
   m_Layer: 0
   m_Name: IronAxe
   m_TagString: Untagged
@@ -135,7 +135,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5682228558679583581
+--- !u!114 &-7766220572964961273
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,13 +144,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8966175124665327702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e795795b1b21c4297ef0b68b934cd1, type: 3}
+  m_Script: {fileID: 11500000, guid: 504351f6a9e670c47b64c16021473432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: bc08394fc08d99a46bbedacb7e305680, type: 2}
-  attackRate: 0.6
-  attacking: 0
-  doesGatherResources: 1
-  doesDealDamage: 1
-  attackDistance: 2
-  attackPower: 5
+  amount: 1

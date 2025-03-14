@@ -32,10 +32,10 @@ public class PlayerInventory : MonoBehaviour
 
         //dropPosition = CharacterManager.Instance.Player.dropPosition;
 
-        //for (int i = 0; i < slots.Length; i++)
-        ////{
-        ////    slots[i] = new itemslot(null, 0); 
-        ////}
+        for (int i = 0; i < slots.Length; i++)
+        {
+            slots[i] = new ItemSlot(null, 0, i);
+        }
     }
 
     void Update()
@@ -82,7 +82,7 @@ public class PlayerInventory : MonoBehaviour
     }
     public void ThrowItem(ItemData itemdata)
     {
-        Instantiate(ItemData.drobPrefab, dropPosition.position, Quaternion.identity);
+        Instantiate(itemdata.drobPrefab, dropPosition.position, Quaternion.identity);
         TriggerUpdateUI();
     }
 
@@ -136,12 +136,19 @@ public class PlayerInventory : MonoBehaviour
 public class ItemSlot
 {
     public ItemData ItemData;
+    UIInventory uiInventory;
     public int quantity;
     public int index;
 
-    public ItemSlot(ItemData itemData, int quantity)
+    public ItemSlot(ItemData itemData, int quantity, int _index)
     {
         ItemData = itemData;
         this.quantity = quantity;
+        index = _index;
+    }
+
+    public void OnClick(int index)
+    {
+        uiInventory.SelectItem(index);
     }
 }
