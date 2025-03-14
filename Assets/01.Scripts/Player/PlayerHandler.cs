@@ -59,7 +59,6 @@ public class PlayerHandler : MonoBehaviour
         rigid.velocity = moveDir;
         
         animator.Run(isRun);
-
         animator.Move(_inputVector);
     }
 
@@ -95,6 +94,7 @@ public class PlayerHandler : MonoBehaviour
 
     public void Gather()
     {
+        if (!CharacterManager.Instance.Player.interact.OnIntercat()) return;
         animator.Gather();
     }
 

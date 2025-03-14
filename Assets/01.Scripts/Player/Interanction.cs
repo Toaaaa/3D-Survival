@@ -23,11 +23,7 @@ public class Interanction : MonoBehaviour
 
     private void Update()
     {
-        if (controller.isFPCamear)
-        {
-            InvokeRepeating("CheckInterable", 0, 0.1f);
-        }
-        
+        InvokeRepeating("CheckInterable", 0, 0.1f);      
     }
 
     private void CheckInterable()
@@ -56,10 +52,12 @@ public class Interanction : MonoBehaviour
         promptItemInfo.text = curItercable.GetInteractPrompt();
     }
 
-    private void OnIntercat()
+    public bool OnIntercat()
     {
-        if (curIteractGameObject = null) return;
-        CharacterManager.Instance.Player.handler.Gather();
+        if (curIteractGameObject == null) return false;
         curItercable.OnInteract();
+        curItercable = null;
+        curIteractGameObject = null;
+        return true;
     }
 }
