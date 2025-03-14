@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 4575000506314262896}
   - component: {fileID: 2160019828917578277}
   - component: {fileID: 8915025971282029138}
+  - component: {fileID: 3297875496094871373}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -608,6 +609,24 @@ MonoBehaviour:
   curEquip: {fileID: 0}
   equipParent: {fileID: 6394257048870269079}
   playerAttack: {fileID: 0}
+--- !u!114 &3297875496094871373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934320595059787600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45ea58f9eb3d42478529afcb9ed3372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previewPrefab: {fileID: 0}
+  runBuilding: 0
+  maxCheckDistance: 10
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1082382187951626114
 GameObject:
   m_ObjectHideFlags: 0

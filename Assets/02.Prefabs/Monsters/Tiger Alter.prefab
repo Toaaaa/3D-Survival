@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f366c798bd4b854b96b478eda4e84f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterName: Tiger
+  monsterName: Tiger_Alter
   isDead: 0
   maxHp: 20
   _hp: 0
@@ -1114,8 +1114,8 @@ MonoBehaviour:
   hpBar: {fileID: 5337554770228661003}
   target: {fileID: 0}
   lostDistance: 13
-  originPos: {x: 0, y: 0, z: 0}
   AwayDistance: 18
+  alter: {fileID: 0}
 --- !u!195 &153225777869056025
 NavMeshAgent:
   m_ObjectHideFlags: 0

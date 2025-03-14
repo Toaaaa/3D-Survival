@@ -21,6 +21,8 @@ public class CameraController : MonoBehaviour
     private float curLookRight;
     private bool isCursor = false;
     [HideInInspector]public bool isFPCamear= true;
+    
+    public Camera CurCamera  { get { return curCamera; } set { curCamera = value; } }
 
     private void Start()
     {
@@ -29,6 +31,7 @@ public class CameraController : MonoBehaviour
         fpCamera.gameObject.SetActive(true);
         tpCamera.gameObject.SetActive(false);
         curCamera = fpCamera;
+        BuildManager.Instance.cameraController = this;
     }
 
     private void LateUpdate()
