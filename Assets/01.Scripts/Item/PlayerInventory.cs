@@ -32,10 +32,10 @@ public class PlayerInventory : MonoBehaviour
 
         //dropPosition = CharacterManager.Instance.Player.dropPosition;
 
-        //for (int i = 0; i < slots.Length; i++)
-        ////{
-        ////    slots[i] = new itemslot(null, 0); 
-        ////}
+        for (int i = 0; i < slots.Length; i++)
+        {
+            slots[i] = new ItemSlot(null, 0);
+        }
     }
 
     void Update()
@@ -136,6 +136,7 @@ public class PlayerInventory : MonoBehaviour
 public class ItemSlot
 {
     public ItemData ItemData;
+    UIInventory uiInventory;
     public int quantity;
     public int index;
 
@@ -143,5 +144,10 @@ public class ItemSlot
     {
         ItemData = itemData;
         this.quantity = quantity;
+    }
+
+    public void OnClick(int index)
+    {
+        uiInventory.SelectItem(index);
     }
 }

@@ -23,6 +23,7 @@ public class UIItemSlots : MonoBehaviour // UI아이템슬롯
 
     private void Awake()
     {
+        uiInventory = GetComponent<UIInventory>();
         outline = GetComponent<Outline>();
     }
     private void OnEnable()
@@ -30,11 +31,7 @@ public class UIItemSlots : MonoBehaviour // UI아이템슬롯
         outline.enabled = equipped; // equipped가 true일 때 ( = 착용했을 때) 아웃라인 활성
     }
 
-    // 슬롯 선택(버튼클릭) -> UI 인벤토리 연결 메서드
-    public void OnClick()
-    {
-        uiInventory.SelectItem(Index);
-    }
+    
 
     // 슬롯 정렬 메서드
 

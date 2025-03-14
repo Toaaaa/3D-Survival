@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class UIInventory : MonoBehaviour
 {
     public UIItemSlots[] uiSlots;
-    
+    public ItemSlot slot;
+
     public PlayerInventory playerInventory;
     public PlayerEquipment playerEquipment;
 
@@ -34,6 +35,7 @@ public class UIInventory : MonoBehaviour
 
     public Action onClickUseBtn;
 
+    public Button slotButton;
 
     private InputController controller;
     private PlayerCondition conditions;
@@ -43,6 +45,8 @@ public class UIInventory : MonoBehaviour
 
     private void Start()
     {
+        slotButton.onClick.AddListener(() => OnClick(slot.index));
+
         inventoryWindow.SetActive(false); // 창 초기화
 
         playerInventory = CharacterManager.Instance.Player.inventory;
@@ -130,6 +134,18 @@ public class UIInventory : MonoBehaviour
     public bool IsOpen()
     {
         return inventoryWindow.activeInHierarchy;
+    }
+
+    // 슬롯 선택(버튼클릭) -> UI 인벤토리 연결 메서드
+    //public void OnClick()
+    //{
+    //    SelectItem(ItemSlot.index);
+    //}
+
+    public void OnClick(int index)
+    {
+        // 슬롯 선택 로직 실행
+        SelectItem(index);
     }
 
     public void SelectItem(int index)
@@ -238,6 +254,7 @@ public class UIInventory : MonoBehaviour
         playerInventory.ThrowItem(selectedItem);
         RemoveSelectedItem();
     }
+
 
     
 }
