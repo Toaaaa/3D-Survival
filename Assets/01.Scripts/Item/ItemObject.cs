@@ -13,7 +13,7 @@ public class ItemObject : MonoBehaviour, IInteractable
 {
     //public static ItemObject instance;
     public ItemData itemData;
-    public int amount;
+    public int amount =1;
     //DataManager dataManager;
 
     //public ItemDatas objectItemData;
