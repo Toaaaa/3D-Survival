@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public PlayerInventory inventory;
     public PlayerAttack playerAttack;
     public Building building;
-
+    public Interanction interact;
 
     private void Awake()
     {        
@@ -25,5 +25,6 @@ public class Player : MonoBehaviour
         inventory = GetComponent<PlayerInventory>();
         playerAttack = GetComponent<PlayerAttack>();
         building = GetComponent<Building>();
+        interact = GetComponent<Interanction>();
     }
 }
