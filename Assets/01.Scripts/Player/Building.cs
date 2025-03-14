@@ -11,6 +11,7 @@ public class Building : MonoBehaviour
     
     public bool runBuilding = false;        // 플레이어가 건축중일때
     private bool isBuilding = false;        // 건축가능 체크
+    private bool isNeedCraft = false;       // 인벤토리 아이템 갯수 체크
     
     public float maxCheckDistance;
     public LayerMask layerMask;
@@ -34,6 +35,45 @@ public class Building : MonoBehaviour
             }
         }
         
+    }
+
+    public bool CheckForBuildingInInventory(BuildObject buildObject)
+    {
+        ItemSlot[] slots;
+        slots = CharacterManager.Instance.Player.inventory.slots;
+        int buildObjectNeedCount = 0;
+        
+        foreach (var needItemData in buildObject.needItems.needCraft)
+        {
+            bool itemClear = false;
+            foreach (var slot in slots)
+            {
+                if (needItemData.itemData == slot.ItemData)
+                {
+                    if (slot.quantity > needItemData.needValue)
+                    {
+                        itemClear = true;
+                        buildObjectNeedCount++;
+                        break;
+                    }
+                }
+            }
+            
+            if(itemClear)
+                break;
+        }
+        
+
+        if (buildObjectNeedCount == buildObject.needItems.needCraft.Length)
+        {
+            isNeedCraft = true;
+            return true;
+        }
+        else
+        {
+            isNeedCraft = false;
+            return false;
+        }
     }
 
     // 프리뷰 오브젝트 생성
@@ -149,6 +189,7 @@ public class Building : MonoBehaviour
             GameObject newObject = Instantiate(previewPrefab, currentPreview.transform.position, rotation);
             Collider newCollider = newObject.GetComponent<Collider>();
             newCollider.isTrigger = false;
+            previewMaterials = null;
             previewPrefab = null;
             Destroy(currentPreview);
         }
@@ -158,6 +199,7 @@ public class Building : MonoBehaviour
     public void ClearPreview()
     {
         runBuilding = false;
+        previewMaterials = null;
         previewPrefab = null;
         Destroy(currentPreview);
         currentPreview = null;
