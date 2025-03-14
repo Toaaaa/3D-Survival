@@ -197,11 +197,11 @@ MonoBehaviour:
   buildPrefabs:
   - {fileID: 3480568317829231255, guid: 2aa5c938233b0f746a6f7dc1d2f49e7a, type: 3}
   - {fileID: 701164764997736335, guid: 4a5f624b96b8cee4b8b6b5762d7c9460, type: 3}
+  - {fileID: 2668183264673480068, guid: 33e1bd1b775b4944d8de00985c17d6e3, type: 3}
   - {fileID: 701164764997736335, guid: 4a5f624b96b8cee4b8b6b5762d7c9460, type: 3}
   - {fileID: 701164764997736335, guid: 4a5f624b96b8cee4b8b6b5762d7c9460, type: 3}
-  - {fileID: 701164764997736335, guid: 4a5f624b96b8cee4b8b6b5762d7c9460, type: 3}
-  nameObject: {fileID: 7671039448588023579}
-  descriptionObject: {fileID: 257016064551328154}
+  nameObject: {fileID: 1547006170625346898}
+  descriptionObject: {fileID: 7096659014022592055}
 --- !u!1 &6567988265182579473
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4510810092384340655}
   - component: {fileID: 5732982067287607022}
+  - component: {fileID: 4502403186273858209}
   m_Layer: 0
   m_Name: Build_StoneWall
   m_TagString: Untagged
@@ -56,6 +57,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.6, y: 2.3, z: 0.6}
   m_Center: {x: 0, y: 1.2, z: 0}
+--- !u!114 &4502403186273858209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701164764997736335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1742d8a5b8e5d4f88ea3e816eb1ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: "\uB3CC\uBCBD"
+  needItem:
+  - {fileID: 11400000, guid: 457c9e63c500c35479f8f7ed019f6b4a, type: 2}
+  - {fileID: 11400000, guid: 04105bda51147334b89858be90597c33, type: 2}
+  values: 0200000001000000
 --- !u!1 &1378307072257130900
 GameObject:
   m_ObjectHideFlags: 0

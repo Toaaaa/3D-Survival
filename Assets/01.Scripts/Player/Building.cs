@@ -8,8 +8,8 @@ public class Building : MonoBehaviour
     private GameObject currentPreview; // 현재 프리뷰 오브젝트
     private Material[] previewMaterials; // 프리뷰 오브젝트의 재질
     
-    public bool runBuilding = false;
-    private bool isBuilding = false;
+    public bool runBuilding = false;        // 플레이어가 건축중일때
+    private bool isBuilding = false;        // 건축가능 체크
     
     public float maxCheckDistance;
     public LayerMask layerMask;
