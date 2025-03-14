@@ -9,6 +9,8 @@ public class BuildObject : MonoBehaviour
     public string name;
     public List<ItemData> needItem;
     public List<int> values;
+    
+    public GameObject previewPrefab;
 
     // public List<NeedCraft> needItems;
     public CraftDictionary needItems;
