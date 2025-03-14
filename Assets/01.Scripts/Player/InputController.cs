@@ -105,7 +105,6 @@ public class InputController : MonoBehaviour
 
     private void OnInven(InputAction.CallbackContext context)
     {
-        Debug.Log("UI Toggle 왜안돼");
         invenAction?.Invoke();
     }
 

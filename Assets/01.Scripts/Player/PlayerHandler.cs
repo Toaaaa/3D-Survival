@@ -95,7 +95,7 @@ public class PlayerHandler : MonoBehaviour
     public void Gather()
     {
         animator.Gather();
-        
+        CharacterManager.Instance.Player.interact.OnIntercat();
     }
 
     private bool IsGrounded()
