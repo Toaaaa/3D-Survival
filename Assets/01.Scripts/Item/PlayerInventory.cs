@@ -13,23 +13,19 @@ public class PlayerInventory : MonoBehaviour
     public Transform dropPosition;
 
     public ItemSlot[] slots; 
-    public int slotNumber = 14; 
+    public int slotNumber = 12; 
 
     public InputController controller;
     public PlayerCondition condition;
 
     public ItemData ItemData;
 
-   
-
-    // 액션추가
-    //CharacterManager.Instance.Player.AddItem += AddItem;
-
-
     public event Action InventoryUpdated;
 
     private void Awake()
     {
+        //CharacterManager.Instance.Player.AddItem += AddItem;
+
         slots = new ItemSlot[slotNumber];
 
         InventoryUpdated += CheckEmptySlot;
@@ -84,9 +80,9 @@ public class PlayerInventory : MonoBehaviour
             ThrowItem(itemData);
         } 
     }
-    void ThrowItem(ItemData itemdata)
+    public void ThrowItem(ItemData itemdata)
     {
-        Instantiate(ItemData.drobPrefab, dropPosition.position, Quaternion.Euler(Vector3.one * 360));
+        Instantiate(ItemData.drobPrefab, dropPosition.position, Quaternion.identity);
         TriggerUpdateUI();
     }
 

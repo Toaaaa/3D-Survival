@@ -14,7 +14,7 @@ public class UIItemSlots : MonoBehaviour // UI아이템슬롯
     public Button button; // 슬롯 칸
     public Image icon; //아이템 이미지
     public TextMeshProUGUI quantityText; // 수량 텍스트
-    public Outline outline;
+    private Outline outline;
 
     // 슬롯 변수
     public int Index; // 슬롯 칸 index
@@ -28,6 +28,12 @@ public class UIItemSlots : MonoBehaviour // UI아이템슬롯
     private void OnEnable()
     {
         outline.enabled = equipped; // equipped가 true일 때 ( = 착용했을 때) 아웃라인 활성
+    }
+
+    // 슬롯 선택(버튼클릭) -> UI 인벤토리 연결 메서드
+    public void OnClick()
+    {
+        uiInventory.SelectItem(Index);
     }
 
     // 슬롯 정렬 메서드
@@ -50,20 +56,4 @@ public class UIItemSlots : MonoBehaviour // UI아이템슬롯
     //    icon.gameObject.SetActive(false);
     //    quantityText.text = string.Empty;
     //}
-
-    // 슬롯 선택(버튼클릭) -> UI 인벤토리 연결 메서드
-
-    void OnClick()
-    {
-        uiInventory.SelectItem(Index);
-
-        if (icon.sprite != null)
-        {
-
-        }
-        else
-        {
-
-        }
-    }
 }
