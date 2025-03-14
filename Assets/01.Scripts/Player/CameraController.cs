@@ -64,10 +64,10 @@ public class CameraController : MonoBehaviour
 
         
 
-        //y축
-        float heightOffset = Mathf.Lerp(-6f, 1f, (-curLookUp - maxLookDown) / (maxLookUp - maxLookDown));
+        //y축s
+        float heightOffset = Mathf.Lerp(-1f, 4f, (-curLookUp - maxLookDown) / (maxLookUp - maxLookDown));
         //z축
-        float distanceOffset = Mathf.Lerp(2f, 3f, (-curLookUp - maxLookDown) / (maxLookUp - maxLookDown));
+        float distanceOffset = Mathf.Lerp(-2f, -1f, (-curLookUp - maxLookDown) / (maxLookUp - maxLookDown));
 
         
 
