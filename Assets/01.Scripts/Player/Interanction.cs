@@ -54,7 +54,7 @@ public class Interanction : MonoBehaviour
 
     public bool OnIntercat()
     {
-        if (curIteractGameObject == null) return false;
+        if (curIteractGameObject == null || curItercable == null) return false;
         curItercable.OnInteract();
         curItercable = null;
         curIteractGameObject = null;

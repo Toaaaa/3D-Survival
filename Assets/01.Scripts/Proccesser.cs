@@ -34,6 +34,7 @@ public class Proccesser : MonoBehaviour, IInteractable
     {
         //플레이어 이동 및 둘러보기 잠금
         //마우스 커서 켜기
+        Cursor.lockState = CursorLockMode.None;
         //프로세서 창 켜기
         uiProccesser.gameObject.SetActive(true);
     }
@@ -44,6 +45,7 @@ public class Proccesser : MonoBehaviour, IInteractable
         //마우스 커서 끄기
         //프로세서 창 끄기
         uiProccesser.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5848476111478977971}
   - component: {fileID: 1772382438626982114}
   - component: {fileID: 7099714554358432587}
-  - component: {fileID: 3301572828895748302}
+  - component: {fileID: -6827553397677554792}
   m_Layer: 0
   m_Name: BlackAxe
   m_TagString: Untagged
@@ -136,7 +136,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3301572828895748302
+--- !u!114 &-6827553397677554792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,13 +145,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8378254369619827647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e795795b1b21c4297ef0b68b934cd1, type: 3}
+  m_Script: {fileID: 11500000, guid: 504351f6a9e670c47b64c16021473432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 7b47f769fdf5c254f9192b3d5251a8f3, type: 2}
-  attackRate: 0.4
-  attacking: 0
-  doesGatherResources: 1
-  doesDealDamage: 1
-  attackDistance: 5
-  attackPower: 15
+  amount: 1
