@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public PlayerCondition condition;
     public InputController input;
     public PlayerInventory inventory;
+    public PlayerEquipment equipment;
     public PlayerAttack playerAttack;
     public Building building;
     public Interanction interact;
@@ -26,5 +27,6 @@ public class Player : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
         building = GetComponent<Building>();
         interact = GetComponent<Interanction>();
+        equipment = GetComponent<PlayerEquipment>();
     }
 }
