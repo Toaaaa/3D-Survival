@@ -51,5 +51,8 @@ public class ItemData : ScriptableObject
     [Header("Equip")]
     public GameObject equipPrefab;
 
+    [Header("Resource")]
+    public ItemData proccessedItem;
+    public int neededQuantity;
 
 }
