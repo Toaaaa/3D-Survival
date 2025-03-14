@@ -185,6 +185,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSlots: []
+  slot:
+    ItemData: {fileID: 0}
+    quantity: 0
+    index: 0
   playerInventory: {fileID: 0}
   playerEquipment: {fileID: 0}
   inventoryWindow: {fileID: 8505614355954015793}
@@ -202,6 +206,8 @@ MonoBehaviour:
   equipButton: {fileID: 2446446818865193605}
   unEquipButton: {fileID: 8214884257434145273}
   dropButton: {fileID: 1957924325434387346}
+  slotButton: {fileID: 934797795225942653, guid: 6a3a93c2479935a4097d84662258bb0c,
+    type: 3}
 --- !u!1 &1218578694364835075
 GameObject:
   m_ObjectHideFlags: 0
