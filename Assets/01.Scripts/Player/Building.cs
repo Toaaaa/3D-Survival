@@ -7,6 +7,7 @@ public class Building : MonoBehaviour
     public GameObject previewPrefab; // 프리뷰 프리팹
     private GameObject currentPreview; // 현재 프리뷰 오브젝트
     private Material[] previewMaterials; // 프리뷰 오브젝트의 재질
+    private BoxCollider previewCollider;
     
     public bool runBuilding = false;        // 플레이어가 건축중일때
     private bool isBuilding = false;        // 건축가능 체크
@@ -41,6 +42,8 @@ public class Building : MonoBehaviour
         cam = BuildManager.Instance.cameraController.CurCamera;
         previewPrefab = preview;
         currentPreview = Instantiate(previewPrefab);
+        
+        previewCollider = currentPreview.GetComponent<BoxCollider>();
 
         // 모든 자식 오브젝트의 Renderer를 수집
         List<Material> materialList = new List<Material>();
@@ -117,7 +120,9 @@ public class Building : MonoBehaviour
     // 다른 오브젝트와 충돌 여부 확인
     bool IsColliding()
     { 
-        Collider[] colliders = Physics.OverlapBox(currentPreview.transform.position, currentPreview.transform.localScale / 2);
+        Vector3 worldSize = Vector3.Scale(previewCollider.size, previewPrefab.transform.lossyScale);
+        
+        Collider[] colliders = Physics.OverlapBox(currentPreview.transform.position, worldSize / 2, previewCollider.transform.rotation);
         foreach (Collider collider in colliders)
         {
             if (collider.gameObject != currentPreview && !collider.gameObject.CompareTag("Ground"))
