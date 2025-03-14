@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07044591, g: 0.35236204, b: 0.9665055, a: 1}
+  m_IndirectSpecularColor: {r: 0.07056078, g: 0.35246062, b: 0.96652937, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2236,20 +2236,20 @@ MonoBehaviour:
   monsterDrops:
   - monsterName: Tiger
     dropInfo:
-    - Item: {fileID: 8688676192070858699, guid: 27fd9c96f7fd980459423c9a57b0f04d,
+    - Item: {fileID: 6399973306301423652, guid: 3b05e3b9a56c78b48a6d49b8278e0d78,
         type: 3}
       DropRate: 1
-    - Item: {fileID: 8688676192070858699, guid: 2687a9b7c5c4efd41a3b5d8844bca4c6,
+    - Item: {fileID: 6118607010386879160, guid: 2687a9b7c5c4efd41a3b5d8844bca4c6,
         type: 3}
       DropRate: 0.7
   - monsterName: Tiger_Alter
     dropInfo:
-    - Item: {fileID: 8688676192070858699, guid: 27fd9c96f7fd980459423c9a57b0f04d,
+    - Item: {fileID: 6399973306301423652, guid: 3b05e3b9a56c78b48a6d49b8278e0d78,
         type: 3}
       DropRate: 1
   - monsterName: Wolf
     dropInfo:
-    - Item: {fileID: 8688676192070858699, guid: 27fd9c96f7fd980459423c9a57b0f04d,
+    - Item: {fileID: 6399973306301423652, guid: 3b05e3b9a56c78b48a6d49b8278e0d78,
         type: 3}
       DropRate: 1
 --- !u!114 &1553343835
