@@ -51,7 +51,7 @@ public class UIInventory : MonoBehaviour
 
 
         //InputController에서 액션 생성
-        //controller.inventory += Toggle;
+        controller.inventory += Toggle;
         
 
         playerInventory.InventoryUpdated += UpdateUI;
