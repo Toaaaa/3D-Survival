@@ -33,6 +33,7 @@ public class InputController : MonoBehaviour
         input.Player.Gather.started += OnInterack;
         input.Player.Attack.started += OnAttack;
         input.Player.Inven.started += OnInven;
+        input.Player.Build.started += OnBuild;
 
         input.Enable();
     }
@@ -50,6 +51,7 @@ public class InputController : MonoBehaviour
         input.Player.Gather.started -= OnInterack;
         input.Player.Attack.started -= OnAttack;
         input.Player.Inven.started -= OnInven;
+        input.Player.Build.started -= OnBuild;
 
         input.Disable();
     }
@@ -106,6 +108,11 @@ public class InputController : MonoBehaviour
     {
         //확인 필요 UIInventory 에 토글 로직 있고 Player 에는 PlayerInventory 붙여주셨음
         //CharacterManager.Instance.Player.inventory.
+    }
+
+    private void OnBuild(InputAction.CallbackContext context)
+    {
+        BuildUI.Instance.radialMenu.Toggle();
     }
 
     private void OnAttack(InputAction.CallbackContext context)

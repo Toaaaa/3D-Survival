@@ -28,14 +28,6 @@ public class RadialMenu : MonoBehaviour
         entries = new List<RadialMenuEntry>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            Toggle();
-        }
-    }
-
     private void AddEntry(Texture pIcon,GameObject pPrefab)
     {
         GameObject entry = Instantiate(entryPrefab, transform);

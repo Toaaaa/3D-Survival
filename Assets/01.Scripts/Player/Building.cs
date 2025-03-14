@@ -8,10 +8,13 @@ public class Building : MonoBehaviour
     private GameObject currentPreview; // 현재 프리뷰 오브젝트
     private Material[] previewMaterials; // 프리뷰 오브젝트의 재질
     
+    public bool runBuilding = false;
     private bool isBuilding = false;
     
     public float maxCheckDistance;
     public LayerMask layerMask;
+    private Camera cam;
+    public Camera Cam {set { cam = value; } }
 
     void Update()
     {
@@ -35,6 +38,7 @@ public class Building : MonoBehaviour
     // 프리뷰 오브젝트 생성
     public void CreatePreviewObject(GameObject preview)
     {
+        cam = BuildManager.Instance.cameraController.CurCamera;
         previewPrefab = preview;
         currentPreview = Instantiate(previewPrefab);
 
@@ -56,13 +60,15 @@ public class Building : MonoBehaviour
                 material.color = Color.green; // 초기 색상 초록색
             }
         }
+        
+        runBuilding = true;
 
     }
 
     // 프리뷰 오브젝트가 마우스를 따라다니게 함
     void FollowMouse()
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit , maxCheckDistance, layerMask))
         {
@@ -79,7 +85,7 @@ public class Building : MonoBehaviour
     // 건축 가능 여부 확인 및 색상 변경
     void UpdatePreviewColor()
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
         {
@@ -125,7 +131,7 @@ public class Building : MonoBehaviour
     // 실제 오브젝트 생성
     void PlaceObject()
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
         {
@@ -141,5 +147,6 @@ public class Building : MonoBehaviour
             previewPrefab = null;
             Destroy(currentPreview);
         }
+        runBuilding = false;
     }
 }
