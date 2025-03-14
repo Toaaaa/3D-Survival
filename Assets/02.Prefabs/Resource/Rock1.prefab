@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1475431015280788554}
   - component: {fileID: 1589917066696249633}
   - component: {fileID: 2640439796852031307}
-  - component: {fileID: 8971423371504085870}
   - component: {fileID: 1573637919287167887}
+  - component: {fileID: 476790446512692924}
   m_Layer: 0
   m_Name: Rock1
   m_TagString: Untagged
@@ -85,8 +85,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8971423371504085870
-MeshCollider:
+--- !u!114 &1573637919287167887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5081329392485874858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d83d7d6ddb0ca040a6093b9348198e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToGive: {fileID: 11400000, guid: 607f428e36fe0bc47bba47b5c7dc2d04, type: 2}
+  totalquantity: 10
+  originCapacy: 10
+  capacy: 0
+  respawnCoolTime: 5
+--- !u!65 &476790446512692924
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,24 +120,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: ff14cd0f332a7e04baab73f8c39b3918, type: 3}
---- !u!114 &1573637919287167887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5081329392485874858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d83d7d6ddb0ca040a6093b9348198e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemToGive: {fileID: 11400000, guid: 607f428e36fe0bc47bba47b5c7dc2d04, type: 2}
-  quantityPerHit: 1
-  originCapacy: 10
-  capacy: 0
-  respawnCoolTime: 5
+  serializedVersion: 3
+  m_Size: {x: 0.7808485, y: 0.6036608, z: 0.7204826}
+  m_Center: {x: -0.034517765, y: 0.16994864, z: 0.002390623}

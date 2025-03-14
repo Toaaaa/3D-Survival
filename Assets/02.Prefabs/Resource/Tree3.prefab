@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToGive: {fileID: 11400000, guid: 040f8e721c43bfc48803299273b3f2c6, type: 2}
-  quantityPerHit: 1
+  totalquantity: 10
   originCapacy: 10
   capacy: 0
   respawnCoolTime: 5
