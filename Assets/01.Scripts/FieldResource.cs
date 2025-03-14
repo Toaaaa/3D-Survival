@@ -16,12 +16,17 @@ public class FieldResource : ItemObject
 
     public override void OnInteract()
     {
-        //아이템데이터에 넣어줌
-        //CharacterManager.Instance.Player.ItemData = itemData;
-        //액션
-        //CharacterManager.Instance.Player.AddItem.Invoke();
-        respawn?.Invoke();
+        var playerInventory = CharacterManager.Instance.Player.inventory;
 
-        Destroy(gameObject);
+        if (playerInventory != null)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                playerInventory.AddItem(itemData);
+            }
+            respawn?.Invoke();
+
+            Destroy(gameObject);
+        }
     }
 }
