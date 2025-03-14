@@ -34,7 +34,7 @@ public class PlayerInventory : MonoBehaviour
 
         for (int i = 0; i < slots.Length; i++)
         {
-            slots[i] = new ItemSlot(null, 0);
+            slots[i] = new ItemSlot(null, 0, i);
         }
     }
 
@@ -82,7 +82,7 @@ public class PlayerInventory : MonoBehaviour
     }
     public void ThrowItem(ItemData itemdata)
     {
-        Instantiate(ItemData.drobPrefab, dropPosition.position, Quaternion.identity);
+        Instantiate(itemdata.drobPrefab, dropPosition.position, Quaternion.identity);
         TriggerUpdateUI();
     }
 
@@ -140,10 +140,11 @@ public class ItemSlot
     public int quantity;
     public int index;
 
-    public ItemSlot(ItemData itemData, int quantity)
+    public ItemSlot(ItemData itemData, int quantity, int _index)
     {
         ItemData = itemData;
         this.quantity = quantity;
+        index = _index;
     }
 
     public void OnClick(int index)

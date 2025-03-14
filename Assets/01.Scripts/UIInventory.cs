@@ -68,7 +68,7 @@ public class UIInventory : MonoBehaviour
         {
             uiSlots[i] = Instantiate(slotPrefab, slotPanel).GetComponent<UIItemSlots>();
             //slots[i] = slotPanel.GetChild(i).GetComponent<UIItemSlots>();
-            //slots[i].Index = i;
+            uiSlots[i].Index = i;
             //slots[i].uiInventory = this;
             //slots[i].Clear();
         }
@@ -101,17 +101,19 @@ public class UIInventory : MonoBehaviour
         //    }
         //}
 
-        for(int i=0; i<uiSlots.Length; i++)
+        for (int i = 0; i < uiSlots.Length; i++)
         {
-            ItemSlot itemSlot = playerInventory.slots[i];
-            if (itemSlot.ItemData != null)
+            if (playerInventory.slots[i].ItemData == null) return;
+
+            if (uiSlots[i].Index == playerInventory.slots[i].index)
             {
+                uiSlots[i].ItemData = playerInventory.slots[i].ItemData;
                 uiSlots[i].icon.sprite = playerInventory.slots[i].ItemData.icon;
                 uiSlots[i].quantityText.text = playerInventory.slots[i].quantity.ToString();
             }
             else
             {
-                uiSlots[i].icon.sprite = null; 
+                uiSlots[i].icon.sprite = null;
                 uiSlots[i].quantityText.text = string.Empty;
             }
         }
@@ -150,9 +152,9 @@ public class UIInventory : MonoBehaviour
 
     public void SelectItem(int index)
     {
-        if (playerInventory.slots[index].ItemData == null) return;
+        if (uiSlots[index].ItemData == null) return;
 
-        selectedItem = playerInventory.slots[index].ItemData;
+        selectedItem = uiSlots[index].ItemData;
         selectedItemIndex = index;
 
         selectedItemName.text = selectedItem.displayName;
@@ -250,7 +252,6 @@ public class UIInventory : MonoBehaviour
     // 버리기 버튼
     public void OnDropButton() 
     {
-        selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
         playerInventory.ThrowItem(selectedItem);
         RemoveSelectedItem();
     }
