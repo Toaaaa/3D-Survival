@@ -15,9 +15,13 @@ MonoBehaviour:
   displayName: "\uB3D9\uBB3C\uC758 \uBF08"
   description: "\uB192\uC740 \uAC15\uB3C4\uB97C \uAC00\uC9C4 \uB3D9\uBB3C\uC758 \uBF08."
   type: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6cd10b8b61da4114d949abb5461a6738, type: 3}
   drobPrefab: {fileID: 8688676192070858699, guid: 27fd9c96f7fd980459423c9a57b0f04d,
     type: 3}
   canStack: 1
   maxStackAmount: 5
   ItemsConsumables: []
+  equipPrefab: {fileID: 6399973306301423652, guid: 3b05e3b9a56c78b48a6d49b8278e0d78,
+    type: 3}
+  proccessedItem: {fileID: 0}
+  neededQuantity: 0

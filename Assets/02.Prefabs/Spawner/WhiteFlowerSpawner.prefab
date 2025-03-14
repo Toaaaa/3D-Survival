@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourcePrefab: {fileID: 6231734033798768239, guid: 83e24fee95adaaf4fbdaf385d162da4d,
     type: 3}
-  respawnCoolTime: 0
+  respawnCoolTime: 5

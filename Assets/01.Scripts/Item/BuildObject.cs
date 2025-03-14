@@ -7,21 +7,16 @@ using UnityEngine.UI;
 public class BuildObject : MonoBehaviour
 {
     public string name;
-    public List<ItemData> needItem;
-    public List<int> values;
-    
     public GameObject previewPrefab;
-
-    // public List<NeedCraft> needItems;
+    
     public CraftDictionary needItems;
 
     public string GetNameXValues()
     {
         string str = string.Empty;
-        for (int i = 0; i < needItem.Count; i++)
+        for (int i = 0; i < needItems.needCraft.Length; i++)
         {
-            string need = $"{needItem[i].displayName} X {values[i]}\n";
-            
+            string need = $"{needItems.needCraft[i].itemData.displayName} X {needItems.needCraft[i].needValue}\n";
             str += need;
         }
 

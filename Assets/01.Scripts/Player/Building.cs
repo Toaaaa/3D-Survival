@@ -51,38 +51,28 @@ public class Building : MonoBehaviour
         ItemSlot[] slots;
         slots = CharacterManager.Instance.Player.inventory.slots;
         int buildObjectNeedCount = 0;
-        
+
         foreach (var needItemData in buildObject.needItems.needCraft)
         {
-            bool itemClear = false;
             foreach (var slot in slots)
             {
                 if (needItemData.itemData == slot.ItemData)
                 {
-                    if (slot.quantity > needItemData.needValue)
+                    if (slot.quantity >= needItemData.needValue)
                     {
-                        itemClear = true;
                         buildObjectNeedCount++;
-                        break;
+                        Debug.Log(buildObjectNeedCount);
+                        if (buildObjectNeedCount == buildObject.needItems.needCraft.Length)
+                        {
+                            isNeedCraft = true;
+                            return true;
+                        }
                     }
                 }
             }
-            
-            if(itemClear)
-                break;
         }
-        
-
-        if (buildObjectNeedCount == buildObject.needItems.needCraft.Length)
-        {
-            isNeedCraft = true;
-            return true;
-        }
-        else
-        {
-            isNeedCraft = false;
-            return false;
-        }
+        isNeedCraft = false;
+        return false;
     }
 
     // 프리뷰 오브젝트 생성
@@ -201,8 +191,10 @@ public class Building : MonoBehaviour
             // previewPrefab은 isTrigger로 충돌하지 않게 해놔서 생성시 trigger off로 충돌가능하게
             GameObject newObject = Instantiate(buildPrefabs, currentPreview.transform.position, rotation);
             newObject.transform.Rotate(previewRotation);
-            // Collider newCollider = newObject.GetComponent<Collider>();
-            // newCollider.isTrigger = false;
+            
+            BuildObject buildObject = buildPrefabs.gameObject.GetComponent<BuildObject>();
+            ResumeInventoryItems(buildObject);
+            
             previewMaterials = null;
             previewPrefab = null;
             buildPrefabs = null;
@@ -210,6 +202,33 @@ public class Building : MonoBehaviour
             Destroy(currentPreview);
         }
         runBuilding = false;
+    }
+
+    private void ResumeInventoryItems(BuildObject buildObject)
+    {
+        ItemSlot[] slots;
+        slots = CharacterManager.Instance.Player.inventory.slots;
+        int buildObjectNeedCount = 0;
+
+        foreach (var needItemData in buildObject.needItems.needCraft)
+        {
+            foreach (var slot in slots)
+            {
+                if (needItemData.itemData == slot.ItemData)
+                {
+                    if (slot.quantity >= needItemData.needValue)
+                    {
+                        slot.quantity -= needItemData.needValue;
+                        buildObjectNeedCount++;
+                        Debug.Log(buildObjectNeedCount);
+                        if (buildObjectNeedCount == buildObject.needItems.needCraft.Length)
+                        {
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void ClearPreview()

@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 040f8e721c43bfc48803299273b3f2c6, type: 2}
+  amount: 0
 --- !u!54 &-3557167162554475153
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -148,5 +149,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0

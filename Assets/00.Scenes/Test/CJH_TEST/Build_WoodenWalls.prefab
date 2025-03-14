@@ -75,7 +75,9 @@ MonoBehaviour:
   previewPrefab: {fileID: 3480568317829231255, guid: ff9477eba88fa9542ab1253259768183,
     type: 3}
   needItems:
-    needCraft: []
+    needCraft:
+    - itemData: {fileID: 11400000, guid: 04105bda51147334b89858be90597c33, type: 2}
+      needValue: 2
 --- !u!208 &2334423998484175753
 NavMeshObstacle:
   m_ObjectHideFlags: 0
