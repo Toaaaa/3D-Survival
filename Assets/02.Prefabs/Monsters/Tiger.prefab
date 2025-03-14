@@ -1110,10 +1110,10 @@ MonoBehaviour:
   isDead: 0
   maxHp: 20
   _hp: 0
-  _attackPower: 0
-  hpBar: {fileID: 0}
+  _attackPower: 5
+  hpBar: {fileID: 5337554770228661003}
   target: {fileID: 0}
-  lostDistance: 15
+  lostDistance: 13
   originPos: {x: 0, y: 0, z: 0}
   AwayDistance: 18
 --- !u!195 &153225777869056025
