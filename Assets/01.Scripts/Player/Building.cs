@@ -154,4 +154,12 @@ public class Building : MonoBehaviour
         }
         runBuilding = false;
     }
+
+    public void ClearPreview()
+    {
+        runBuilding = false;
+        previewPrefab = null;
+        Destroy(currentPreview);
+        currentPreview = null;
+    }
 }

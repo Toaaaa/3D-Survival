@@ -113,6 +113,8 @@ public class InputController : MonoBehaviour
     private void OnBuild(InputAction.CallbackContext context)
     {
         BuildUI.Instance.radialMenu.Toggle();
+        if(CharacterManager.Instance.Player.building.runBuilding)
+            CharacterManager.Instance.Player.building.ClearPreview();
     }
 
     private void OnAttack(InputAction.CallbackContext context)
