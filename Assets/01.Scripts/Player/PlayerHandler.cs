@@ -121,7 +121,7 @@ public class PlayerHandler : MonoBehaviour
     public void Attack()
     {
         //무기 장착 여부 관련해서 에니메이터 재생v
-        if (cameraController.isCursor) return;
+        if (!cameraController.isLook) return;
         animator.AttackPuch();
     }
 

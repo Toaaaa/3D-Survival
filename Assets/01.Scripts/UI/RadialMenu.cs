@@ -17,6 +17,7 @@ public class RadialMenu : MonoBehaviour
     [SerializeField] public TextMeshProUGUI descriptionObject;
     
     private List<RadialMenuEntry> entries;
+    CameraController cameraController;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class RadialMenu : MonoBehaviour
     private void Start()
     {
         entries = new List<RadialMenuEntry>();
+        cameraController = FindAnyObjectByType<CameraController>();
     }
 
     private void AddEntry(Texture pIcon,GameObject pPrefab)
@@ -41,7 +43,8 @@ public class RadialMenu : MonoBehaviour
 
     public void OpenMenu()
     {
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
+        cameraController.CursorToggle();
         for (int i = 0; i < 5; i++)
         {
             AddEntry(icons[i], buildPrefabs[i]);
@@ -51,8 +54,10 @@ public class RadialMenu : MonoBehaviour
 
     public void CloseMenu()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        
+        //Cursor.lockState = CursorLockMode.Locked;
+        cameraController.CursorToggle();
+
+
         for (int i = 0; i < 5; i++)
         {
             RectTransform rect = entries[i].GetComponent<RectTransform>();

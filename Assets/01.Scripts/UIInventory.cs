@@ -128,12 +128,10 @@ public class UIInventory : MonoBehaviour
         if (IsOpen())
         { 
             inventoryWindow.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
         }
         else { 
             inventoryWindow.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-        }
+        }       
     }
 
     public bool IsOpen()

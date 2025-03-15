@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     private Camera curCamera;
     private float curLookUp;
     private float curLookRight;
-    public bool isCursor = false;
+    public bool isLook = true;
 
     //[HideInInspector]public bool isFPCamear= true;
     public Camera CurCamera  { get { return curCamera; } set { curCamera = value; } }
@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (isCursor) return;
+        if (!isLook) return;
         
         Look();
         
@@ -81,9 +81,11 @@ public class CameraController : MonoBehaviour
         transform.root.localRotation = Quaternion.Euler(0, curLookRight, 0);
     }
 
-    private void CursorToggle()
+    public void CursorToggle()
     {
-        isCursor = !isCursor;
-        Cursor.lockState = isCursor ? CursorLockMode.Locked : CursorLockMode.None;
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Debug.Log("화면 잠금");        
+        Cursor.lockState = toggle ?  CursorLockMode.None : CursorLockMode.Locked;
+        isLook = !toggle;
     }
 }
