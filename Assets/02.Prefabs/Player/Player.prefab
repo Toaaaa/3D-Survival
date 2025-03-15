@@ -574,6 +574,7 @@ MonoBehaviour:
   maxLookUp: 50
   maxLookDown: -50
   tpCamera: {fileID: 3607606388325313710}
+  isLook: 1
 --- !u!1001 &3487731072275830546
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,7 +15,8 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
 
-    [HideInInspector]public bool isRun = false;
+    [HideInInspector] public bool isRun = false;
+    [HideInInspector] public bool isWeopon = false;
 
     PlayerAnimator animator;
     InputController input;
@@ -122,7 +123,14 @@ public class PlayerHandler : MonoBehaviour
     {
         //무기 장착 여부 관련해서 에니메이터 재생v
         if (!cameraController.isLook) return;
-        animator.AttackPuch();
+        if (isWeopon)
+        {
+            animator.AttackWeopon();
+        }
+        else
+        {
+            animator.AttackPuch();
+        }        
     }
 
 }
