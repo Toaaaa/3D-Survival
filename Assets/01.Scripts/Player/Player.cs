@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     public Interanction interact;
 
     [HideInInspector] public bool isDead = false;
-    PlayerAnimator animator;
 
     private void Awake()
     {        
@@ -31,14 +30,13 @@ public class Player : MonoBehaviour
         building = GetComponent<Building>();
         interact = GetComponent<Interanction>();
         equipment = GetComponent<PlayerEquipment>();
-        animator = GetComponent<PlayerAnimator>();
     }
 
     private void Update()
     {
         if (isDead)
         {
-            animator.PlayerDie(isDead);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
