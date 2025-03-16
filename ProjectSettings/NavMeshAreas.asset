@@ -11,11 +11,11 @@ NavMeshProjectSettings:
     cost: 1
   - name: Jump
     cost: 2
-  - name: 
+  - name: Tiger
     cost: 1
-  - name: 
+  - name: Goat
     cost: 1
-  - name: 
+  - name: Horse
     cost: 1
   - name: 
     cost: 1
