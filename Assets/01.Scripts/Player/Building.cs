@@ -6,6 +6,7 @@ public class Building : MonoBehaviour
 {
     public GameObject previewPrefab; // 프리뷰 프리팹
     private GameObject currentPreview; // 현재 프리뷰 오브젝트
+    private GameObject buildPrefabs;
     private Material[] previewMaterials; // 프리뷰 오브젝트의 재질
     private BoxCollider previewCollider;
     
@@ -14,7 +15,9 @@ public class Building : MonoBehaviour
     private bool isNeedCraft = false;       // 인벤토리 아이템 갯수 체크
     
     public float maxCheckDistance;
+    private Vector3 previewRotation;
     public LayerMask layerMask;
+    public LayerMask colliderMask;
     private Camera cam;
     public Camera Cam {set { cam = value; } }
 
@@ -27,6 +30,12 @@ public class Building : MonoBehaviour
             FollowMouse();
             // 건축 가능 여부 확인 및 색상 변경
             UpdatePreviewColor();
+            
+            if (Input.GetKey(KeyCode.Q))
+            {
+                // Q키를 누르면 물체 회전
+                previewRotation += Vector3.up;
+            }
             
             if (Input.GetMouseButtonDown(0) && isBuilding)
             {
@@ -42,45 +51,36 @@ public class Building : MonoBehaviour
         ItemSlot[] slots;
         slots = CharacterManager.Instance.Player.inventory.slots;
         int buildObjectNeedCount = 0;
-        
+
         foreach (var needItemData in buildObject.needItems.needCraft)
         {
-            bool itemClear = false;
             foreach (var slot in slots)
             {
                 if (needItemData.itemData == slot.ItemData)
                 {
-                    if (slot.quantity > needItemData.needValue)
+                    if (slot.quantity >= needItemData.needValue)
                     {
-                        itemClear = true;
                         buildObjectNeedCount++;
+                        if (buildObjectNeedCount == buildObject.needItems.needCraft.Length)
+                        {
+                            isNeedCraft = true;
+                            return true;
+                        }
                         break;
                     }
                 }
             }
-            
-            if(itemClear)
-                break;
         }
-        
-
-        if (buildObjectNeedCount == buildObject.needItems.needCraft.Length)
-        {
-            isNeedCraft = true;
-            return true;
-        }
-        else
-        {
-            isNeedCraft = false;
-            return false;
-        }
+        isNeedCraft = false;
+        return false;
     }
 
     // 프리뷰 오브젝트 생성
-    public void CreatePreviewObject(GameObject preview)
+    public void CreatePreviewObject(GameObject preview, GameObject buildObject)
     {
         cam = BuildManager.Instance.cameraController.CurCamera;
         previewPrefab = preview;
+        buildPrefabs = buildObject;
         currentPreview = Instantiate(previewPrefab);
         
         previewCollider = currentPreview.GetComponent<BoxCollider>();
@@ -122,6 +122,7 @@ public class Building : MonoBehaviour
             
             currentPreview.transform.position = hit.point;
             currentPreview.transform.rotation = rotation;
+            currentPreview.transform.Rotate(previewRotation);
         }
     }
 
@@ -162,7 +163,9 @@ public class Building : MonoBehaviour
     { 
         Vector3 worldSize = Vector3.Scale(previewCollider.size, previewPrefab.transform.lossyScale);
         
-        Collider[] colliders = Physics.OverlapBox(currentPreview.transform.position, worldSize / 2, previewCollider.transform.rotation);
+        Collider[] colliders = 
+            Physics.OverlapBox(currentPreview.transform.position, 
+                worldSize / 2, previewCollider.transform.rotation, colliderMask);
         foreach (Collider collider in colliders)
         {
             if (collider.gameObject != currentPreview && !collider.gameObject.CompareTag("Ground"))
@@ -186,14 +189,45 @@ public class Building : MonoBehaviour
             Quaternion rotation = Quaternion.FromToRotation(Vector3.up, normal);
             
             // previewPrefab은 isTrigger로 충돌하지 않게 해놔서 생성시 trigger off로 충돌가능하게
-            GameObject newObject = Instantiate(previewPrefab, currentPreview.transform.position, rotation);
-            Collider newCollider = newObject.GetComponent<Collider>();
-            newCollider.isTrigger = false;
+            GameObject newObject = Instantiate(buildPrefabs, currentPreview.transform.position, rotation);
+            newObject.transform.Rotate(previewRotation);
+            
+            BuildObject buildObject = buildPrefabs.gameObject.GetComponent<BuildObject>();
+            ResumeInventoryItems(buildObject);
+            
             previewMaterials = null;
             previewPrefab = null;
+            buildPrefabs = null;
+            previewRotation = Vector3.zero;
             Destroy(currentPreview);
         }
         runBuilding = false;
+    }
+
+    private void ResumeInventoryItems(BuildObject buildObject)
+    {
+        ItemSlot[] slots;
+        slots = CharacterManager.Instance.Player.inventory.slots;
+        int buildObjectNeedCount = 0;
+
+        foreach (var needItemData in buildObject.needItems.needCraft)
+        {
+            foreach (var slot in slots)
+            {
+                if (needItemData.itemData == slot.ItemData)
+                {
+                    if (slot.quantity >= needItemData.needValue)
+                    {
+                        slot.quantity -= needItemData.needValue;
+                        buildObjectNeedCount++;
+                        if (buildObjectNeedCount == buildObject.needItems.needCraft.Length)
+                        {
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void ClearPreview()
@@ -201,6 +235,7 @@ public class Building : MonoBehaviour
         runBuilding = false;
         previewMaterials = null;
         previewPrefab = null;
+        buildPrefabs = null;
         Destroy(currentPreview);
         currentPreview = null;
     }

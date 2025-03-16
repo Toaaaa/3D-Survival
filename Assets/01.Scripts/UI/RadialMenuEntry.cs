@@ -42,10 +42,9 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
         // 건물소환
-        // if(CharacterManager.Instance.Player.building.CheckForBuildingInInventory(buildObject))
-            CharacterManager.Instance.Player.building.CreatePreviewObject(prefab);
+        if(CharacterManager.Instance.Player.building.CheckForBuildingInInventory(buildObject))
+            CharacterManager.Instance.Player.building.CreatePreviewObject(buildObject.previewPrefab, prefab);
 
         BuildUI.Instance.radialMenu.Toggle();
     }

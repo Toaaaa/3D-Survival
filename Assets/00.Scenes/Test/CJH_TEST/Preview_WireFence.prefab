@@ -12,10 +12,8 @@ GameObject:
   - component: {fileID: 5309713980291128599}
   - component: {fileID: 1782208163474111646}
   - component: {fileID: 7282409023035387132}
-  - component: {fileID: 7640024003951364232}
-  - component: {fileID: -6830885025800559720}
   m_Layer: 0
-  m_Name: Build_WireFence
+  m_Name: Preview_WireFence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,46 +99,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 3.1146908, y: 1.4882588, z: 0.09810448}
   m_Center: {x: -0.016699791, y: 0.5084717, z: -0.023831367}
---- !u!114 &7640024003951364232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2668183264673480068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf1742d8a5b8e5d4f88ea3e816eb1ab5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: "\uCCA0\uC870\uB9DD"
-  previewPrefab: {fileID: 2668183264673480068, guid: 0c07f1461d2b89f4f9eae5d8146eecbe,
-    type: 3}
-  needItems:
-    needCraft:
-    - itemData: {fileID: 11400000, guid: 04105bda51147334b89858be90597c33, type: 2}
-      needValue: 2
-    - itemData: {fileID: 11400000, guid: 607f428e36fe0bc47bba47b5c7dc2d04, type: 2}
-      needValue: 2
---- !u!208 &-6830885025800559720
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2668183264673480068}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1.58, y: 0.76500005, z: 0.125}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: -0.016, y: 0.52900004, z: 0.013}
-  m_TimeToStationary: 0.5
