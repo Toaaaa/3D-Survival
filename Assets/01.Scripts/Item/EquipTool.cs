@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EquipTool : Equip
 
-    // 무기 정보
+// 무기 정보
 {
     public ItemData itemData;
 
