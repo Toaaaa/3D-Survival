@@ -10,8 +10,7 @@ public class RadialMenu : MonoBehaviour
 {
     [SerializeField] private GameObject entryPrefab;
     [SerializeField] private float radius = 300f;
-    [SerializeField] List<Texture> icons;
-    [SerializeField] List<GameObject> buildPrefabs;
+    [SerializeField] List<BuildList> buildList;
 
     [SerializeField] public TextMeshProUGUI nameObject;
     [SerializeField] public TextMeshProUGUI descriptionObject;
@@ -30,9 +29,11 @@ public class RadialMenu : MonoBehaviour
         cameraController = FindAnyObjectByType<CameraController>();
         
         cameraController.CursorToggle();
-        for (int i = 0; i < 5; i++)
+        
+        // buildList의 아이콘, 빌드할 buildObject 프리팹 할당하고 disable
+        for (int i = 0; i < buildList.Count; i++)
         {
-            AddEntry(icons[i], buildPrefabs[i]);
+            AddEntry(buildList[i].buildObject.icon, buildList[i].buildObject.prefab);
             entries[i].gameObject.SetActive(false);
         }
     }
@@ -52,9 +53,8 @@ public class RadialMenu : MonoBehaviour
     {
         cameraController.CursorToggle();
         Cursor.lockState = CursorLockMode.None; // 토글 막혀서 일단 테스트
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < buildList.Count; i++)
         {
-            // AddEntry(icons[i], buildPrefabs[i]);
             entries[i].gameObject.SetActive(true);
         }
         Rearrange();
@@ -66,7 +66,7 @@ public class RadialMenu : MonoBehaviour
         cameraController.CursorToggle();
 
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < buildList.Count; i++)
         {
             RectTransform rect = entries[i].GetComponent<RectTransform>();
             GameObject entry = entries[i].gameObject;
@@ -74,15 +74,12 @@ public class RadialMenu : MonoBehaviour
             rect.DOAnchorPos(Vector3.zero, .3f).SetEase(Ease.OutQuad).onComplete
                 = delegate()
                 {
-                    // Destroy(entry);
                     entry.SetActive(false);
                 };
         }
         
         nameObject.gameObject.SetActive(false);
         descriptionObject.gameObject.SetActive(false);
-        
-        // entries.Clear();
     }
 
     public void Toggle()
@@ -113,5 +110,24 @@ public class RadialMenu : MonoBehaviour
             rect.DOAnchorPos(new Vector3(x, y, 0), .3f).SetEase(Ease.OutQuad)
                 .SetDelay(.05f * i);
         }
+    }
+}
+
+[Serializable]
+public class BuildList
+{
+    [SerializeField] public EntrieBuildIcon buildObject;
+}
+
+[Serializable]
+public class EntrieBuildIcon
+{
+    public Texture icon;
+    public GameObject prefab;
+
+    public EntrieBuildIcon(Texture pIcon, GameObject pPrefab)
+    {
+        this.icon = pIcon;
+        this.prefab = pPrefab;
     }
 }

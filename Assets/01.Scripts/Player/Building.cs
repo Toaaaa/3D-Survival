@@ -222,6 +222,7 @@ public class Building : MonoBehaviour
                         buildObjectNeedCount++;
                         if (buildObjectNeedCount == buildObject.needItems.needCraft.Length)
                         {
+                            CharacterManager.Instance.Player.inventory.TriggerUpdateUI();
                             return;
                         }
                     }
