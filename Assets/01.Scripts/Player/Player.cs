@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     public Building building;
     public Interanction interact;
 
+    [HideInInspector] public bool isDead = false;
+    PlayerAnimator animator;
+
     private void Awake()
     {        
         CharacterManager.Instance.Player = this;
@@ -28,5 +31,14 @@ public class Player : MonoBehaviour
         building = GetComponent<Building>();
         interact = GetComponent<Interanction>();
         equipment = GetComponent<PlayerEquipment>();
+        animator = GetComponent<PlayerAnimator>();
+    }
+
+    private void Update()
+    {
+        if (isDead)
+        {
+            animator.PlayerDie(isDead);
+        }
     }
 }

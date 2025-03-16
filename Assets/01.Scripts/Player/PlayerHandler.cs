@@ -37,6 +37,9 @@ public class PlayerHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (CharacterManager.Instance.Player.isDead) return;
+
         if (CharacterManager.Instance.Player.condition.isFreezing)
         {
             Move(freezingSpeed);

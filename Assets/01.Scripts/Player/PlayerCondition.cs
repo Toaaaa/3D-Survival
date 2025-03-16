@@ -49,6 +49,10 @@ public class PlayerCondition : MonoBehaviour
                 if (conditions.TryGetValue(ConditionType.Health, out Condition health))
                 {
                     health.PassiveChanging();
+                    if (health.CurValue <= 0)
+                    {
+                        CharacterManager.Instance.Player.isDead = true;
+                    }
                 }
             }
         }
@@ -76,8 +80,12 @@ public class PlayerCondition : MonoBehaviour
     public void TakeDamage(int attackPower)
     {
         if (conditions.TryGetValue(ConditionType.Health, out Condition health))
-        {
+        {        
             health.ChangCondition(-attackPower);
+            if (health.CurValue <= 0)
+            {
+                CharacterManager.Instance.Player.isDead = true;
+            }
         }
     }
 }
