@@ -15,11 +15,13 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
 
-    [HideInInspector]public bool isRun = false;
+    [HideInInspector] public bool isRun = false;
+    [HideInInspector] public bool isWeopon = false;
 
     PlayerAnimator animator;
     InputController input;
     Rigidbody rigid;
+    CameraController cameraController;
 
     Coroutine runCoroutine;
 
@@ -27,6 +29,7 @@ public class PlayerHandler : MonoBehaviour
     {
         animator = GetComponent<PlayerAnimator>();
         rigid = GetComponent<Rigidbody>();
+        cameraController = GetComponentInChildren<CameraController>();
         input = GetComponent<InputController>();
         input.jumpAction += Jump;
         input.runAction += Run;
@@ -34,6 +37,9 @@ public class PlayerHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (CharacterManager.Instance.Player.isDead) return;
+
         if (CharacterManager.Instance.Player.condition.isFreezing)
         {
             Move(freezingSpeed);
@@ -118,8 +124,16 @@ public class PlayerHandler : MonoBehaviour
 
     public void Attack()
     {
-        //무기 장착 여부 관련해서 에니메이터 재생
-        animator.AttackPuch();
+        //무기 장착 여부 관련해서 에니메이터 재생v
+        if (!cameraController.isLook) return;
+        if (isWeopon)
+        {
+            animator.AttackWeopon();
+        }
+        else
+        {
+            animator.AttackPuch();
+        }        
     }
 
 }

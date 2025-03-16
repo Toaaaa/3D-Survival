@@ -17,6 +17,7 @@ public class RadialMenu : MonoBehaviour
     [SerializeField] public TextMeshProUGUI descriptionObject;
     
     private List<RadialMenuEntry> entries;
+    CameraController cameraController;
 
     private void Awake()
     {
@@ -26,6 +27,14 @@ public class RadialMenu : MonoBehaviour
     private void Start()
     {
         entries = new List<RadialMenuEntry>();
+        cameraController = FindAnyObjectByType<CameraController>();
+        
+        cameraController.CursorToggle();
+        for (int i = 0; i < 5; i++)
+        {
+            AddEntry(icons[i], buildPrefabs[i]);
+            entries[i].gameObject.SetActive(false);
+        }
     }
 
     private void AddEntry(Texture pIcon,GameObject pPrefab)
@@ -41,18 +50,22 @@ public class RadialMenu : MonoBehaviour
 
     public void OpenMenu()
     {
-        Cursor.lockState = CursorLockMode.None;
+        cameraController.CursorToggle();
+        Cursor.lockState = CursorLockMode.None; // 토글 막혀서 일단 테스트
         for (int i = 0; i < 5; i++)
         {
-            AddEntry(icons[i], buildPrefabs[i]);
+            // AddEntry(icons[i], buildPrefabs[i]);
+            entries[i].gameObject.SetActive(true);
         }
         Rearrange();
     }
 
     public void CloseMenu()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        
+        //Cursor.lockState = CursorLockMode.Locked;
+        cameraController.CursorToggle();
+
+
         for (int i = 0; i < 5; i++)
         {
             RectTransform rect = entries[i].GetComponent<RectTransform>();
@@ -61,19 +74,20 @@ public class RadialMenu : MonoBehaviour
             rect.DOAnchorPos(Vector3.zero, .3f).SetEase(Ease.OutQuad).onComplete
                 = delegate()
                 {
-                    Destroy(entry);
+                    // Destroy(entry);
+                    entry.SetActive(false);
                 };
         }
         
         nameObject.gameObject.SetActive(false);
         descriptionObject.gameObject.SetActive(false);
         
-        entries.Clear();
+        // entries.Clear();
     }
 
     public void Toggle()
     {
-        if (entries.Count == 0)
+        if (!entries[0].gameObject.activeSelf)
         {
             OpenMenu();
         }

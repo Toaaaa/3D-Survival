@@ -11,6 +11,8 @@ public class PlayerAnimator : MonoBehaviour
     static readonly int IsGroud = Animator.StringToHash("IsGroud");
     static readonly int IsGather = Animator.StringToHash("IsGather");
     static readonly int IsPunch = Animator.StringToHash("IsPunch");
+    static readonly int IsWeopon = Animator.StringToHash("IsWeopon");
+    static readonly int IsDie = Animator.StringToHash("IsDie");
 
     Animator animator;
     private void Awake()
@@ -46,5 +48,15 @@ public class PlayerAnimator : MonoBehaviour
     public void AttackPuch()
     {
         animator.SetTrigger(IsPunch);
+    }
+
+    public void AttackWeopon()
+    {
+        animator.SetTrigger(IsWeopon);
+    }
+
+    public void PlayerDie(bool isDie)
+    {
+        animator.SetBool(IsDie, isDie);
     }
 }

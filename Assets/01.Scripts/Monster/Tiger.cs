@@ -44,7 +44,6 @@ public class Tiger : Monster
                     gameObject.SetActive(false);// 분신이 아닐때만 비활성화.
                 else
                     Destroy(gameObject);// 분신일때는 파괴.
-                ChangeState(State.Dead);
             }
         }
         if (hpBar != null)

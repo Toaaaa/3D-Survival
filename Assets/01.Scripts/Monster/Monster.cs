@@ -32,8 +32,8 @@ public class Monster : MonoBehaviour
     [SerializeField] private float lostDistance = 15; // 타겟을 잃어버리는 거리.
     [SerializeField] private float AwayDistance = 18; // 처음 구역에서 최대로 멀어질 수 있는 거리. (해당 거리 이상으로 떨어지면 모든 행동을 중지하고 원래 위치로 타겟을 설정하여 돌아감.)
     public Vector3 originPos { get; set; } // 처음 위치.
-    NavMeshAgent navMeshAgent;
-    Animator anim;
+    protected NavMeshAgent navMeshAgent;
+    protected Animator anim;
     protected State state = State.Idle;
     protected enum State
     {
@@ -107,12 +107,12 @@ public class Monster : MonoBehaviour
         return hp / maxHp;
     }
 
-    IEnumerator StateMachine()
+    protected virtual IEnumerator StateMachine()
     {
         while(true)
             yield return StartCoroutine(state.ToString());
     }
-    IEnumerator Idle()
+    protected virtual IEnumerator Idle()
     {
         var curAnimStateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
