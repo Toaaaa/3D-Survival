@@ -54,6 +54,7 @@ public class Interanction : MonoBehaviour
         curItercable.OnInteract();
         curItercable = null;
         curIteractGameObject = null;
+        promptItemInfo.text = null;
         return true;
     }
 }
