@@ -52,7 +52,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -71,10 +71,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: "\uB3CC\uBCBD"
-  needItem:
-  - {fileID: 11400000, guid: 457c9e63c500c35479f8f7ed019f6b4a, type: 2}
-  - {fileID: 11400000, guid: 04105bda51147334b89858be90597c33, type: 2}
-  values: 0200000001000000
   previewPrefab: {fileID: 701164764997736335, guid: a2cfe930a2e689e4e880c3def077aa7e,
     type: 3}
   needItems:

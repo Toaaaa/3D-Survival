@@ -61,12 +61,12 @@ public class Building : MonoBehaviour
                     if (slot.quantity >= needItemData.needValue)
                     {
                         buildObjectNeedCount++;
-                        Debug.Log(buildObjectNeedCount);
                         if (buildObjectNeedCount == buildObject.needItems.needCraft.Length)
                         {
                             isNeedCraft = true;
                             return true;
                         }
+                        break;
                     }
                 }
             }
@@ -220,7 +220,6 @@ public class Building : MonoBehaviour
                     {
                         slot.quantity -= needItemData.needValue;
                         buildObjectNeedCount++;
-                        Debug.Log(buildObjectNeedCount);
                         if (buildObjectNeedCount == buildObject.needItems.needCraft.Length)
                         {
                             return;
