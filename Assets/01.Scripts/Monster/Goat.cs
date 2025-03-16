@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Goat : Monster
 {
-    [SerializeField] float randomRange = 10; // 랜덤 이동 반경 == navmeshsurface의 크기.
+    [SerializeField] float randomRange = 15; // 랜덤 이동 반경 == navmeshsurface의 크기.
     int areaMask;
     private void Start()
     {
@@ -43,7 +43,7 @@ public class Goat : Monster
         if (!curAnimStateInfo.IsName("Idle"))
             anim.Play("Idle", 0, 0);
 
-        // 🟢 Idle 상태에서는 Wander 코루틴 실행
+        // Idle 상태에서는 Wander 코루틴 실행
         StartCoroutine(Wander());
 
         while (state == State.Idle)
@@ -54,7 +54,7 @@ public class Goat : Monster
     {
         while (state == State.Idle) // Idle 상태에서만 Wander 실행
         {
-            Vector3 randomPos = originPos + new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
+            Vector3 randomPos = originPos + new Vector3(Random.Range(-randomRange, randomRange), 0, Random.Range(-randomRange, randomRange));
 
             if (NavMesh.SamplePosition(randomPos, out NavMeshHit hit, 5f, areaMask))
             {
