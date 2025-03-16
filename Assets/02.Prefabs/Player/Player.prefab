@@ -175,11 +175,11 @@ MonoBehaviour:
   - type: 0
     curValue: 0
     maxValue: 100
-    passiveValue: -10
+    passiveValue: -1
   - type: 1
     curValue: 0
     maxValue: 100
-    passiveValue: -20
+    passiveValue: -2
   - type: 3
     curValue: 0
     maxValue: 100
@@ -187,7 +187,7 @@ MonoBehaviour:
   - type: 2
     curValue: 0
     maxValue: 100
-    passiveValue: -20
+    passiveValue: -2
   isFreezing: 0
 --- !u!114 &971617771928428932
 MonoBehaviour:
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curIteractGameObject: {fileID: 0}
-  maxCheckDistance: 5
+  maxCheckDistance: 7
   intercatLayer:
     serializedVersion: 2
     m_Bits: 4294967295

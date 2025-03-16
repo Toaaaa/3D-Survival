@@ -50,7 +50,7 @@ MonoBehaviour:
   attacking: 1
   doesGatherResources: 0
   doesDealDamage: 0
-  attackDistance: 1
+  attackDistance: 1.5
   attackPower: 20
 --- !u!1001 &869436714523823448
 PrefabInstance:
