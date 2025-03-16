@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!isLook) return;
+        if (!isLook || CharacterManager.Instance.Player.isDead) return;
         
         Look();
         
@@ -84,7 +84,6 @@ public class CameraController : MonoBehaviour
     public void CursorToggle()
     {
         bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Debug.Log("화면 잠금");        
         Cursor.lockState = toggle ?  CursorLockMode.None : CursorLockMode.Locked;
         isLook = !toggle;
     }

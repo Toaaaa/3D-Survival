@@ -137,6 +137,7 @@ MonoBehaviour:
   playerAttack: {fileID: 0}
   building: {fileID: 0}
   interact: {fileID: 0}
+  isDead: 0
 --- !u!114 &5049031603175120594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +154,7 @@ MonoBehaviour:
   jumpPower: 300
   freezingSpeed: 4
   runSpeed: 10
-  runStamina: -10
+  runStamina: -20
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

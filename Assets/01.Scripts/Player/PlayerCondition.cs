@@ -12,6 +12,9 @@ public class PlayerCondition : MonoBehaviour
     public Dictionary<ConditionType, Condition> Conditions { get => conditions; }
     
     [HideInInspector]public bool isFreezing = false;
+    PlayerAnimator animator;
+    CameraController cameraController;
+
     private void Awake()
     {
         //인스펙터배열->딕셔너리 변환
@@ -24,6 +27,8 @@ public class PlayerCondition : MonoBehaviour
         {
             condition.CurValue = condition.MaxValue;
         }
+        animator = GetComponent<PlayerAnimator>();
+        cameraController = GetComponentInChildren<CameraController>();
     }
 
     private void Update()
@@ -49,6 +54,10 @@ public class PlayerCondition : MonoBehaviour
                 if (conditions.TryGetValue(ConditionType.Health, out Condition health))
                 {
                     health.PassiveChanging();
+                    if (health.CurValue <= 0)
+                    {
+                        IsDead();
+                    }
                 }
             }
         }
@@ -76,8 +85,18 @@ public class PlayerCondition : MonoBehaviour
     public void TakeDamage(int attackPower)
     {
         if (conditions.TryGetValue(ConditionType.Health, out Condition health))
-        {
+        {        
             health.ChangCondition(-attackPower);
+            if (health.CurValue <= 0)
+            {
+                IsDead();
+            }
         }
+    }
+
+    private void IsDead()
+    {
+        CharacterManager.Instance.Player.isDead = true;
+        animator.PlayerDie(CharacterManager.Instance.Player.isDead);
     }
 }
