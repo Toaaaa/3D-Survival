@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class Goat : Monster
 {
     [SerializeField] float randomRange = 10; // 랜덤 이동 반경 == navmeshsurface의 크기.
-    Animator anim;
     int areaMask;
     private void Start()
     {
