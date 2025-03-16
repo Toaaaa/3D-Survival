@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
-using System.Xml;
-//using Newtonsoft.Json;
+using Newtonsoft.Json;
 using UnityEngine;
 
 
@@ -134,15 +133,32 @@ public class DataManager : MonoBehaviour
         dataPath = Path.Combine(Application.persistentDataPath, "ItemData.Json");
     }
 
-    // 데이터 저장하기
-    //public void SaveItemDataToJson(ItemData itemdata)
-    //{
-    //    var json = JsonConvert.SerializeObject(itemdata, Formatting.Indented, new JsonSeralizerSettings)
-    //        {
-    //        TypeNameHandling
-    //    }
+    // 아이템 데이터 저장하기
+    public void SaveItemDataToJson(ItemData itemdata)
+    {
+        var json = JsonConvert.SerializeObject(itemdata, Formatting.Indented, new JsonSerializerSettings
+        {
+            TypeNameHandling = TypeNameHandling.Auto
+        });
+        File.WriteAllText(dataPath, json);
+    }
 
-        
-    //}
+    // 아이템 데이터 불러오기
+    public ItemData LoadItemDataFromJson()
+    {
+        if (File.Exists(dataPath))
+        {
+            var json = File.ReadAllText(dataPath);
+            var itemData = JsonConvert.DeserializeObject<ItemData>(json, new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.Auto
+            });
 
+            if (itemData.drobPrefabName != null) { itemData.drobPrefab = UnityEngine.Resources.Load<GameObject>(itemData.drobPrefabName); }
+            if (itemData.iconName != null) { itemData.icon = UnityEngine.Resources.Load<Sprite>(itemData.iconName); }
+
+            return itemData;
+        }
+        return null;
+    }
 }
