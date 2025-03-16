@@ -124,6 +124,8 @@ public class DataManager : MonoBehaviour
     public static DataManager Instance { get; private set; }
     private string dataPath; // 저장 경로
 
+    private ItemDatas itemDatas;
+
     private void Awake()
     {
         if (Instance == null)
@@ -131,12 +133,15 @@ public class DataManager : MonoBehaviour
         else { Destroy(gameObject); }
 
         dataPath = Path.Combine(Application.persistentDataPath, "ItemData.Json");
+        Debug.Log($"datapath는 {dataPath}");
+
+        LoadItemDataFromJson();
     }
 
     // 아이템 데이터 저장하기
-    public void SaveItemDataToJson(ItemData itemdata)
+    public void SaveItemDataToJson()
     {
-        var json = JsonConvert.SerializeObject(itemdata, Formatting.Indented, new JsonSerializerSettings
+        var json = JsonConvert.SerializeObject(itemDatas, Formatting.Indented, new JsonSerializerSettings
         {
             TypeNameHandling = TypeNameHandling.Auto
         });
@@ -144,21 +149,45 @@ public class DataManager : MonoBehaviour
     }
 
     // 아이템 데이터 불러오기
-    public ItemData LoadItemDataFromJson()
+    public void LoadItemDataFromJson()
     {
         if (File.Exists(dataPath))
         {
             var json = File.ReadAllText(dataPath);
-            var itemData = JsonConvert.DeserializeObject<ItemData>(json, new JsonSerializerSettings
+            itemDatas = JsonConvert.DeserializeObject<ItemDatas>(json, new JsonSerializerSettings
             {
                 TypeNameHandling = TypeNameHandling.Auto
             });
+            
 
-            if (itemData.drobPrefabName != null) { itemData.drobPrefab = UnityEngine.Resources.Load<GameObject>(itemData.drobPrefabName); }
-            if (itemData.iconName != null) { itemData.icon = UnityEngine.Resources.Load<Sprite>(itemData.iconName); }
-
-            return itemData;
+                foreach (var itemData in itemDatas.itemsDatas)
+            {
+                if (itemData.drobPrefabName != null) { itemData.drobPrefab = UnityEngine.Resources.Load<GameObject>(itemData.drobPrefabName); }
+                if (itemData.iconName != null) { itemData.icon = UnityEngine.Resources.Load<Sprite>(itemData.iconName); }
+                if (itemData.equipPrefabName != null) { itemData.equipPrefab = UnityEngine.Resources.Load<GameObject>(itemData.equipPrefabName); }  
+            }
+            Debug.Log($"Loaded JSON: {json}");
         }
+
+    }
+
+    public ItemData GetItemDataByID(string id)
+    {
+        if (itemDatas == null || itemDatas.itemsDatas == null)
+        {
+            Debug.LogWarning("아이템 데이터 없음");
+            return null;
+        }
+
+        foreach (var item in itemDatas.itemsDatas)
+        {
+            if (item.itemKey == id)
+            {
+                return item;
+            }
+        }
+
+        Debug.LogWarning($"{id} 아이템 데이터 없음.");
         return null;
     }
 }
