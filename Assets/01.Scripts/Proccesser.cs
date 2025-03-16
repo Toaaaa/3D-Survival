@@ -6,10 +6,12 @@ using UnityEngine;
 public class Proccesser : MonoBehaviour, IInteractable
 {
     public Canvas uiProccesser;
+    CameraController cameraController;
 
     private void Start()
     {
         //uiProccesser.gameObject.SetActive(false);
+        cameraController = FindAnyObjectByType<CameraController>();
     }
 
     public string GetInteractPrompt()
@@ -34,8 +36,9 @@ public class Proccesser : MonoBehaviour, IInteractable
     {
         //플레이어 이동 및 둘러보기 잠금
         //마우스 커서 켜기
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
         //프로세서 창 켜기
+        cameraController.CursorToggle();
         uiProccesser.gameObject.SetActive(true);
     }
 
@@ -45,7 +48,10 @@ public class Proccesser : MonoBehaviour, IInteractable
         //마우스 커서 끄기
         //프로세서 창 끄기
         uiProccesser.gameObject.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
+        cameraController.CursorToggle();
+        //Cursor.lockState = CursorLockMode.Locked;
     }
+
+
 
 }

@@ -158,6 +158,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isRun: 0
+  isWeopon: 0
 --- !u!114 &3732017702378264790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curEquip: {fileID: 0}
-  equipParent: {fileID: 8892788250668512047}
+  equipParent: {fileID: 5711628385886651138}
   playerAttack: {fileID: 0}
 --- !u!114 &3297875496094871373
 MonoBehaviour:
@@ -574,6 +575,7 @@ MonoBehaviour:
   maxLookUp: 50
   maxLookDown: -50
   tpCamera: {fileID: 3607606388325313710}
+  isLook: 1
 --- !u!1001 &3487731072275830546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -699,9 +701,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3487731072275830546}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8892788250668512047 stripped
+--- !u!4 &5711628385886651138 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5408663870200538173, guid: 60770bdb4dc667c45bea53db0339dc05,
+  m_CorrespondingSourceObject: {fileID: 9161780896248370192, guid: 60770bdb4dc667c45bea53db0339dc05,
     type: 3}
   m_PrefabInstance: {fileID: 3487731072275830546}
   m_PrefabAsset: {fileID: 0}

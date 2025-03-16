@@ -124,15 +124,14 @@ public class UIInventory : MonoBehaviour
     // 인벤토리 창 열고 닫기
     public void Toggle()
     {
+        
         if (IsOpen())
         { 
             inventoryWindow.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
         }
         else { 
             inventoryWindow.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-        }
+        }       
     }
 
     public bool IsOpen()

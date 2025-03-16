@@ -19,13 +19,12 @@ public class PlayerEquipment : MonoBehaviour
         curEquip = Instantiate(equipItemData.equipPrefab, equipParent).GetComponent<Equip>();
 
         // 1인칭인 경우 - 포지션바꿔주기
-       // curEquip = 
+        // curEquip = 
         // 3인칭인 경우 - 포지션바꿔주기
-
-
 
         if (curEquip is EquipTool equipTool)
         {
+            CharacterManager.Instance.Player.handler.isWeopon = true;
             playerAttack.ChangePower(equipTool.attackPower);
             playerAttack.ChangeAttackDistance(equipTool.attackDistance);
         }
@@ -33,9 +32,10 @@ public class PlayerEquipment : MonoBehaviour
     public void UnEquip(ItemData equipItemData)
     {
         if (curEquip != null)
-        {
+        {               
             Destroy(curEquip.gameObject);
             // PlayerAttack의 attackPower 및 attackDistance 초기화 필요
+            CharacterManager.Instance.Player.handler.isWeopon = false;
             curEquip = null;
         }
     }
