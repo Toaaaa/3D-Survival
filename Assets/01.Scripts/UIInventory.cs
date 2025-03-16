@@ -214,13 +214,30 @@ public class UIInventory : MonoBehaviour
                 {
                     //소비 타입에 따른 함수 호출 -playerCondition에서 만들어야 함
 
-                    //case ConsumableType.Health:
-                    ////conditions.UseItem(selectedItem.ItemsConsumables[i].value); break;
-                    //// case consumabletype.stamina:
-                    //// conditions.eatstaminaitem(selectedItem.ItemsConsumables[i].value); break;
-                    //// case consumabletype.water:
-                    //// conditions.eatspeeditem(); break;
-                    //case ConsumableType.Hunger:
+                    case ConsumableType.Health:
+                       if(conditions.Conditions.TryGetValue(ConditionType.Health, out Condition health))
+                        {
+                            health.ChangCondition(selectedItem.ItemsConsumables[i].value);
+                        }
+                        break;
+                    case ConsumableType.Stamina:
+                        if (conditions.Conditions.TryGetValue(ConditionType.Stamina, out Condition stamina))
+                        {
+                            stamina.ChangCondition(selectedItem.ItemsConsumables[i].value);
+                        }
+                        break;
+                    case ConsumableType.Water:
+                        if (conditions.Conditions.TryGetValue(ConditionType.Water, out Condition water))
+                        {
+                            water.ChangCondition(selectedItem.ItemsConsumables[i].value);
+                        }
+                        break;
+                    case ConsumableType.Hunger:
+                        if (conditions.Conditions.TryGetValue(ConditionType.Hunger, out Condition hunger))
+                        {
+                            hunger.ChangCondition(selectedItem.ItemsConsumables[i].value);
+                        }
+                        break;
                 }
             }
             // 사용한 뒤에 selectItem을 초기화한다.
