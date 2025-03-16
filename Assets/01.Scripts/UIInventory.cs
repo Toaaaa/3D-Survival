@@ -39,8 +39,6 @@ public class UIInventory : MonoBehaviour
 
     private InputController controller;
     private PlayerCondition conditions;
-    
-
 
 
     private void Start()
@@ -54,14 +52,10 @@ public class UIInventory : MonoBehaviour
         conditions = CharacterManager.Instance.Player.condition;
         playerEquipment = CharacterManager.Instance.Player.equipment;
 
-
-
         //InputController에서 액션 생성
-        controller.inventory += Toggle;
-        
+        controller.inventory += Toggle;     
 
         playerInventory.InventoryUpdated += UpdateUI;
-
 
         // slots 밑에 딸린 itemslot.cs 달린 슬롯 개수 만큼 객체 생성
         uiSlots = new UIItemSlots[playerInventory.slotNumber];
@@ -86,23 +80,8 @@ public class UIInventory : MonoBehaviour
         selectedItemStatName.text = string.Empty;
         selectedItemStatValue.text = string.Empty;
     }
-
     public void UpdateUI()
     {
-        //for (int i = 0; i < slots.Length; i++)
-        //{
-        //    if (slots[i].ItemData != null)
-        //    {
-        //        //slots[i].ItemData = [i].ItemData; 
-        //        //slots[i].quantity = itemSlots[i].quantity;
-        //        slots[i].Set(i); 
-        //    }
-        //    else
-        //    {
-        //        slots[i].Clear();
-        //    }
-        //}
-
         for (int i = 0; i < uiSlots.Length; i++)
         {
             if (playerInventory.slots[i].ItemData == null) return;
@@ -139,12 +118,6 @@ public class UIInventory : MonoBehaviour
         return inventoryWindow.activeInHierarchy;
     }
 
-    // 슬롯 선택(버튼클릭) -> UI 인벤토리 연결 메서드
-    //public void OnClick()
-    //{
-    //    SelectItem(ItemSlot.index);
-    //}
-
     public void OnClick(int index)
     {
         // 슬롯 선택 로직 실행
@@ -166,8 +139,8 @@ public class UIInventory : MonoBehaviour
         // 소비 아이템일 때만 StatName, StatValue 나타내기
         for (int i = 0; i < selectedItem.ItemsConsumables.Length; i++)
         {
-            selectedItemStatName.text += selectedItem.ItemsConsumables[i].type.ToString();
-            selectedItemStatValue.text += selectedItem.ItemsConsumables[i].value.ToString();
+            selectedItemStatName.text += selectedItem.ItemsConsumables[i].type.ToString() + "\n";
+            selectedItemStatValue.text += selectedItem.ItemsConsumables[i].value.ToString() + "\n";
         }
 
         useButton.SetActive(selectedItem.type == ItemType.Consumable);
