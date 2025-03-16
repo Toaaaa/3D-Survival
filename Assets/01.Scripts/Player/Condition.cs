@@ -31,7 +31,7 @@ public class Condition
 
     public void ChangCondition(float value)
     {
-        if (curValue > maxValue || curValue == 0) return;
+        if (curValue > maxValue || curValue < 0) return;
         curValue = Mathf.Clamp(curValue + value, 0 , maxValue);
     }
 
