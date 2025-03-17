@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Resources : MonoBehaviour
 {
-    public ItemData itemToGive;
+    public GameObject itemToGive;
 
     // 형빈님에게 확인시켜드린 뒤 주석 풀기
     //public string itemKey;
@@ -50,7 +50,7 @@ public class Resources : MonoBehaviour
         if (capacy <= 0)
         {
             
-            ItemObject itemObject = Instantiate(itemToGive.drobPrefab, hitPoint + Vector3.up + hitNormal, Quaternion.LookRotation(hitNormal, Vector3.up)).GetComponent<ItemObject>();
+            ItemObject itemObject = Instantiate(itemToGive, hitPoint + Vector3.up + hitNormal, Quaternion.LookRotation(hitNormal, Vector3.up)).GetComponent<ItemObject>();
             itemObject.amount = totalquantity;
             StartCoroutine(RespawnCo());
         }

@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d83d7d6ddb0ca040a6093b9348198e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToGive: {fileID: 11400000, guid: 8912f44b83613894fb4eb6a61cd44729, type: 2}
+  itemToGive: {fileID: 8613832053738533129, guid: 44feeb2e939d5d64db63861dc0a89376,
+    type: 3}
   totalquantity: 2
   originCapacy: 2
   capacy: 0
