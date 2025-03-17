@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UISound : Singleton<UISound>
+public class UISound : MonoBehaviour
 {
     public float volume;
     
@@ -12,16 +12,15 @@ public class UISound : Singleton<UISound>
     [SerializeField] private AudioClip ex;
 
     
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         audioSource = GetComponent<AudioSource>();
     }
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         BuildUI.Instance.radialMenu.openAction += OpenRadialMenu;
+        SoundManager.Instance.UISound = this;
         audioSource.volume = volume;
     }
     
