@@ -181,7 +181,7 @@ public class UIInventory : MonoBehaviour
         }
     }
 
-    // 1.사용하기버튼 (구현예정)
+    // 1.사용하기버튼 
 
     public void OnUseButton()
     {
