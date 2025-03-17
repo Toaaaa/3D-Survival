@@ -88,7 +88,7 @@ public class PlayerHandler : MonoBehaviour
         {
             if(!CharacterManager.Instance.Player.condition.UseStamina(runStamina * Time.deltaTime))
             {
-                if (CharacterManager.Instance.Player.condition.UseStamina(runStamina))
+                if (!CharacterManager.Instance.Player.condition.UseStamina(runStamina))
                 {
                     isRun = false;
                     yield break;

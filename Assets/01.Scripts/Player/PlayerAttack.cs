@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
     public float AttackPower { get => attackPower; }
     [SerializeField] float attackDistance;
     public float AttackDistance { get => attackDistance; }
+    public Action onHit;
+
 
     //장비 착용시 가져다 쓰면 됩니다.
     public void ChangePower(float value)
@@ -41,6 +44,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Debug.Log("자원 공격 성공");
                 resources.Gather(hit.point , hit.normal);
+                onHit?.Invoke();
                 return true;
             }
 
@@ -48,6 +52,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Debug.Log("적 공격 성공");               
                 monster.OnHit(attackPower);
+                onHit?.Invoke();
                 return true;
             }    
         }
