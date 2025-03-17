@@ -49,8 +49,20 @@ public class Interanction : MonoBehaviour
     }
 
     public bool OnIntercat()
-    {
-        if (curIteractGameObject == null || curItercable == null) return false;
+    {        
+        if (curIteractGameObject == null) return false;
+
+        if (curIteractGameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            if (CharacterManager.Instance.Player.condition.Conditions.TryGetValue(ConditionType.Water, out Condition water))
+            {
+                water.ChangCondition(water.MaxValue);
+            }
+            return true;
+        }
+
+        if (curItercable == null) return false;
+
         curItercable.OnInteract();
         curItercable = null;
         curIteractGameObject = null;
