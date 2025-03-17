@@ -18,14 +18,17 @@ public class BuildObject : MonoBehaviour
         capacy = originCapacy;
     }
 
-    public string GetNameXValues()
+    public void Intialize()
     {
         for (int i = 0; i < needItems.needCraft.Length; i++)
         {
             needItems.needCraft[i].itemData =
                 DataManager.Instance.GetItemDataByID(needItems.needCraft[i].itemObject.itemKey);
         }
-        
+    }
+
+    public string GetNameXValues()
+    {
         string str = string.Empty;
         for (int i = 0; i < needItems.needCraft.Length; i++)
         {
