@@ -18,11 +18,11 @@ public class UIProccesser : MonoBehaviour
 
     public ItemData selectedItem;
     public int selectedItemIndex;
+    private ItemData proccessedData;
 
     private void Awake()
     {
-        // 확인부탁드립니다
-        //proccessBtn.onClick.AddListener(OnProccessBtn);
+        proccessBtn.onClick.AddListener(OnProccessBtn);
     }
 
     private void Start()
@@ -38,41 +38,57 @@ public class UIProccesser : MonoBehaviour
         inventory.InventoryUpdated += UpdateProccesserUI;
     }
 
-    // 형빈님 확인 부탁드립니다
-    //public void OnProccessBtn()
-    //{
-    //    if (selectedItem != null && selectedItem.proccessedItem != null && inventory.slots[selectedItemIndex].quantity > selectedItem.neededQuantity)
-    //    {
-    //        inventory.slots[selectedItemIndex].quantity -= selectedItem.neededQuantity;
-    //        inventory.AddItem(selectedItem.proccessedItem);
-    //    }
-    //}
+    public void OnProccessBtn()
+    {
+        if (proccessedData != null && inventory.slots[selectedItemIndex].quantity >= selectedItem.neededQuantity)
+        {
+            inventory.slots[selectedItemIndex].quantity -= selectedItem.neededQuantity;
+            inventory.AddItem(proccessedData);
+        }
+    }
 
-    //public void Select(int index)
-    //{
-    //    if (inventory.slots[index].ItemData == null) return;
+    public void Select(int index)
+    {
+        if (inventory.slots[index].ItemData == null) return;
 
-    //    selectedItemIndex = index;
-    //    if (inventory.slots[index].ItemData != null)
-    //    {
-    //        ProccessingItemIcon.sprite = inventory.slots[index].ItemData.icon;
-    //        selectedItem = inventory.slots[index].ItemData;
-    //    }
+        selectedItemIndex = index;
+        if (inventory.slots[index].ItemData != null)
+        {
+            ProccessingItemIcon.sprite = inventory.slots[index].ItemData.icon;
+            selectedItem = inventory.slots[index].ItemData;
+        }
+        else
+        {
+            UIReset();
+            return;
+        }
 
-    //    if (inventory.slots[index].ItemData.proccessedItem != null)
-    //    {
-    //        ProccessedItemIcon.sprite = inventory.slots[index].ItemData.proccessedItem.icon;
-    //        neededQuantityTxt.text = $"X{inventory.slots[index].ItemData.neededQuantity}";
-    //    }
-    //}
+        if (inventory.slots[index].ItemData.type == ItemType.Resource && inventory.slots[index].ItemData.nextItemIdx >0)
+        {
+            proccessedData = DataManager.Instance.GetItemDataByID(inventory.slots[index].ItemData.nextItemIdx.ToString());
+            ProccessedItemIcon.sprite = proccessedData.icon;
+            neededQuantityTxt.text = $"X{inventory.slots[index].ItemData.neededQuantity}";
+        }
 
-    private void OnDisable()
+        if(proccessedData == null)
+        {
+            ProccessedItemIcon.sprite = null;
+            neededQuantityTxt.text = string.Empty;
+        }
+    }
+
+    private void UIReset()
     {
         selectedItem = null;
         selectedItemIndex = -1;
+        proccessedData = null;
         ProccessingItemIcon.sprite = null;
         ProccessedItemIcon.sprite = null;
         neededQuantityTxt.text = string.Empty;
+    }
+    private void OnDisable()
+    {
+        UIReset();
     }
 
 

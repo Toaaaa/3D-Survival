@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    itemKey: 8
+    itemKey: 7
     displayName: 
     description: 
     type: 2
@@ -109,9 +109,11 @@ MonoBehaviour:
     drobPrefabName: 
     equipPrefab: {fileID: 0}
     equipPrefabName: 
+    canStack: 0
+    maxStackAmount: 0
     neededQuantity: 0
     nextItemIdx: 0
-  itemKey: 8
+  itemKey: 7
   amount: 1
 --- !u!54 &-3648109553664386502
 Rigidbody:
