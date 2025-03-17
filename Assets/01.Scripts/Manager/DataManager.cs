@@ -132,9 +132,9 @@ public class DataManager : MonoBehaviour
         { Instance = this; }
         else { Destroy(gameObject); }
 
-        dataPath = Path.Combine(Application.persistentDataPath, "ItemData.Json");
+        dataPath = Path.Combine(Application.dataPath + "/Json", "ItemData.Json");
         Debug.Log($"datapath는 {dataPath}");
-
+       
         LoadItemDataFromJson();
     }
 
@@ -158,13 +158,13 @@ public class DataManager : MonoBehaviour
             {
                 TypeNameHandling = TypeNameHandling.Auto
             });
-            
 
-                foreach (var itemData in itemDatas.itemsDatas)
+
+            foreach (var itemData in itemDatas.itemsDatas)
             {
                 if (itemData.drobPrefabName != null) { itemData.drobPrefab = UnityEngine.Resources.Load<GameObject>(itemData.drobPrefabName); }
                 if (itemData.iconName != null) { itemData.icon = UnityEngine.Resources.Load<Sprite>(itemData.iconName); }
-                if (itemData.equipPrefabName != null) { itemData.equipPrefab = UnityEngine.Resources.Load<GameObject>(itemData.equipPrefabName); }  
+                if (itemData.equipPrefabName != null) { itemData.equipPrefab = UnityEngine.Resources.Load<GameObject>(itemData.equipPrefabName); }
             }
             Debug.Log($"Loaded JSON: {json}");
         }

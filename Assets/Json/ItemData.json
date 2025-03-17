@@ -1,0 +1,251 @@
+{
+    "itemsDatas": [
+        {
+            "itemKey": "1",
+            "displayName": "낡은 도끼",
+            "description": "금방 부서질 것 같은 도끼",
+            "type": "Equipable",
+            "iconName": "Item_Icon/Icon_OldAxe",
+            "drobPrefabName": "DropPrefab/OldAxe",
+            "equipPrefabName": "EquipPrefab/Equip_OldAxe",
+
+            "attackRate": "0.06",
+
+            "doesGatherResources": true,
+            "doesDealDamage": false
+        },
+        {
+            "itemKey": "2",
+            "displayName": "돌 도끼",
+            "description": "돌로 만들어진 도끼",
+            "type": "Equipable",
+            "iconName": "Item_Icon/Icon_IronAxe",
+            "drobPrefabName": "DropPrefab/IronAxe",
+            "equipPrefabName": "EquipPrefab/Equip_IronAxe",
+
+            "attackRate": "0.05",
+
+            "doesGatherResources": true,
+            "doesDealDamage": false
+        },
+        {
+            "itemKey": "3",
+            "displayName": "철 도끼",
+            "description": "보다 단단해진 도끼",
+            "type": "Equipable",
+            "iconName": "Item_Icon/Icon_BlackAxe",
+            "drobPrefabName": "DropPrefab/BlackAxe",
+            "equipPrefabName": "EquipPrefab/Equip_BlackAxe",
+
+            "attackRate": "0.04",
+
+            "doesGatherResources": true,
+            "doesDealDamage": false
+        },
+        {
+            "itemKey": "4",
+            "displayName": "낡은 검",
+            "description": "금방이라도 부서질 것 같은 검",
+            "type": "Equipable",
+            "iconName": "Item_Icon/Icon_OldSword",
+            "drobPrefabName": "DropPrefab/OldSword",
+            "equipPrefabName": "EquipPrefab/Equip_OldSword",
+
+            "attackRate": "0.06",
+
+            "doesGatherResources": false,
+            "doesDealDamage": true,
+            "attackDistance": "",
+            "attackPower": ""
+        },
+        {
+            "itemKey": "5",
+            "displayName": "돌 검",
+            "description": "돌로 만든 검",
+            "type": "Equipable",
+            "iconName": "Item_Icon/Icon_IronSword",
+            "drobPrefabName": "DropPrefab/IronSword",
+            "equipPrefabName": "EquipPrefab/Equip_IronSword",
+
+            "attackRate": "0.05",
+
+            "doesGatherResources": false,
+            "doesDealDamage": true,
+            "attackDistance": "",
+            "attackPower": ""
+        },
+        {
+            "itemKey": "6",
+            "displayName": "철 검",
+            "description": "철로 만든 보다 강해진 검",
+            "type": "Equipable",
+            "iconName": "Item_Icon/Icon_BlackSword",
+            "drobPrefabName": "DropPrefab/BlackSword",
+            "equipPrefabName": "EquipPrefab/Equip_BlackSword",
+
+            "attackRate": "0.04",
+
+            "doesGatherResources": false,
+            "doesDealDamage": true,
+            "attackDistance": "",
+            "attackPower": ""
+        },
+        {
+            // 여기서부터 자원+가공
+            "itemKey": "7",
+            "displayName": "돌멩이",
+            "description": "바위를 잘게 부숴 나온 작은 암석입니다.",
+            "type": "Resource",
+            "iconName": "Item_Icon/Icon_Stone",
+            "drobPrefabName": "DropPrefab/Stone",
+            "canStack": true,
+            "maxStackAmount": 64,
+            "neededQuantity": 2,
+            "nextItemIdx": 8
+        },
+        {
+            "itemKey": "8",
+            "displayName": "가공된 석재",
+            "description": "돌멩이를 가공하여 만든 석재입니다. 유용하게 쓸 수 있을 것 같습니다.",
+            "type": "Resource",
+            "iconName": "Item_Icon/Icon_Stoneblock",
+            "drobPrefabName": "DropPrefab/ProccessedStone",
+            "canStack": true,
+            "maxStackAmount": 64
+        },
+        {
+            "itemKey": "9",
+            "displayName": "통나무",
+            "description": "가공되지 않은 상태의 원목입니다.",
+            "type": "Resource",
+            "iconName": "Item_Icon/Icon_Logs",
+            "drobPrefabName": "DropPrefab/Log",
+            "canStack": true,
+            "maxStackAmount": 64,
+            "neededQuantity": 2,
+            "nextItemIdx": 10
+        },
+        {
+            "itemKey": "10",
+            "displayName": "가공된 목재",
+            "description": "통나무를 가공하여 만든 목재입니다. 여러 방면에서 활용할 수 있을 것 같습니다.",
+            "type": "Resource",
+            "iconName": "Item_Icon/Icon_Planks",
+            "drobPrefabName": "DropPrefab/ProccessedWood",
+            "canStack": true,
+            "maxStackAmount": 64
+        },
+        {
+            "itemKey": "11",
+            "displayName": "큰 버섯",
+            "description": "돌연변이 거대 버섯입니다. 식용으로 쓸 수 있을 것 같습니다",
+            "type": "Consumable",
+            "iconName": "Item_Icon/Icon_mashroom1",
+            "canStack": true,
+            "maxStackAmount": 16,
+            "ConsumableType": ["Health", "Hunger"],
+            "value": [10, 20]
+        },
+        {
+            "itemKey": "12",
+            "displayName": "노란 버섯",
+            "description": "먹을 수 있는 버섯입니다. 소량의 체력과 허기를 회복시킵니다",
+            "type": "Consumable",
+            "iconName": "Item_Icon/Icon_Mashroom_0",
+            "canStack": true,
+            "maxStackAmount": 20,
+            "ConsumableType": [ "Health", "Hunger" ],
+            "value": [ 5, 10 ]
+        },
+        {
+            "itemKey": "13",
+            "displayName": "블루베리",
+            "description": "야생에서 자란 블루베리. 달콤한 과즙이 가득하다.",
+            "type": "Consumable",
+            "iconName": "Item_Icon/Icon_Grapes",
+            "drobPrefabName": "DropPrefab/BlueBerry_Object",
+            "canStack": true,
+            "maxStackAmount": 16,
+            "ConsumableType": [ "Hunger", "Water" ],
+            "value": [ 5, 5 ]
+        },
+        {
+            "itemKey": "14",
+            "displayName": "빨간 꽃",
+            "description": "무색무취의 예쁜 꽃입니다. 꽃꿀로 소량의 허기를 채울 수 있을 것 같습니다.",
+            "type": "Consumable",
+            "iconName": "Item_Icon/Icon_Mashroom_5",
+            "canStack": true,
+            "maxStackAmount": 16,
+            "ConsumableType": "Hunger",
+            "value": 10
+        },
+        {
+            "itemKey": "15",
+            "displayName": "하얀 꽃",
+            "description": "다량의 수분을 머금고 있어 줄기까지 씹어먹으면 어느정도의 갈증을 해소할 수 있습니다.",
+            "type": "Consumable",
+            "iconName": "Item_Icon/Icon_Cottonsingle",
+            "canStack": true,
+            "maxStackAmount": 20,
+            "ConsumableType": "Water",
+            "value": 10
+        },
+        {
+            "itemKey": "16",
+            "displayName": "동물의 고기",
+            "description": "섭취 시 체력을 회복한다.",
+            "type": "Consumable",
+            "iconName": "Item_Icon/Icon_Meat1",
+            "drobPrefabName": "DropPrefab/AnimalMeat",
+            "canStack": true,
+            "maxStackAmount": 5,
+            "ConsumableType": "Health",
+            "value": 50
+        },
+        {
+            "itemKey": "17",
+            "displayName": "동물의 뼈",
+            "description": "높은 강도를 가진 동물의 뼈.",
+            "type": "Resource",
+            "iconName": "Item_Icon/Icon_Bone",
+            "drobPrefabName": "DropPrefab/Bone",
+            "canStack": true,
+            "maxStackAmount": 5
+        },
+        {
+            "itemKey": "18",
+            "displayName": "호랑이 고기",
+            "description": "섭취 시 체력을 회복한다.",
+            "type": "Consumable",
+            "iconName": "Item_Icon/Icon_TigerMeat",
+            "drobPrefabName": "DropPrefab/TigerMeat",
+            "canStack": true,
+            "maxStackAmount": 5,
+            "ConsumableType": "Health",
+            "value": 50
+        }
+    ]
+}
+
+// *양식*
+//"itemKey": "",
+//"displayName": "",
+//"description": "",
+//"type": "",
+//"iconName": "Item_Icon/",
+//"drobPrefabName": "DropPrefab/",
+//"equipPrefabName": "EquipPrefab/"
+
+// 자원템
+
+// 소비템
+
+// 장비템
+//"attackRate": "",
+
+//"doesGatherResources": false,
+//"doesDealDamage": true,
+
+//"attackDistance": "",
+//"attackPower": ""
