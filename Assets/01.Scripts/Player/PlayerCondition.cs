@@ -72,7 +72,7 @@ public class PlayerCondition : MonoBehaviour
     {
         if(conditions.TryGetValue(ConditionType.Stamina, out Condition stamina))
         {
-            if (stamina.curValue <= 0)
+            if (stamina.curValue + value <= 0)
             {
                 return false;
             }
