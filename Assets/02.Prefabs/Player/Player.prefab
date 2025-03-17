@@ -137,6 +137,7 @@ MonoBehaviour:
   playerAttack: {fileID: 0}
   building: {fileID: 0}
   interact: {fileID: 0}
+  isDead: 0
 --- !u!114 &5049031603175120594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +154,7 @@ MonoBehaviour:
   jumpPower: 300
   freezingSpeed: 4
   runSpeed: 10
-  runStamina: -10
+  runStamina: -20
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -175,11 +176,11 @@ MonoBehaviour:
   - type: 0
     curValue: 0
     maxValue: 100
-    passiveValue: -10
+    passiveValue: -1
   - type: 1
     curValue: 0
     maxValue: 100
-    passiveValue: -20
+    passiveValue: -2
   - type: 3
     curValue: 0
     maxValue: 100
@@ -187,7 +188,7 @@ MonoBehaviour:
   - type: 2
     curValue: 0
     maxValue: 100
-    passiveValue: -20
+    passiveValue: -2
   isFreezing: 0
 --- !u!114 &971617771928428932
 MonoBehaviour:
@@ -202,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curIteractGameObject: {fileID: 0}
-  maxCheckDistance: 5
+  maxCheckDistance: 7
   intercatLayer:
     serializedVersion: 2
     m_Bits: 4294967295

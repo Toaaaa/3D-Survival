@@ -50,8 +50,8 @@ MonoBehaviour:
   attacking: 1
   doesGatherResources: 0
   doesDealDamage: 0
-  attackDistance: 1
-  attackPower: 20
+  attackDistance: 1.5
+  attackPower: 10
 --- !u!1001 &6297324430789467513
 PrefabInstance:
   m_ObjectHideFlags: 0

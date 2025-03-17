@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4510810092384340655}
   - component: {fileID: 5732982067287607022}
   - component: {fileID: 4502403186273858209}
+  - component: {fileID: -8685768716884952086}
   m_Layer: 0
   m_Name: Build_StoneWall
   m_TagString: Untagged
@@ -51,7 +52,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -70,10 +71,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: "\uB3CC\uBCBD"
-  needItem:
-  - {fileID: 11400000, guid: 457c9e63c500c35479f8f7ed019f6b4a, type: 2}
-  - {fileID: 11400000, guid: 04105bda51147334b89858be90597c33, type: 2}
-  values: 0200000001000000
+  previewPrefab: {fileID: 701164764997736335, guid: a2cfe930a2e689e4e880c3def077aa7e,
+    type: 3}
+  needItems:
+    needCraft:
+    - itemData: {fileID: 11400000, guid: 457c9e63c500c35479f8f7ed019f6b4a, type: 2}
+      needValue: 2
+    - itemData: {fileID: 11400000, guid: 04105bda51147334b89858be90597c33, type: 2}
+      needValue: 1
+--- !u!208 &-8685768716884952086
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701164764997736335}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.3, y: 1.15, z: 0.3}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.2, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1378307072257130900
 GameObject:
   m_ObjectHideFlags: 0

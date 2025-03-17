@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7563745329645704868}
   - component: {fileID: 5956088619494110146}
-  - component: {fileID: 1934764582219080632}
   m_Layer: 0
-  m_Name: BuildWooden_Walls
+  m_Name: PreviewWoden_Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,22 +54,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.46, y: 2.5, z: 0.4}
   m_Center: {x: -0.15, y: 1.27, z: 0}
---- !u!114 &1934764582219080632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3480568317829231255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf1742d8a5b8e5d4f88ea3e816eb1ab5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: "\uB098\uBB34\uBCBD"
-  needItem:
-  - {fileID: 11400000, guid: 04105bda51147334b89858be90597c33, type: 2}
-  values: 02000000
 --- !u!1 &4144070059735214113
 GameObject:
   m_ObjectHideFlags: 0

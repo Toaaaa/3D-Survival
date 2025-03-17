@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,6 @@ public enum ConsumableType // 소비 아이템 효과
     // 추후 추가
 }
 
-
 [System.Serializable]
 
 public class ItemDataConsumable // 소비 아이템 설정
@@ -30,7 +30,6 @@ public class ItemDataConsumable // 소비 아이템 설정
 // 아이템 데이터 추가
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
 
-
 // 아이템 정보
 public class ItemData : ScriptableObject
 {
@@ -39,12 +38,14 @@ public class ItemData : ScriptableObject
     public string description;
     public ItemType type;
     public Sprite icon;
+    public string iconName;
     public GameObject drobPrefab;
+    public string drobPrefabName;
 
     [Header("Stacking")] // 중복
     public bool canStack;
     public int maxStackAmount; 
-
+    
     [Header("Consumable")]
     public ItemDataConsumable[] ItemsConsumables;
 
@@ -55,4 +56,10 @@ public class ItemData : ScriptableObject
     public ItemData proccessedItem;
     public int neededQuantity;
 
+}
+
+[System.Serializable]
+public class ItemDatas
+{
+    public ItemData[] itemDatas;
 }
