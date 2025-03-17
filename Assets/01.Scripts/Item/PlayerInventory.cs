@@ -46,7 +46,7 @@ public class PlayerInventory : MonoBehaviour
     public void AddItem(ItemData itemData)
     {
         // 여러개 가질 수 있다면
-        if (itemData.type == ItemType.Consumable)
+        if (itemData.type == ItemType.Consumable || itemData.type == ItemType.Resource)
         {
             // 아이템 데이터를 넣어서 같은 아이템데이터를 가진 슬롯을 슬롯에 넣어준다.
             ItemSlot slot = GetItemStack(itemData);

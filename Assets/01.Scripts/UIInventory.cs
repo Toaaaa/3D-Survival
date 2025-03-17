@@ -187,38 +187,45 @@ public class UIInventory : MonoBehaviour
     {
         if (selectedItem is ConsumableItemData consumableItem)
         {
-            
-                switch (consumableItem.consumableType)
+
+            for (int i = 0; i < consumableItem.consumableType.Length; i++)
+            {
+                ConsumableType type = consumableItem.consumableType[i];
+                float amount = consumableItem.value[i];
+
+                if (conditions.Conditions.TryGetValue((ConditionType)type, out Condition condition))
                 {
-                    
-                    case ConsumableType.Health:
-                       if(conditions.Conditions.TryGetValue(ConditionType.Health, out Condition health))
-                        {
-                            health.ChangCondition(consumableItem.value);
-                        }
-                        break;
-                    case ConsumableType.Stamina:
-                        if (conditions.Conditions.TryGetValue(ConditionType.Stamina, out Condition stamina))
-                        {
-                            stamina.ChangCondition(consumableItem.value);
-                        }
-                        break;
-                    case ConsumableType.Water:
-                        if (conditions.Conditions.TryGetValue(ConditionType.Water, out Condition water))
-                        {
-                            water.ChangCondition(consumableItem.value);
-                        }
-                        break;
-                    case ConsumableType.Hunger:
-                        if (conditions.Conditions.TryGetValue(ConditionType.Hunger, out Condition hunger))
-                        {
-                            hunger.ChangCondition(consumableItem.value);
-                        }
-                        break;
+                    condition.ChangCondition(amount);
                 }
             }
-            // 사용한 뒤에 selectItem을 초기화한다.
-            RemoveSelectedItem();
+            //case consumabletype.health:
+            //    if (conditions.conditions.trygetvalue(conditiontype.health, out condition health))
+            //    {
+            //        health.changcondition(consumableitem.value);
+            //    }
+            //    break;
+            //case consumabletype.stamina:
+            //    if (conditions.conditions.trygetvalue(conditiontype.stamina, out condition stamina))
+            //    {
+            //        stamina.changcondition(consumableitem.value);
+            //    }
+            //    break;
+            //case consumabletype.water:
+            //    if (conditions.conditions.trygetvalue(conditiontype.water, out condition water))
+            //    {
+            //        water.changcondition(consumableitem.value);
+            //    }
+            //    break;
+            //case consumabletype.hunger:
+            //    if (conditions.conditions.trygetvalue(conditiontype.hunger, out condition hunger))
+            //    {
+            //        hunger.changcondition(consumableitem.value);
+            //    }
+            //    break;
+        
+        }
+        // 사용한 뒤에 selectItem을 초기화한다.
+        RemoveSelectedItem();
         }
     
 

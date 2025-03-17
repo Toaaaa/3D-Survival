@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    itemKey: 
+    itemKey: 3
     displayName: 
     description: 
     type: 2

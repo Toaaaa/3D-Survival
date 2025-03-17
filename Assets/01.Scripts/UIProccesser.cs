@@ -21,7 +21,8 @@ public class UIProccesser : MonoBehaviour
 
     private void Awake()
     {
-        proccessBtn.onClick.AddListener(OnProccessBtn);
+        // 확인부탁드립니다
+        //proccessBtn.onClick.AddListener(OnProccessBtn);
     }
 
     private void Start()
@@ -37,32 +38,33 @@ public class UIProccesser : MonoBehaviour
         inventory.InventoryUpdated += UpdateProccesserUI;
     }
 
-    public void OnProccessBtn()
-    {
-        if(selectedItem != null && selectedItem.proccessedItem != null && inventory.slots[selectedItemIndex].quantity>selectedItem.neededQuantity)
-        {
-            inventory.slots[selectedItemIndex].quantity -= selectedItem.neededQuantity;
-            inventory.AddItem(selectedItem.proccessedItem);
-        }
-    }
+    // 형빈님 확인 부탁드립니다
+    //public void OnProccessBtn()
+    //{
+    //    if (selectedItem != null && selectedItem.proccessedItem != null && inventory.slots[selectedItemIndex].quantity > selectedItem.neededQuantity)
+    //    {
+    //        inventory.slots[selectedItemIndex].quantity -= selectedItem.neededQuantity;
+    //        inventory.AddItem(selectedItem.proccessedItem);
+    //    }
+    //}
 
-    public void Select(int index)
-    {
-        if (inventory.slots[index].ItemData == null) return;
+    //public void Select(int index)
+    //{
+    //    if (inventory.slots[index].ItemData == null) return;
 
-        selectedItemIndex = index;
-        if (inventory.slots[index].ItemData != null)
-        {
-            ProccessingItemIcon.sprite = inventory.slots[index].ItemData.icon;
-            selectedItem = inventory.slots[index].ItemData;
-        }
+    //    selectedItemIndex = index;
+    //    if (inventory.slots[index].ItemData != null)
+    //    {
+    //        ProccessingItemIcon.sprite = inventory.slots[index].ItemData.icon;
+    //        selectedItem = inventory.slots[index].ItemData;
+    //    }
 
-        if (inventory.slots[index].ItemData.proccessedItem != null)
-        {
-            ProccessedItemIcon.sprite = inventory.slots[index].ItemData.proccessedItem.icon;
-            neededQuantityTxt.text = $"X{inventory.slots[index].ItemData.neededQuantity}";
-        }
-    }
+    //    if (inventory.slots[index].ItemData.proccessedItem != null)
+    //    {
+    //        ProccessedItemIcon.sprite = inventory.slots[index].ItemData.proccessedItem.icon;
+    //        neededQuantityTxt.text = $"X{inventory.slots[index].ItemData.neededQuantity}";
+    //    }
+    //}
 
     private void OnDisable()
     {

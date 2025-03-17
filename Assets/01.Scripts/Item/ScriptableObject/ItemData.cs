@@ -33,8 +33,8 @@ public class ItemData
     public Sprite icon;
     public string iconName;
     public GameObject drobPrefab;
-    public string drobPrefabName;
-
+    public string drobPrefabName; 
+   
     [Header("Equip")]
     public GameObject equipPrefab;
     public string equipPrefabName;
@@ -51,8 +51,10 @@ public class ItemData
     //public GameObject equipPrefab;
 
      [Header("Resource")]
-    public ItemData proccessedItem;
+    //public ItemData proccessedItem;
     public int neededQuantity;
+    public int nextItemIdx;
+
 }
 
 public class ItemDatas
@@ -65,21 +67,21 @@ public class ItemDatas
 
 public class ConsumableItemData : ItemData
 {
-    //public ConsumableItemData[] ItemsConsumables;
+    //public ConsumableItemData[] ItemsConsumables; -> 확인필요
 
     [Header("Stacking")] // 중복
     public bool canStack;
     public int maxStackAmount;
 
-    public ConsumableType consumableType;
-    public float value;
+    public ConsumableType[] consumableType;
+    public float[] value;
 }
 [System.Serializable]
 public class ResourceItemData : ItemData
 {
     [Header("Stacking")] // 중복
     public bool canStack;
-    public int maxStackAmount;
+    public string maxStackAmount;
 
 }
 

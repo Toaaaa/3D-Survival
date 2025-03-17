@@ -22,6 +22,7 @@ public class ProcessItemSlot : MonoBehaviour
 
     public void OnClick()
     {
-        proccesser.Select(Index);
+        // 확인 부탁드립니다
+        //proccesser.Select(Index);
     }
 }
