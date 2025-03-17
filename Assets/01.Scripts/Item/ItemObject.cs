@@ -20,8 +20,7 @@ public class ItemObject : MonoBehaviour, IInteractable
     private void Start()
     {
         itemData = DataManager.Instance.GetItemDataByID(itemKey);
-        Debug.Log($"itemKey {itemKey}");
-        print($"itemData {itemData}");
+        
     }
 
 

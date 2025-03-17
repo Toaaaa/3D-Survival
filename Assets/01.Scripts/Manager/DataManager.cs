@@ -165,8 +165,13 @@ public class DataManager : MonoBehaviour
                 if (itemData.drobPrefabName != null) { itemData.drobPrefab = UnityEngine.Resources.Load<GameObject>(itemData.drobPrefabName); }
                 if (itemData.iconName != null) { itemData.icon = UnityEngine.Resources.Load<Sprite>(itemData.iconName); }
                 if (itemData.equipPrefabName != null) { itemData.equipPrefab = UnityEngine.Resources.Load<GameObject>(itemData.equipPrefabName); }
+
+                if (itemData is ConsumableItemData consumableItem)
+                {
+                    Debug.Log($"소모품 아이템 파싱됨: {consumableItem.displayName}");
+                }
             }
-            Debug.Log($"Loaded JSON: {json}");
+            
         }
 
     }
