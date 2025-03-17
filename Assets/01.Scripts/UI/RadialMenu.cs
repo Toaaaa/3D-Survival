@@ -17,6 +17,8 @@ public class RadialMenu : MonoBehaviour
     
     private List<RadialMenuEntry> entries;
     CameraController cameraController;
+    
+    public Action openAction;
 
     private void Awake()
     {
@@ -58,6 +60,8 @@ public class RadialMenu : MonoBehaviour
             entries[i].gameObject.SetActive(true);
         }
         Rearrange();
+        
+        openAction?.Invoke();
     }
 
     public void CloseMenu()

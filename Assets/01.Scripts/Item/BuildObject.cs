@@ -20,6 +20,12 @@ public class BuildObject : MonoBehaviour
 
     public string GetNameXValues()
     {
+        for (int i = 0; i < needItems.needCraft.Length; i++)
+        {
+            needItems.needCraft[i].itemData =
+                DataManager.Instance.GetItemDataByID(needItems.needCraft[i].itemObject.itemKey);
+        }
+        
         string str = string.Empty;
         for (int i = 0; i < needItems.needCraft.Length; i++)
         {
@@ -55,11 +61,13 @@ public class CraftDictionary
 public class NeedCraft
 {
     public ItemData itemData;
+    public ItemObject itemObject;
     public int needValue;
 
-    public NeedCraft(ItemData itemData, int needValue)
+    public NeedCraft(ItemData itemData,ItemObject itemObject, int needValue)
     {
-        this.itemData = itemData;
+        this.itemObject = itemObject;
+        this.itemData = DataManager.Instance.GetItemDataByID(this.itemObject.itemKey);
         this.needValue = needValue;
     }
 }

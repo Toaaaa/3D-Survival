@@ -60,6 +60,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Debug.Log("건물 철거 시도 성공");
                 buildObject.Demolition();
+                onHitResorce?.Invoke();
                 return true;
             }
         }

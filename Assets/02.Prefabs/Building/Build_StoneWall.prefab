@@ -76,9 +76,37 @@ MonoBehaviour:
     type: 3}
   needItems:
     needCraft:
-    - itemData: {fileID: 11400000, guid: 457c9e63c500c35479f8f7ed019f6b4a, type: 2}
+    - itemData:
+        itemKey: 
+        displayName: 
+        description: 
+        type: 0
+        icon: {fileID: 0}
+        iconName: 
+        drobPrefab: {fileID: 0}
+        drobPrefabName: 
+        equipPrefab: {fileID: 0}
+        equipPrefabName: 
+        neededQuantity: 0
+        nextItemIdx: 0
+      itemObject: {fileID: 203472263168533259, guid: 9f331ff36d5526f46b9a548fc4315527,
+        type: 3}
       needValue: 2
-    - itemData: {fileID: 11400000, guid: 04105bda51147334b89858be90597c33, type: 2}
+    - itemData:
+        itemKey: 
+        displayName: 
+        description: 
+        type: 0
+        icon: {fileID: 0}
+        iconName: 
+        drobPrefab: {fileID: 0}
+        drobPrefabName: 
+        equipPrefab: {fileID: 0}
+        equipPrefabName: 
+        neededQuantity: 0
+        nextItemIdx: 0
+      itemObject: {fileID: 4115171566810300425, guid: 17f7c762172128c4391d91631577a78e,
+        type: 3}
       needValue: 1
 --- !u!208 &-8685768716884952086
 NavMeshObstacle:
