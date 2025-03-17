@@ -45,8 +45,6 @@ public class UIInventory : MonoBehaviour
     {
         slotButton.onClick.AddListener(() => OnClick(slot.index));
 
-
-
         playerInventory = CharacterManager.Instance.Player.inventory;
         controller = CharacterManager.Instance.Player.input;
         conditions = CharacterManager.Instance.Player.condition;
@@ -138,13 +136,18 @@ public class UIInventory : MonoBehaviour
         //    selectedItemStatValue.text += selectedItem.ItemsConsumables[i].value.ToString() + "\n";
         //}
 
-        if (selectedItem is ConsumableItemData consumableItem)
+        if (selectedItem.type == ItemType.Consumable)
         {
-            selectedItemStatName.text = consumableItem.consumableType.ToString();
-            selectedItemStatValue.text = consumableItem.value.ToString();
+
+            for (int i = 0; i < selectedItem.ConsumableType.Count; i++)
+            {
+                selectedItemStatName.text += selectedItem.consumableTypes[i].ToString() + "\n";
+                selectedItemStatValue.text += selectedItem.value[i].ToString() + "\n";
+            }
         }
 
-        useButton.SetActive(selectedItem.type == ItemType.Consumable);
+
+                useButton.SetActive(selectedItem.type == ItemType.Consumable);
         equipButton.SetActive(selectedItem.type == ItemType.Equipable && !uiSlots[index].equipped);
         unEquipButton.SetActive(selectedItem.type == ItemType.Equipable && uiSlots[index].equipped);
         
@@ -180,54 +183,50 @@ public class UIInventory : MonoBehaviour
 
     public void OnUseButton()
     {
-        if ( selectedItem is ConsumableItemData consumableItem)
+        if (selectedItem.type == ItemType.Consumable)
         {
-            //for (int i = 0; i < consumableItem.consumableType.Length; i++)
-            //{
-            //    ConsumableType type = consumableItem.consumableType[i];
-            //    float amount = consumableItem.value[i];
 
-            //    if (conditions.Conditions.TryGetValue((ConditionType)type, out Condition condition))
-            //    {
-            //        condition.ChangCondition(amount);
-            //    }
-            //}
-            for (int i = 0; i < consumableItem.consumableType.Length; i++)
+            for (int i = 0; i < selectedItem.ConsumableType.Count; i++)
             {
-                ConsumableType type = consumableItem.consumableType[i];
-                float amount = consumableItem.value[i];
-                switch (type)
+
+
+                //if (conditions.Conditions.TryGetValue((ConditionType)type, out Condition condition))
+                //{
+                //    condition.ChangCondition(amount);
+                //    Debug.Log(type + "회복");
+                //}
+                switch(selectedItem.consumableTypes[i])
                 {
                     case ConsumableType.Health:
                         if (conditions.Conditions.TryGetValue(ConditionType.Health, out Condition health))
                         {
-                            health.ChangCondition(amount);
+                            health.ChangCondition(selectedItem.value[i]);
                         }
                         break;
                     case ConsumableType.Stamina:
                         if (conditions.Conditions.TryGetValue(ConditionType.Stamina, out Condition stamina))
                         {
-                            stamina.ChangCondition(amount);
+                            stamina.ChangCondition(selectedItem.value[i]);
                         }
                         break;
                     case ConsumableType.Water:
                         if (conditions.Conditions.TryGetValue(ConditionType.Water, out Condition water))
                         {
-                            water.ChangCondition(amount);
+                            water.ChangCondition(selectedItem.value[i]);
                         }
                         break;
                     case ConsumableType.Hunger:
                         if (conditions.Conditions.TryGetValue(ConditionType.Hunger, out Condition hunger))
                         {
-                            hunger.ChangCondition(amount);
+                            hunger.ChangCondition(selectedItem.value[i]);
                         }
                         break;
-                }
+                }   
             }
-    }
-        // 사용한 뒤에 selectItem을 초기화한다.
-        RemoveSelectedItem();
+            // 사용한 뒤에 selectItem을 초기화한다.
+            RemoveSelectedItem();
         }
+    }
     
 
     // 2. 착용하기 버튼

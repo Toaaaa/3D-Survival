@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -15,11 +16,12 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerAttack playerAttack;
     [HideInInspector] public Building building;
     [HideInInspector] public Interanction interact;
+    [HideInInspector] public PlayerEnvironmentCon environmentCon;
 
     [SerializeField] GameObject gamoverUI;
     [SerializeField] Button restartBtn;
 
-    [HideInInspector] public bool isDead = false;
+    public bool isDead = false;
 
     private void Awake()
     {        
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
         building = GetComponent<Building>();
         interact = GetComponent<Interanction>();
         equipment = GetComponent<PlayerEquipment>();
+        environmentCon = GetComponent<PlayerEnvironmentCon>();
 
         restartBtn.onClick.AddListener(OnRestart);
     }
@@ -50,6 +53,6 @@ public class Player : MonoBehaviour
 
     private void OnRestart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);     
     }
 }

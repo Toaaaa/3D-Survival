@@ -14,7 +14,6 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private float runStamina;
     [SerializeField] private LayerMask groundLayer;
 
-
     [HideInInspector] public bool isRun = false;
     [HideInInspector] public bool isWeopon = false;
 
@@ -70,7 +69,7 @@ public class PlayerHandler : MonoBehaviour
 
     private void Jump()
     {
-        if (!IsGrounded()) return;
+        if (!IsGrounded() || CharacterManager.Instance.Player.isDead) return;
 
         rigid.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
         animator.Jump();
@@ -113,10 +112,16 @@ public class PlayerHandler : MonoBehaviour
             new Ray(transform.position + (transform.right* 0.3f) + (transform.up * 0.01f),Vector3.down),
             new Ray(transform.position + (-transform.right * 0.3f) + (transform.up * 0.01f),Vector3.down)
         };
+        RaycastHit hit;
 
         for (int i = 0; i < rays.Length; i++)
         {
-            if (Physics.Raycast(rays[i], 0.1f, groundLayer)) return true;            
+            if (Physics.Raycast(rays[i], out hit, 0.1f, groundLayer))
+            {
+                PlayerEnvironmentCon envCon = GetComponent<PlayerEnvironmentCon>();
+                envCon.environmentType = hit.transform.GetComponent<Environment>().environmentType;// 플레이어가 밟고 있는 땅의 환경을 저장.
+                return true;
+            }
         }
          
         return false;

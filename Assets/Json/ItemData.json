@@ -177,8 +177,8 @@
             "iconName": "Item_Icon/Icon_Mashroom_5",
             "canStack": true,
             "maxStackAmount": 16,
-            "ConsumableType": "Hunger",
-            "value": 10
+            "ConsumableType": [ "Hunger" ],
+            "value": [ 10 ]
         },
         {
             "itemKey": "15",
@@ -188,8 +188,8 @@
             "iconName": "Item_Icon/Icon_Cottonsingle",
             "canStack": true,
             "maxStackAmount": 20,
-            "ConsumableType": "Water",
-            "value": 10
+            "ConsumableType": [ "Water" ],
+            "value": [ 10 ]
         },
         {
             "itemKey": "16",
@@ -200,8 +200,8 @@
             "drobPrefabName": "DropPrefab/AnimalMeat",
             "canStack": true,
             "maxStackAmount": 5,
-            "ConsumableType": "Health",
-            "value": 50
+            "ConsumableType": [ "Health" ],
+            "value": [ 50 ]
         },
         {
             "itemKey": "17",
@@ -222,8 +222,8 @@
             "drobPrefabName": "DropPrefab/TigerMeat",
             "canStack": true,
             "maxStackAmount": 5,
-            "ConsumableType": "Health",
-            "value": 50
+            "ConsumableType": [ "Health" ],
+            "value": [ 50 ]
         }
     ]
 }

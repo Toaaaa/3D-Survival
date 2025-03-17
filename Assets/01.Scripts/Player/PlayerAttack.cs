@@ -37,20 +37,17 @@ public class PlayerAttack : MonoBehaviour
 
         Ray ray = new Ray (transform.position + (Vector3.up * 0.5f), transform.forward);
         RaycastHit hit;
-        Debug.Log("공격");
         if (Physics.Raycast(ray, out hit, attackDistance))
         {
             if (hit.collider.TryGetComponent(out Resources resources))
             {
-                Debug.Log("자원 공격 성공");
                 resources.Gather(hit.point , hit.normal);
                 onHitResorce?.Invoke();
                 return true;
             }
 
             else if(hit.collider.TryGetComponent(out Monster monster))
-            {
-                Debug.Log("적 공격 성공");               
+            {            
                 monster.OnHit(attackPower);
                 onHitMonster?.Invoke();
                 return true;
@@ -58,7 +55,6 @@ public class PlayerAttack : MonoBehaviour
 
             else if(hit.collider.TryGetComponent(out BuildObject buildObject))
             {
-                Debug.Log("건물 철거 시도 성공");
                 buildObject.Demolition();
                 onHitResorce?.Invoke();
                 return true;
