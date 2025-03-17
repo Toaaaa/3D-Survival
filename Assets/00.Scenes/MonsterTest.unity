@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.069718875, g: 0.3370528, b: 0.9262435, a: 1}
+  m_IndirectSpecularColor: {r: 0.06953499, g: 0.3330875, b: 0.9156277, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5176,6 +5176,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7955277371801211173, guid: c105a23a2dc93a64e8b6387acf5cdfa9,
+        type: 3}
+      propertyPath: slotButton
+      value: 
+      objectReference: {fileID: 934797795225942653, guid: 6a3a93c2479935a4097d84662258bb0c,
+        type: 3}
     - target: {fileID: 7955277371801211173, guid: c105a23a2dc93a64e8b6387acf5cdfa9,
         type: 3}
       propertyPath: inventoryWindow

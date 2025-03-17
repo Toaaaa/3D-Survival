@@ -88,15 +88,15 @@ public class PlayerInventory : MonoBehaviour
 
     ItemSlot GetItemStack(ItemData data)
     {
-        if (data is ConsumableItemData consumableItem)
+        if (data.type == ItemType.Consumable || data.type == ItemType.Resource)
         {
             for (int i = 0; i < slots.Length; i++)
             {
                 // 슬롯의 아이템과 넣으려는 아이템이 같고 / 아이템 개수가 최대를 넘지 않을때 
-                if (slots[i].ItemData == data && slots[i].quantity < consumableItem.maxStackAmount)
+                if (slots[i].ItemData == data && slots[i].quantity < data.maxStackAmount)
                 {
                     return slots[i];
-                }
+                } 
             }
         }
         return null;

@@ -45,7 +45,7 @@ public class UIInventory : MonoBehaviour
     {
         slotButton.onClick.AddListener(() => OnClick(slot.index));
 
-        
+
 
         playerInventory = CharacterManager.Instance.Player.inventory;
         controller = CharacterManager.Instance.Player.input;
@@ -53,7 +53,7 @@ public class UIInventory : MonoBehaviour
         playerEquipment = CharacterManager.Instance.Player.equipment;
 
         //InputController에서 액션 생성
-        controller.inventory += Toggle;     
+        controller.inventory += Toggle;
 
         playerInventory.InventoryUpdated += UpdateUI;
 

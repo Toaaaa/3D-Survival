@@ -50,7 +50,12 @@ public class ItemData
     //[Header("Equip")]
     //public GameObject equipPrefab;
 
-     [Header("Resource")]
+    [Header("Stacking")] // 중복
+    public bool canStack;
+    public int maxStackAmount;
+
+
+    [Header("Resource")]
     //public ItemData proccessedItem;
     public int neededQuantity;
     public int nextItemIdx;
@@ -69,19 +74,13 @@ public class ConsumableItemData : ItemData
 {
     //public ConsumableItemData[] ItemsConsumables; -> 확인필요
 
-    [Header("Stacking")] // 중복
-    public bool canStack;
-    public int maxStackAmount;
-
     public ConsumableType[] consumableType;
     public float[] value;
 }
 [System.Serializable]
 public class ResourceItemData : ItemData
 {
-    [Header("Stacking")] // 중복
-    public bool canStack;
-    public string maxStackAmount;
+    
 
 }
 
