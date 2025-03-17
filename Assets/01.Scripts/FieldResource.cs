@@ -10,6 +10,7 @@ public class FieldResource : ItemObject
 
     private void Start()
     {
+        itemData = DataManager.Instance.GetItemDataByID(itemKey);
         spawner = GetComponentInParent<FieldResourceSpawner>();
         respawn = spawner.Respawn;
     }
