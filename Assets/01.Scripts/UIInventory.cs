@@ -45,7 +45,7 @@ public class UIInventory : MonoBehaviour
     {
         slotButton.onClick.AddListener(() => OnClick(slot.index));
 
-        inventoryWindow.SetActive(false); // 창 초기화
+        
 
         playerInventory = CharacterManager.Instance.Player.inventory;
         controller = CharacterManager.Instance.Player.input;
@@ -103,20 +103,15 @@ public class UIInventory : MonoBehaviour
     // 인벤토리 창 열고 닫기
     public void Toggle()
     {
-        
-        if (IsOpen())
-        { 
-            inventoryWindow.SetActive(false);
-        }
-        else { 
-            inventoryWindow.SetActive(true);
-        }       
+
+        bool isOpen = inventoryWindow.activeSelf;
+        inventoryWindow.SetActive(!isOpen);
     }
 
-    public bool IsOpen()
-    {
-        return inventoryWindow.activeInHierarchy;
-    }
+    //public bool IsOpen()
+    //{
+    //    return inventoryWindow.activeInHierarchy;
+    //}
 
     public void OnClick(int index)
     {
@@ -137,10 +132,16 @@ public class UIInventory : MonoBehaviour
         selectedItemStatValue.text = string.Empty;
 
         // 소비 아이템일 때만 StatName, StatValue 나타내기
-        for (int i = 0; i < selectedItem.ItemsConsumables.Length; i++)
+        //for (int i = 0; i < selectedItem.ItemsConsumables.Length; i++)
+        //{
+        //    selectedItemStatName.text += selectedItem.ItemsConsumables[i].type.ToString() + "\n";
+        //    selectedItemStatValue.text += selectedItem.ItemsConsumables[i].value.ToString() + "\n";
+        //}
+
+        if (selectedItem is ConsumableItemData consumableItem)
         {
-            selectedItemStatName.text += selectedItem.ItemsConsumables[i].type.ToString() + "\n";
-            selectedItemStatValue.text += selectedItem.ItemsConsumables[i].value.ToString() + "\n";
+            selectedItemStatName.text = consumableItem.consumableType.ToString();
+            selectedItemStatValue.text = consumableItem.value.ToString();
         }
 
         useButton.SetActive(selectedItem.type == ItemType.Consumable);
@@ -175,48 +176,53 @@ public class UIInventory : MonoBehaviour
         }
     }
 
-    // 1.사용하기버튼 (구현예정)
+    // 1.사용하기버튼 
 
     public void OnUseButton()
     {
-        if (selectedItem.type == ItemType.Consumable)
+        if (selectedItem is ConsumableItemData consumableItem)
         {
-            for (int i = 0; i < selectedItem.ItemsConsumables.Length; i++)
-            {
-                switch (selectedItem.ItemsConsumables[i].type)
-                {
-                    //소비 타입에 따른 함수 호출 -playerCondition에서 만들어야 함
 
-                    case ConsumableType.Health:
-                       if(conditions.Conditions.TryGetValue(ConditionType.Health, out Condition health))
-                        {
-                            health.ChangCondition(selectedItem.ItemsConsumables[i].value);
-                        }
-                        break;
-                    case ConsumableType.Stamina:
-                        if (conditions.Conditions.TryGetValue(ConditionType.Stamina, out Condition stamina))
-                        {
-                            stamina.ChangCondition(selectedItem.ItemsConsumables[i].value);
-                        }
-                        break;
-                    case ConsumableType.Water:
-                        if (conditions.Conditions.TryGetValue(ConditionType.Water, out Condition water))
-                        {
-                            water.ChangCondition(selectedItem.ItemsConsumables[i].value);
-                        }
-                        break;
-                    case ConsumableType.Hunger:
-                        if (conditions.Conditions.TryGetValue(ConditionType.Hunger, out Condition hunger))
-                        {
-                            hunger.ChangCondition(selectedItem.ItemsConsumables[i].value);
-                        }
-                        break;
+            for (int i = 0; i < consumableItem.consumableType.Length; i++)
+            {
+                ConsumableType type = consumableItem.consumableType[i];
+                float amount = consumableItem.value[i];
+
+                if (conditions.Conditions.TryGetValue((ConditionType)type, out Condition condition))
+                {
+                    condition.ChangCondition(amount);
                 }
             }
-            // 사용한 뒤에 selectItem을 초기화한다.
-            RemoveSelectedItem();
+            //case consumabletype.health:
+            //    if (conditions.conditions.trygetvalue(conditiontype.health, out condition health))
+            //    {
+            //        health.changcondition(consumableitem.value);
+            //    }
+            //    break;
+            //case consumabletype.stamina:
+            //    if (conditions.conditions.trygetvalue(conditiontype.stamina, out condition stamina))
+            //    {
+            //        stamina.changcondition(consumableitem.value);
+            //    }
+            //    break;
+            //case consumabletype.water:
+            //    if (conditions.conditions.trygetvalue(conditiontype.water, out condition water))
+            //    {
+            //        water.changcondition(consumableitem.value);
+            //    }
+            //    break;
+            //case consumabletype.hunger:
+            //    if (conditions.conditions.trygetvalue(conditiontype.hunger, out condition hunger))
+            //    {
+            //        hunger.changcondition(consumableitem.value);
+            //    }
+            //    break;
+        
         }
-    }
+        // 사용한 뒤에 selectItem을 초기화한다.
+        RemoveSelectedItem();
+        }
+    
 
     // 2. 착용하기 버튼
     public void OnEquipButton()
@@ -247,6 +253,4 @@ public class UIInventory : MonoBehaviour
         RemoveSelectedItem();
     }
 
-
-    
 }

@@ -29,7 +29,7 @@ public class RadialMenu : MonoBehaviour
         entries = new List<RadialMenuEntry>();
         cameraController = FindAnyObjectByType<CameraController>();
         
-        cameraController.CursorToggle();
+        //cameraController.CursorToggle();
         for (int i = 0; i < 5; i++)
         {
             AddEntry(icons[i], buildPrefabs[i]);

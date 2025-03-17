@@ -46,7 +46,7 @@ public class PlayerInventory : MonoBehaviour
     public void AddItem(ItemData itemData)
     {
         // 여러개 가질 수 있다면
-        if (itemData.canStack)
+        if (itemData.type == ItemType.Consumable || itemData.type == ItemType.Resource)
         {
             // 아이템 데이터를 넣어서 같은 아이템데이터를 가진 슬롯을 슬롯에 넣어준다.
             ItemSlot slot = GetItemStack(itemData);
@@ -88,12 +88,15 @@ public class PlayerInventory : MonoBehaviour
 
     ItemSlot GetItemStack(ItemData data)
     {
-        for (int i = 0; i < slots.Length; i++)
+        if (data is ConsumableItemData consumableItem)
         {
-            // 슬롯의 아이템과 넣으려는 아이템이 같고 / 아이템 개수가 최대를 넘지 않을때 
-            if (slots[i].ItemData == data && slots[i].quantity < data.maxStackAmount)
+            for (int i = 0; i < slots.Length; i++)
             {
-                return slots[i];
+                // 슬롯의 아이템과 넣으려는 아이템이 같고 / 아이템 개수가 최대를 넘지 않을때 
+                if (slots[i].ItemData == data && slots[i].quantity < consumableItem.maxStackAmount)
+                {
+                    return slots[i];
+                }
             }
         }
         return null;

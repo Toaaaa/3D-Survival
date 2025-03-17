@@ -52,7 +52,7 @@ public class Horse : Monster
 
     IEnumerator Wander()
     {
-        while (state == State.Idle) // Idle 상태에서만 Wander 실행
+        while (state == State.Idle) // Idle 상태에서만 Wander를 한번 실행.
         {
             Vector3 randomPos = originPos + new Vector3(Random.Range(-randomRange,randomRange), 0, Random.Range(-randomRange, randomRange));
 
@@ -69,7 +69,7 @@ public class Horse : Monster
                 anim.Play("Idle"); // 도착 후 Idle 애니메이션 재생
             }
 
-            yield return new WaitForSeconds(Random.Range(3f, 6f)); // 이동 후 대기 시간
+            yield return new WaitForSeconds(Random.Range(3f, 6f)); // 실행 후 대기 시간
         }
     }
 }

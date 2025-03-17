@@ -6,6 +6,10 @@ using UnityEngine;
 public class Resources : MonoBehaviour
 {
     public ItemData itemToGive;
+
+    // 형빈님에게 확인시켜드린 뒤 주석 풀기
+    //public string itemKey;
+    
     //public int quantityPerHit = 1;
     public int totalquantity;
     public int originCapacy;
@@ -29,6 +33,9 @@ public class Resources : MonoBehaviour
     private void Start()
     {
         capacy = originCapacy;
+
+        // 형빈님에게 확인시켜드린 뒤 주석 풀기
+        //itemToGive = DataManager.Instance.GetItemDataByID(itemKey);
     }
 
     public virtual void Gather(Vector3 hitPoint, Vector3 hitNormal)

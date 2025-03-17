@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.Rendering;
+//using static UnityEditor.Progress;
 
 public interface IInteractable // 인터페이스
 {
@@ -13,7 +14,17 @@ public class ItemObject : MonoBehaviour, IInteractable
 {
     //public static ItemObject instance;
     public ItemData itemData;
+    public string itemKey;
     public int amount =1;
+
+    private void Start()
+    {
+        itemData = DataManager.Instance.GetItemDataByID(itemKey);
+        Debug.Log($"itemKey {itemKey}");
+        print($"itemData {itemData}");
+    }
+
+
     //DataManager dataManager;
 
     //public ItemDatas objectItemData;
@@ -27,7 +38,7 @@ public class ItemObject : MonoBehaviour, IInteractable
     //    //instance = this;
     //    fileName = gameObject.name +".json";
 
-       
+
     //    path = Path.Combine(Application.persistentDataPath, fileName);
     //    Debug.Log(path); // 경로확인용
     //    LoadItemDataFromJson();
@@ -49,7 +60,7 @@ public class ItemObject : MonoBehaviour, IInteractable
     //    {
     //        SaveItemDataToJson();
     //    }
-        
+
     //    string JsonData = File.ReadAllText(path);
     //    //itemData = JsonUtility.FromJson<ItemData>(JsonData); 
     //    GetItemDatas = JsonUtility.FromJson<ItemDatas>(JsonData);
@@ -65,7 +76,8 @@ public class ItemObject : MonoBehaviour, IInteractable
     //        GetItemDatas.itemDatas[i].drobPrefab = UnityEngine.Resources.Load<GameObject>(GetItemDatas.itemDatas[i].drobPrefabName);
     //    }
     //} 
-    
+
+
 
     public string GetInteractPrompt()
     {
