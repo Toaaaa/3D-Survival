@@ -97,7 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d83d7d6ddb0ca040a6093b9348198e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToGive: {fileID: 11400000, guid: 607f428e36fe0bc47bba47b5c7dc2d04, type: 2}
+  itemToGive: {fileID: 1456928011585133376, guid: e5a1131c419e74d4292cd07a6831f591,
+    type: 3}
   totalquantity: 10
   originCapacy: 1
   capacy: 0
