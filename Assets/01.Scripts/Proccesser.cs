@@ -8,9 +8,13 @@ public class Proccesser : MonoBehaviour, IInteractable
     public Canvas uiProccesser;
     CameraController cameraController;
 
+    private void Awake()
+    {
+        uiProccesser = UIProccesser.Instance.GetComponent<Canvas>();
+    }
+
     private void Start()
     {
-        //uiProccesser.gameObject.SetActive(false);
         cameraController = FindAnyObjectByType<CameraController>();
     }
 
@@ -39,7 +43,7 @@ public class Proccesser : MonoBehaviour, IInteractable
         //Cursor.lockState = CursorLockMode.None;
         //프로세서 창 켜기
         cameraController.CursorToggle();
-        uiProccesser.gameObject.SetActive(true);
+        UIProccesser.Instance.OpenUI();
     }
 
     private void OffProccesserWindow()
@@ -47,7 +51,7 @@ public class Proccesser : MonoBehaviour, IInteractable
         //플레이어 이동 및 둘러보기 잠금 해제
         //마우스 커서 끄기
         //프로세서 창 끄기
-        uiProccesser.gameObject.SetActive(false);
+        UIProccesser.Instance.CloseUI();
         cameraController.CursorToggle();
         //Cursor.lockState = CursorLockMode.Locked;
     }
