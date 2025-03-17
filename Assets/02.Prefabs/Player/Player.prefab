@@ -107,7 +107,8 @@ AudioSource:
   m_GameObject: {fileID: 934320595059787600}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 91b1b53fdb173074a975e2d8b8feca14,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.41
@@ -362,7 +363,10 @@ MonoBehaviour:
     drobPrefabName: 
     equipPrefab: {fileID: 0}
     equipPrefabName: 
+    canStack: 0
+    maxStackAmount: 0
     neededQuantity: 0
+    nextItemIdx: 0
 --- !u!114 &8915025971282029138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +402,7 @@ MonoBehaviour:
     m_Bits: 64
   colliderMask:
     serializedVersion: 2
-    m_Bits: 243
+    m_Bits: 227
 --- !u!114 &247042689432145978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +427,7 @@ MonoBehaviour:
   resourceSound:
   - {fileID: 8300000, guid: 0fa2374d00a48b24d90be3777f5de4fe, type: 3}
   - {fileID: 8300000, guid: 812454da99856b9429b8f63b76451366, type: 3}
+  buildSound: []
 --- !u!1 &5210693177517577588
 GameObject:
   m_ObjectHideFlags: 0
