@@ -70,7 +70,7 @@ public class PlayerHandler : MonoBehaviour
 
     private void Jump()
     {
-        if (!IsGrounded()) return;
+        if (!IsGrounded() || CharacterManager.Instance.Player.isDead) return;
 
         rigid.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
         animator.Jump();
