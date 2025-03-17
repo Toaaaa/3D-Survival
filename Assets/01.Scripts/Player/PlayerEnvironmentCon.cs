@@ -31,10 +31,10 @@ public class PlayerEnvironmentCon : MonoBehaviour
 
     void EnvironmentEffect()
     {
-        if(environmentType == EnvironmentType.Tundra)
+        if(environmentType == EnvironmentType.Tundra || environmentType == EnvironmentType.Desert)
         {
             Player player = GetComponent<Player>();
-            player.condition.Conditions[ConditionType.Health].curValue -= 5;// 툰드라 환경에 있을 때 매 시간마다 5씩 체력 감소.
+            player.condition.Conditions[ConditionType.Health].curValue -= 5;// 툰드라/사막 환경에 있을 때 매 시간마다 5씩 체력 감소.
         }
     }
     IEnumerator CheckEnvironment()
