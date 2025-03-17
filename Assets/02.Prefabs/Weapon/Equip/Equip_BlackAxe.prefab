@@ -45,7 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e795795b1b21c4297ef0b68b934cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 7b47f769fdf5c254f9192b3d5251a8f3, type: 2}
+  itemData:
+    itemKey: 6
+    displayName: 
+    description: 
+    type: 2
+    icon: {fileID: 0}
+    iconName: 
+    drobPrefab: {fileID: 0}
+    drobPrefabName: 
+    equipPrefab: {fileID: 0}
+    equipPrefabName: 
+    neededQuantity: 0
   attackRate: 0
   attacking: 1
   doesGatherResources: 0

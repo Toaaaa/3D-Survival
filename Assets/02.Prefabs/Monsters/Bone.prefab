@@ -178,5 +178,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504351f6a9e670c47b64c16021473432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 4a3d08c7345104e4fb8ed51e3cd17630, type: 2}
+  itemData:
+    itemKey: 17
+    displayName: 
+    description: 
+    type: 2
+    icon: {fileID: 0}
+    iconName: 
+    drobPrefab: {fileID: 0}
+    drobPrefabName: 
+    equipPrefab: {fileID: 0}
+    equipPrefabName: 
+    neededQuantity: 0
+    nextItemIdx: 0
+  itemKey: 17
   amount: 1
