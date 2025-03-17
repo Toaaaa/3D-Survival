@@ -56,6 +56,8 @@ public class PlayerCondition : MonoBehaviour
                     health.PassiveChanging();
                     if (health.CurValue <= 0)
                     {
+                        if (CharacterManager.Instance.Player.isDead) return;
+                        
                         IsDead();
                     }
                 }
@@ -89,6 +91,7 @@ public class PlayerCondition : MonoBehaviour
             health.ChangCondition(-attackPower);
             if (health.CurValue <= 0)
             {
+                if (CharacterManager.Instance.Player.isDead) return;
                 IsDead();
             }
         }
@@ -96,7 +99,7 @@ public class PlayerCondition : MonoBehaviour
 
     private void IsDead()
     {
-        CharacterManager.Instance.Player.isDead = true;
-        animator.PlayerDie(CharacterManager.Instance.Player.isDead);
+        animator.PlayerDie();
+        CharacterManager.Instance.Player.isDead = true;        
     }
 }

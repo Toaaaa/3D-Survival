@@ -55,8 +55,8 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetTrigger(IsWeopon);
     }
 
-    public void PlayerDie(bool isDie)
+    public void PlayerDie()
     {
-        animator.SetBool(IsDie, isDie);
+        animator.SetTrigger(IsDie);
     }
 }
