@@ -60,6 +60,10 @@ public class ItemData
     public int neededQuantity;
     public int nextItemIdx;
 
+    public List<string> ConsumableType;
+    public List<ConsumableType> consumableTypes;
+    public List<float> value;
+
 }
 
 public class ItemDatas
