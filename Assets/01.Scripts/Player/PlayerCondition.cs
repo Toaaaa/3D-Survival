@@ -34,6 +34,16 @@ public class PlayerCondition : MonoBehaviour
     private void Update()
     {
         PassiveCondition();
+
+        if (conditions.TryGetValue(ConditionType.Health, out Condition health))
+        {
+            if(health.curValue <= 0)
+            {
+                if (CharacterManager.Instance.Player.isDead) return;
+
+                IsDead();
+            }
+        }
     }
 
     private void PassiveCondition()
@@ -54,12 +64,6 @@ public class PlayerCondition : MonoBehaviour
                 if (conditions.TryGetValue(ConditionType.Health, out Condition health))
                 {
                     health.PassiveChanging();
-                    if (health.CurValue <= 0)
-                    {
-                        if (CharacterManager.Instance.Player.isDead) return;
-                        
-                        IsDead();
-                    }
                 }
             }
         }
@@ -81,20 +85,6 @@ public class PlayerCondition : MonoBehaviour
             stamina.ChangCondition(value);
         }
         return true;
-    }
-
-    //몬스터 공격에 가져다 쓰시면 되요
-    public void TakeDamage(int attackPower)
-    {
-        if (conditions.TryGetValue(ConditionType.Health, out Condition health))
-        {        
-            health.ChangCondition(-attackPower);
-            if (health.CurValue <= 0)
-            {
-                if (CharacterManager.Instance.Player.isDead) return;
-                IsDead();
-            }
-        }
     }
 
     private void IsDead()

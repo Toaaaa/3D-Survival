@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject gamoverUI;
     [SerializeField] Button restartBtn;
 
-    [HideInInspector] public bool isDead = false;
+    public bool isDead = false;
 
     private void Awake()
     {        
