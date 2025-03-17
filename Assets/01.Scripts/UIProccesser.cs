@@ -49,8 +49,6 @@ public class UIProccesser : MonoBehaviour
 
     public void Select(int index)
     {
-        if (inventory.slots[index].ItemData == null) return;
-
         selectedItemIndex = index;
         if (inventory.slots[index].ItemData != null)
         {
@@ -69,8 +67,12 @@ public class UIProccesser : MonoBehaviour
             ProccessedItemIcon.sprite = proccessedData.icon;
             neededQuantityTxt.text = $"X{inventory.slots[index].ItemData.neededQuantity}";
         }
+        else
+        {
+            proccessedData = null;
+        }
 
-        if(proccessedData == null)
+        if (proccessedData == null)
         {
             ProccessedItemIcon.sprite = null;
             neededQuantityTxt.text = string.Empty;
