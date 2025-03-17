@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public PlayerHandler handler;
-    public PlayerCondition condition;
-    public InputController input;
-    public PlayerInventory inventory;
-    public PlayerEquipment equipment;
-    public PlayerAttack playerAttack;
-    public Building building;
-    public Interanction interact;
+    [HideInInspector] public PlayerHandler handler;
+    [HideInInspector] public PlayerCondition condition;
+    [HideInInspector] public InputController input;
+    [HideInInspector] public PlayerInventory inventory;
+    [HideInInspector] public PlayerEquipment equipment;
+    [HideInInspector] public PlayerAttack playerAttack;
+    [HideInInspector] public Building building;
+    [HideInInspector] public Interanction interact;
+
+    [SerializeField] GameObject gamoverUI;
+    [SerializeField] Button restartBtn;
 
     [HideInInspector] public bool isDead = false;
 
@@ -30,6 +35,8 @@ public class Player : MonoBehaviour
         building = GetComponent<Building>();
         interact = GetComponent<Interanction>();
         equipment = GetComponent<PlayerEquipment>();
+
+        restartBtn.onClick.AddListener(OnRestart);
     }
 
     private void Update()
@@ -37,6 +44,12 @@ public class Player : MonoBehaviour
         if (isDead)
         {
             Cursor.lockState = CursorLockMode.None;
+            gamoverUI.SetActive(true);
         }
+    }
+
+    private void OnRestart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
