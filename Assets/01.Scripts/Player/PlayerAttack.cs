@@ -49,7 +49,14 @@ public class PlayerAttack : MonoBehaviour
                 Debug.Log("적 공격 성공");               
                 monster.OnHit(attackPower);
                 return true;
-            }    
+            }
+
+            else if(hit.collider.TryGetComponent(out BuildObject buildObject))
+            {
+                Debug.Log("건물 철거 시도 성공");
+                buildObject.Demolition();
+                return true;
+            }
         }
         return false;
     }

@@ -7,9 +7,16 @@ using UnityEngine.UI;
 public class BuildObject : MonoBehaviour
 {
     public string name;
+    public int originCapacy;
+    private int capacy; 
     public GameObject previewPrefab;
     
     public CraftDictionary needItems;
+
+    private void Awake()
+    {
+        capacy = originCapacy;
+    }
 
     public string GetNameXValues()
     {
@@ -21,6 +28,17 @@ public class BuildObject : MonoBehaviour
         }
 
         return str;
+    }
+
+
+    public void Demolition()
+    {
+        capacy -= 1;
+
+        if (capacy < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 

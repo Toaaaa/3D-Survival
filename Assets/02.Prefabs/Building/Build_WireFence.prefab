@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: "\uCCA0\uC870\uB9DD"
+  originCapacy: 3
   previewPrefab: {fileID: 2668183264673480068, guid: 0c07f1461d2b89f4f9eae5d8146eecbe,
     type: 3}
   needItems:

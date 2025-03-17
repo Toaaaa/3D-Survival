@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: "\uB098\uBB34\uBCBD"
+  originCapacy: 2
   previewPrefab: {fileID: 3480568317829231255, guid: ff9477eba88fa9542ab1253259768183,
     type: 3}
   needItems:
