@@ -28,7 +28,7 @@ public class RadialMenu : MonoBehaviour
         entries = new List<RadialMenuEntry>();
         cameraController = FindAnyObjectByType<CameraController>();
         
-        cameraController.CursorToggle();
+        // cameraController.CursorToggle();
         
         // buildList의 아이콘, 빌드할 buildObject 프리팹 할당하고 disable
         for (int i = 0; i < buildList.Count; i++)
