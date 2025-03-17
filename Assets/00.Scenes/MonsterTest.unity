@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06810588, g: 0.30530742, b: 0.84073, a: 1}
+  m_IndirectSpecularColor: {r: 0.069523916, g: 0.332587, b: 0.9136408, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5733,43 +5733,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 674256127874508861, guid: ffe0173cbf543b0478d1e3c07e509c95,
+    - target: {fileID: 990575083430552650, guid: ffe0173cbf543b0478d1e3c07e509c95,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b5bd3f31b053aed4ebaf56227cab641b,
-        type: 3}
+      propertyPath: m_MinValue
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 990575083430552650, guid: ffe0173cbf543b0478d1e3c07e509c95,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1675753685}
-    - target: {fileID: 1807465540347889991, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1807465540347889991, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1807465540347889991, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1846061027199285488, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1846061027199285488, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: bb9ac4b8e354b784aab1e598640e292a,
-        type: 3}
     - target: {fileID: 2503146596313333642, guid: ffe0173cbf543b0478d1e3c07e509c95,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5869,42 +5842,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644314403842396446, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644314403842396446, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3564609876500830069, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4019469026744389349, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4019469026744389349, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3158a81040271944c86df426100da268,
-        type: 3}
-    - target: {fileID: 5673155508839059082, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5673155508839059082, guid: ffe0173cbf543b0478d1e3c07e509c95,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7306873783103717398, guid: ffe0173cbf543b0478d1e3c07e509c95,
         type: 3}
