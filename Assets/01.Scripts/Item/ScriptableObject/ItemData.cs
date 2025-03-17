@@ -16,24 +16,17 @@ public enum ConsumableType // 소비 아이템 효과
     Stamina,
     Hunger,
     Water
-    // 추후 추가
+    
 }
-
-[System.Serializable]
-
-public class ItemDataConsumable // 소비 아이템 설정
-{
-    public ConsumableType type;
-    public float value;
-}
-
-// 아이템 데이터 추가
-[CreateAssetMenu(fileName = "Item", menuName = "New Item")]
+// 아이템 데이터 추가 (newton x)
+//[CreateAssetMenu(fileName = "Item", menuName = "New Item")]
 
 // 아이템 정보
-public class ItemData : ScriptableObject
+[System.Serializable]
+public class ItemData
 {
     [Header("Info")]
+    public string itemKey;
     public string displayName;
     public string description;
     public ItemType type;
@@ -42,24 +35,63 @@ public class ItemData : ScriptableObject
     public GameObject drobPrefab;
     public string drobPrefabName;
 
-    [Header("Stacking")] // 중복
-    public bool canStack;
-    public int maxStackAmount; 
-    
-    [Header("Consumable")]
-    public ItemDataConsumable[] ItemsConsumables;
-
     [Header("Equip")]
     public GameObject equipPrefab;
+    public string equipPrefabName;
 
-    [Header("Resource")]
+    // 기존 위치
+    //[Header("Stacking")] // 중복
+    //public bool canStack;
+    //public int maxStackAmount;
+
+    //[Header("Consumable")]
+    //public ConsumableItemData[] ItemsConsumables;
+
+    //[Header("Equip")]
+    //public GameObject equipPrefab;
+
+     [Header("Resource")]
     public ItemData proccessedItem;
     public int neededQuantity;
+}
+
+public class ItemDatas
+{
+    public List<ItemData> itemsDatas;
 
 }
 
 [System.Serializable]
-public class ItemDatas
+
+public class ConsumableItemData : ItemData
 {
-    public ItemData[] itemDatas;
+    //public ConsumableItemData[] ItemsConsumables;
+
+    [Header("Stacking")] // 중복
+    public bool canStack;
+    public int maxStackAmount;
+
+    public ConsumableType consumableType;
+    public float value;
 }
+[System.Serializable]
+public class ResourceItemData : ItemData
+{
+    [Header("Stacking")] // 중복
+    public bool canStack;
+    public int maxStackAmount;
+
+}
+
+[System.Serializable]
+public class EquiptableItemData : ItemData
+{
+    //public int attackPower; equiptool 공격력/사거리 가져오기
+}
+
+// Newtonsoft.json 사용하지 않을 시에 필요함
+//[System.Serializable]
+//public class ItemDatas
+//{
+//    public ItemData[] itemDatas;
+//}
