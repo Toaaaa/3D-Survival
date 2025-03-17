@@ -15,7 +15,7 @@ public class Horse : Monster
             navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         areaMask = 1 << NavMesh.GetAreaFromName("Horse");// Horse 영역만 검색.
-
+        originPos = transform.position;// 처음 위치 저장.
         StartCoroutine(StateMachine());// 몬스터 상태 머신 시작.
     }
     private new void Update()
