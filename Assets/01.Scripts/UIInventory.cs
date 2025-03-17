@@ -45,7 +45,7 @@ public class UIInventory : MonoBehaviour
     {
         slotButton.onClick.AddListener(() => OnClick(slot.index));
 
-        inventoryWindow.SetActive(false); // 창 초기화
+        
 
         playerInventory = CharacterManager.Instance.Player.inventory;
         controller = CharacterManager.Instance.Player.input;
@@ -103,20 +103,15 @@ public class UIInventory : MonoBehaviour
     // 인벤토리 창 열고 닫기
     public void Toggle()
     {
-        
-        if (IsOpen())
-        { 
-            inventoryWindow.SetActive(false);
-        }
-        else { 
-            inventoryWindow.SetActive(true);
-        }       
+
+        bool isOpen = inventoryWindow.activeSelf;
+        inventoryWindow.SetActive(!isOpen);
     }
 
-    public bool IsOpen()
-    {
-        return inventoryWindow.activeInHierarchy;
-    }
+    //public bool IsOpen()
+    //{
+    //    return inventoryWindow.activeInHierarchy;
+    //}
 
     public void OnClick(int index)
     {
