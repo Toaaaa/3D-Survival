@@ -10,6 +10,7 @@ public class PlayerSound : MonoBehaviour
     [SerializeField] AudioClip[] footstepClips;
     [SerializeField] AudioClip[] attackSound;
     [SerializeField] AudioClip[] resourceSound;
+    [SerializeField] AudioClip[] buildSound;
     float footStepThreshold = 0.3f;
     float footStepRate = 0.5f;
     float footStepTime;

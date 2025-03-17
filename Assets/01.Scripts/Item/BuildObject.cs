@@ -7,9 +7,25 @@ using UnityEngine.UI;
 public class BuildObject : MonoBehaviour
 {
     public string name;
+    public int originCapacy;
+    private int capacy; 
     public GameObject previewPrefab;
     
     public CraftDictionary needItems;
+
+    private void Awake()
+    {
+        capacy = originCapacy;
+    }
+
+    public void Intialize()
+    {
+        for (int i = 0; i < needItems.needCraft.Length; i++)
+        {
+            needItems.needCraft[i].itemData =
+                DataManager.Instance.GetItemDataByID(needItems.needCraft[i].itemObject.itemKey);
+        }
+    }
 
     public string GetNameXValues()
     {
@@ -21,6 +37,17 @@ public class BuildObject : MonoBehaviour
         }
 
         return str;
+    }
+
+
+    public void Demolition()
+    {
+        capacy -= 1;
+
+        if (capacy < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -37,11 +64,13 @@ public class CraftDictionary
 public class NeedCraft
 {
     public ItemData itemData;
+    public ItemObject itemObject;
     public int needValue;
 
-    public NeedCraft(ItemData itemData, int needValue)
+    public NeedCraft(ItemData itemData,ItemObject itemObject, int needValue)
     {
-        this.itemData = itemData;
+        this.itemObject = itemObject;
+        this.itemData = DataManager.Instance.GetItemDataByID(this.itemObject.itemKey);
         this.needValue = needValue;
     }
 }

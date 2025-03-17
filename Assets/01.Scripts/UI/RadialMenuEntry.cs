@@ -21,6 +21,7 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
     {
         rect = icon.GetComponent<RectTransform>();
         buildObject = prefab.gameObject.GetComponent<BuildObject>();
+        buildObject.Intialize();
         name = buildObject.name;
         description = buildObject.GetNameXValues();
     }

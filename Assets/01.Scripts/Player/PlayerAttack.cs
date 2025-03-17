@@ -54,7 +54,15 @@ public class PlayerAttack : MonoBehaviour
                 monster.OnHit(attackPower);
                 onHitMonster?.Invoke();
                 return true;
-            }    
+            }
+
+            else if(hit.collider.TryGetComponent(out BuildObject buildObject))
+            {
+                Debug.Log("건물 철거 시도 성공");
+                buildObject.Demolition();
+                onHitResorce?.Invoke();
+                return true;
+            }
         }
         return false;
     }

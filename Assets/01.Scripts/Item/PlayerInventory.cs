@@ -112,10 +112,9 @@ public class PlayerInventory : MonoBehaviour
             { return slots[i]; }
         }
         return null;
-
     }
 
-    private void TriggerUpdateUI()
+    public void TriggerUpdateUI()
     {
         InventoryUpdated?.Invoke();
     }
