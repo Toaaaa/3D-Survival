@@ -9,8 +9,8 @@ public class PlayerAttack : MonoBehaviour
     public float AttackPower { get => attackPower; }
     [SerializeField] float attackDistance;
     public float AttackDistance { get => attackDistance; }
-    public Action onHit;
-
+    public Action onHitMonster;
+    public Action onHitResorce;
 
     //장비 착용시 가져다 쓰면 됩니다.
     public void ChangePower(float value)
@@ -44,7 +44,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Debug.Log("자원 공격 성공");
                 resources.Gather(hit.point , hit.normal);
-                onHit?.Invoke();
+                onHitResorce?.Invoke();
                 return true;
             }
 
@@ -52,7 +52,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Debug.Log("적 공격 성공");               
                 monster.OnHit(attackPower);
-                onHit?.Invoke();
+                onHitMonster?.Invoke();
                 return true;
             }    
         }

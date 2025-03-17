@@ -9,6 +9,7 @@ public class PlayerSound : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] AudioClip[] footstepClips;
     [SerializeField] AudioClip[] attackSound;
+    [SerializeField] AudioClip[] resourceSound;
     float footStepThreshold = 0.3f;
     float footStepRate = 0.5f;
     float footStepTime;
@@ -25,7 +26,8 @@ public class PlayerSound : MonoBehaviour
 
     private void Start()
     {
-        attack.onHit += AttackSound;
+        attack.onHitMonster += AttackSound;
+        attack.onHitResorce += ResouceAttackSound;
     }
 
     // Update is called once per frame
@@ -44,8 +46,13 @@ public class PlayerSound : MonoBehaviour
         }
     }
 
-    public void AttackSound()
+    private void AttackSound()
     {
         audioSource.PlayOneShot(attackSound[Random.Range(0, attackSound.Length)]);
+    }
+
+    private void ResouceAttackSound()
+    {
+        audioSource.PlayOneShot(resourceSound[Random.Range(0, resourceSound.Length)]);
     }
 }

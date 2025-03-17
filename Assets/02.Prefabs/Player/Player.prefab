@@ -420,6 +420,9 @@ MonoBehaviour:
   attackSound:
   - {fileID: 8300000, guid: 312d2f46c80ea984f90f31bc50b078ac, type: 3}
   - {fileID: 8300000, guid: ea5424d9833b4ef408b9792384a8b43d, type: 3}
+  resourceSound:
+  - {fileID: 8300000, guid: 0fa2374d00a48b24d90be3777f5de4fe, type: 3}
+  - {fileID: 8300000, guid: 812454da99856b9429b8f63b76451366, type: 3}
 --- !u!1 &5210693177517577588
 GameObject:
   m_ObjectHideFlags: 0
