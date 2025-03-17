@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 8915025971282029138}
   - component: {fileID: 3297875496094871373}
   - component: {fileID: 247042689432145978}
+  - component: {fileID: 9078002263731094763}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -236,6 +237,7 @@ MonoBehaviour:
   playerAttack: {fileID: 0}
   building: {fileID: 0}
   interact: {fileID: 0}
+  environmentCon: {fileID: 0}
   gamoverUI: {fileID: 0}
   restartBtn: {fileID: 0}
   isDead: 0
@@ -428,6 +430,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0fa2374d00a48b24d90be3777f5de4fe, type: 3}
   - {fileID: 8300000, guid: 812454da99856b9429b8f63b76451366, type: 3}
   buildSound: []
+--- !u!114 &9078002263731094763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934320595059787600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331aa7fa08bc607429bb8c8629fc53d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  environmentType: 0
+  freezeTime: 1
+  freezeOverlay: {fileID: 0}
 --- !u!1 &5210693177517577588
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +537,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5210693177517577588}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &7868181556928514193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,6 +595,7 @@ GameObject:
   - component: {fileID: 8249685167315738245}
   - component: {fileID: 5105522695135202238}
   - component: {fileID: 8546017200468511603}
+  - component: {fileID: 4374859564012937858}
   m_Layer: 0
   m_Name: TPCamera
   m_TagString: MainCamera
@@ -720,6 +738,27 @@ MonoBehaviour:
   maxLookDown: -50
   tpCamera: {fileID: 3607606388325313710}
   isLook: 1
+--- !u!114 &4374859564012937858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576719901542827237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9044ef733a99ffa4aa7a986bb5e9a7f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrostAmount: 0.5
+  EdgeSharpness: 10
+  minFrost: 0.25
+  maxFrost: 0.75
+  seethroughness: 0.1
+  distortion: 0
+  Frost: {fileID: 2800000, guid: 210743b88c99bcf45b28c3a4a4a3e178, type: 3}
+  FrostNormals: {fileID: 2800000, guid: 065247d136abaa042a330ab6a7b030fc, type: 3}
+  Shader: {fileID: 4800000, guid: db8aebe950ae3794aae5ed890f38549b, type: 3}
 --- !u!1001 &3487731072275830546
 PrefabInstance:
   m_ObjectHideFlags: 0

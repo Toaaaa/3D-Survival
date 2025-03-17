@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerAttack playerAttack;
     [HideInInspector] public Building building;
     [HideInInspector] public Interanction interact;
+    [HideInInspector] public PlayerEnvironmentCon environmentCon;
 
     [SerializeField] GameObject gamoverUI;
     [SerializeField] Button restartBtn;
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
         building = GetComponent<Building>();
         interact = GetComponent<Interanction>();
         equipment = GetComponent<PlayerEquipment>();
+        environmentCon = GetComponent<PlayerEnvironmentCon>();
 
         restartBtn.onClick.AddListener(OnRestart);
     }
