@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIProccesser : MonoBehaviour
+public class UIProccesser : Singleton<UIProccesser>
 {
     public ProcessItemSlot[] slots;
     public PlayerInventory inventory;
@@ -19,6 +19,8 @@ public class UIProccesser : MonoBehaviour
     public ItemData selectedItem;
     public int selectedItemIndex;
     private ItemData proccessedData;
+    
+    public GameObject backGround;
 
     private void Awake()
     {
@@ -36,6 +38,7 @@ public class UIProccesser : MonoBehaviour
         }
         UpdateProccesserUI();
         inventory.InventoryUpdated += UpdateProccesserUI;
+        backGround.SetActive(false);
     }
 
     public void OnProccessBtn()
@@ -110,5 +113,15 @@ public class UIProccesser : MonoBehaviour
                 slots[i].quantityText.text = string.Empty;
             }
         }
+    }
+
+    public void OpenUI()
+    {
+        backGround.SetActive(true);
+    }
+
+    public void CloseUI()
+    {
+        backGround.SetActive(false);
     }
 }
