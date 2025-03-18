@@ -112,6 +112,7 @@ public class UIInventory : MonoBehaviour
             if (playerInventory.slots[i].ItemData != null && uiSlots[i].Index == playerInventory.slots[i].index)
             {
                 uiSlots[i].ItemData = playerInventory.slots[i].ItemData;
+                uiSlots[i].icon.gameObject.SetActive(true);
                 uiSlots[i].icon.sprite = playerInventory.slots[i].ItemData.icon;
                 uiSlots[i].quantityText.text = playerInventory.slots[i].quantity > 1 ? playerInventory.slots[i].quantity.ToString() : string.Empty;
                 if (uiSlots[i].outline != null)
@@ -123,6 +124,7 @@ public class UIInventory : MonoBehaviour
             {
                 uiSlots[i].ItemData = null;
                 uiSlots[i].icon.sprite = null;
+                uiSlots[i].icon.gameObject.SetActive(false);
                 uiSlots[i].quantityText.text = string.Empty;
                 
             }
