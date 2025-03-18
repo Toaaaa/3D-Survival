@@ -302,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1892111110454754976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &318163227238692123
 MonoBehaviour:
@@ -504,6 +504,9 @@ MonoBehaviour:
     maxStackAmount: 0
     neededQuantity: 0
     nextItemIdx: 0
+    ConsumableType: []
+    consumableTypes: 
+    value: []
   selectedItemIndex: 0
   backGround: {fileID: 6471830629946896136}
 --- !u!1 &6854582156615054796
