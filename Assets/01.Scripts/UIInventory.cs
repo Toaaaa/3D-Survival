@@ -177,7 +177,7 @@ public class UIInventory : MonoBehaviour
             // 장비라면, 벗어준다.
             if (uiSlots[selectedItemIndex].equipped)
             {
-                playerEquipment.UnEquip(playerInventory.slots[selectedItemIndex].ItemData);
+                playerEquipment.UnEquip();
             }
 
             // 장비가 아니라면, 슬롯을 비워준다.
@@ -229,22 +229,35 @@ public class UIInventory : MonoBehaviour
             RemoveSelectedItem();
         }
     }
-    
+
 
     // 2. 착용하기 버튼
     public void OnEquipButton()
     {
         selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
-        if (uiSlots[selectedItemIndex].equipped) { playerEquipment.UnEquip(selectedItem); }
-        uiSlots[selectedItemIndex].equipped = true;
-        playerEquipment.Equip(selectedItem);
+        if (uiSlots[selectedItemIndex].equipped) { playerEquipment.UnEquip(); }
+            else
+            {
+                // 모든 슬롯의 equipped 상태를 false로 초기화
+                // 중복 착용 방지 위함
+                for (int i = 0; i < uiSlots.Length; i++)
+                {
+                    uiSlots[i].equipped = false;
+                }
+                uiSlots[selectedItemIndex].equipped = true;
+            playerEquipment.Equip(selectedItem);
+        }
+
         UpdateUI();
+
+        SelectItem(selectedItemIndex);
+
     }
     // 3. 해제하기 버튼
     public void OnUnEquipButton()
     {
         selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
-        playerEquipment.UnEquip(selectedItem);
+        playerEquipment.UnEquip();
         UpdateUI();
         uiSlots[selectedItemIndex].equipped = false;
     }

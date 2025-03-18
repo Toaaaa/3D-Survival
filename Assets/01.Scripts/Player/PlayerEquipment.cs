@@ -15,7 +15,7 @@ public class PlayerEquipment : MonoBehaviour
 
     public void Equip(ItemData equipItemData)
     {
-        UnEquip(equipItemData);
+        UnEquip();
         curEquip = Instantiate(equipItemData.equipPrefab, equipParent).GetComponent<Equip>();
 
         if (curEquip is EquipTool equipTool)
@@ -25,7 +25,7 @@ public class PlayerEquipment : MonoBehaviour
             playerAttack.ChangeAttackDistance(equipTool.attackDistance);
         }
     }
-    public void UnEquip(ItemData equipItemData)
+    public void UnEquip()
     {
         if (curEquip != null)
         {               
