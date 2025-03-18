@@ -31,6 +31,7 @@ public class SoundManager : MonoBehaviour
     }
 
     public AudioMixer audioMixer;  // Audio Mixer 연결
+    public UISound UISound;
 
     public void SetMasterVolume(float volume)
     {

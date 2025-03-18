@@ -91,10 +91,12 @@ public class RadialMenu : MonoBehaviour
         if (!entries[0].gameObject.activeSelf)
         {
             OpenMenu();
+            BuildUI.Instance.CanvasSort(true);
         }
         else
         {
             CloseMenu();
+            BuildUI.Instance.CanvasSort(false);
         }
     }
 
