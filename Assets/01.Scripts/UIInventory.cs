@@ -78,13 +78,35 @@ public class UIInventory : MonoBehaviour
         selectedItemStatName.text = string.Empty;
         selectedItemStatValue.text = string.Empty;
     }
+
+    // 슬롯 정렬 메서드
+
+    // 아이템이 들어왔을 때
+    //public void Set(int index)
+    //{
+    //    icon.gameObject.SetActive(true);
+    //    icon.sprite = uiInventory.playerInventory.slots[index].ItemData.icon;
+    //    quantityText.text = quantity > 1 ? quantity.ToString() : string.Empty; // 아이템 수량 없으면 표시 안 함
+
+    //    // 방어코드
+    //    if(outline != null ) {outline.enabled = equipped;}
+    //}
+
+    //// 아이템이 빠질 때
+    //public void Clear()
+    //{
+    //    //uiInventory.playerInventory.slots[index].ItemData = null;
+    //    icon.gameObject.SetActive(false);
+    //    quantityText.text = string.Empty;
+    //}
+
     public void UpdateUI()
     {
         for (int i = 0; i < uiSlots.Length; i++)
         {
-            if (playerInventory.slots[i].ItemData == null) return;
+           //if (playerInventory.slots[i].ItemData == null) return;
 
-            if (uiSlots[i].Index == playerInventory.slots[i].index)
+            if (playerInventory.slots[i].ItemData != null)
             {
                 uiSlots[i].ItemData = playerInventory.slots[i].ItemData;
                 uiSlots[i].icon.sprite = playerInventory.slots[i].ItemData.icon;
@@ -92,6 +114,8 @@ public class UIInventory : MonoBehaviour
             }
             else
             {
+                //playerInventory.slots[i].ItemData = null;
+
                 uiSlots[i].icon.sprite = null;
                 uiSlots[i].quantityText.text = string.Empty;
             }

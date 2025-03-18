@@ -56,7 +56,13 @@ MonoBehaviour:
     drobPrefabName: 
     equipPrefab: {fileID: 0}
     equipPrefabName: 
+    canStack: 0
+    maxStackAmount: 0
     neededQuantity: 0
+    nextItemIdx: 0
+    ConsumableType: []
+    consumableTypes: 
+    value: []
   attackRate: 0
   attacking: 1
   doesGatherResources: 0
