@@ -111,12 +111,17 @@ public class UIInventory : MonoBehaviour
                 uiSlots[i].ItemData = playerInventory.slots[i].ItemData;
                 uiSlots[i].icon.sprite = playerInventory.slots[i].ItemData.icon;
                 uiSlots[i].quantityText.text = playerInventory.slots[i].quantity > 1 ? playerInventory.slots[i].quantity.ToString() : string.Empty;
+                if (uiSlots[i].outline != null)
+                {
+                    uiSlots[i].outline.enabled = uiSlots[i].equipped;
+                }
             }
             else
             {
                 uiSlots[i].ItemData = null;
                 uiSlots[i].icon.sprite = null;
                 uiSlots[i].quantityText.text = string.Empty;
+                
             }
         }
         ClearSelectedItemWindow();
@@ -244,10 +249,10 @@ public class UIInventory : MonoBehaviour
                 {
                     uiSlots[i].equipped = false;
                 }
-                uiSlots[selectedItemIndex].equipped = true;
-            playerEquipment.Equip(selectedItem);
-        }
 
+            uiSlots[selectedItemIndex].equipped = true;
+            playerEquipment.Equip(selectedItem);
+            }
         UpdateUI();
 
         SelectItem(selectedItemIndex);
@@ -258,8 +263,9 @@ public class UIInventory : MonoBehaviour
     {
         selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
         playerEquipment.UnEquip();
-        UpdateUI();
+        
         uiSlots[selectedItemIndex].equipped = false;
+        UpdateUI();
     }
     // 4. 버리기 버튼
     public void OnDropButton() 

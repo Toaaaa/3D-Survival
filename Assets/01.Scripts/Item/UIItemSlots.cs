@@ -14,7 +14,7 @@ public class UIItemSlots : MonoBehaviour // UI아이템슬롯
     public Button button; // 슬롯 칸
     public Image icon; //아이템 이미지
     public TextMeshProUGUI quantityText; // 수량 텍스트
-    private Outline outline;
+    public Outline outline;
 
     // 슬롯 변수
     public int Index; // 슬롯 칸 index
