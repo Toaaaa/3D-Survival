@@ -22,13 +22,9 @@ public class UIProccesser : Singleton<UIProccesser>
     
     public GameObject backGround;
 
-    private void Awake()
-    {
-        proccessBtn.onClick.AddListener(OnProccessBtn);
-    }
-
     private void Start()
     {
+        proccessBtn.onClick.AddListener(OnProccessBtn);
         inventory = CharacterManager.Instance.Player.inventory;
         slots = new ProcessItemSlot[inventory.slots.Length];
         for(int i = 0; i < slots.Length; i++)
