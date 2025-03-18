@@ -56,6 +56,9 @@ public class Proccesser : MonoBehaviour, IInteractable
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
-
-
+    private void OnDisable()
+    {
+        UIProccesser.Instance.CloseUI();
+        cameraController.CursorToggle();
+    }
 }
