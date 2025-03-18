@@ -123,7 +123,7 @@ public class Monster : MonoBehaviour
             yield return null;
     }
 
-    IEnumerator Chase()
+    protected virtual IEnumerator Chase()
     {
         var curAnimStateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
@@ -150,7 +150,7 @@ public class Monster : MonoBehaviour
             yield return null; // 한 프레임마다 체크
         }
     }
-    IEnumerator Attack()
+    protected virtual IEnumerator Attack()
     {
         var curAnimStateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
@@ -177,7 +177,7 @@ public class Monster : MonoBehaviour
             }
         }
     }
-    IEnumerator Return()
+    protected virtual IEnumerator Return()
     {
         var curAnimStateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
