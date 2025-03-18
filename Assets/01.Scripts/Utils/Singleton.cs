@@ -2,10 +2,17 @@ using UnityEngine;
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T instance;
+    private static bool _applicationQuit = false;
+
     public static T Instance
     {
         get
         {
+            if (_applicationQuit)
+            {
+                return null;
+            }
+            
             if (instance == null)
             {
                 instance = (T)FindAnyObjectByType(typeof(T));
@@ -40,4 +47,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    protected virtual void OnApplicationQuit()
+    {
+        _applicationQuit = true;
+    }
+    
+
 }
