@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10918938, g: 0.28662118, b: 0.6396758, a: 1}
+  m_IndirectSpecularColor: {r: 0.06952667, g: 0.3338752, b: 0.9172207, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6600,6 +6600,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7934019520423063173, guid: c105a23a2dc93a64e8b6387acf5cdfa9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8505614355954015793, guid: c105a23a2dc93a64e8b6387acf5cdfa9,
         type: 3}
       propertyPath: m_IsActive
@@ -7170,6 +7175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SettingCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185151593529257365, guid: ffe0173cbf543b0478d1e3c07e509c95,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
