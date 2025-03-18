@@ -123,11 +123,11 @@ public class PlayerInventory : MonoBehaviour
     {
         for(int i =0; i < slots.Length; i++)
         {
-            if (slots[i].ItemData != null)
+            if (slots[i].ItemData != null) // 아이템데이터가 있다면
             {
-                if (slots[i].quantity == 0)
+                if (slots[i].quantity <= 0) // 근데 수량이 0이라면
                 {
-                    slots[i].ItemData = null;
+                    slots[i].ItemData = null; // 슬롯의 아이템을 지워준다..
                 }
             }
         }

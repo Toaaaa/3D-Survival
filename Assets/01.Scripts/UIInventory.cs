@@ -45,8 +45,6 @@ public class UIInventory : MonoBehaviour
     {
         slotButton.onClick.AddListener(() => OnClick(slot.index));
 
-
-
         playerInventory = CharacterManager.Instance.Player.inventory;
         controller = CharacterManager.Instance.Player.input;
         conditions = CharacterManager.Instance.Player.condition;
@@ -80,13 +78,35 @@ public class UIInventory : MonoBehaviour
         selectedItemStatName.text = string.Empty;
         selectedItemStatValue.text = string.Empty;
     }
+
+    // 슬롯 정렬 메서드
+
+    // 아이템이 들어왔을 때
+    //public void Set(int index)
+    //{
+    //    icon.gameObject.SetActive(true);
+    //    icon.sprite = uiInventory.playerInventory.slots[index].ItemData.icon;
+    //    quantityText.text = quantity > 1 ? quantity.ToString() : string.Empty; // 아이템 수량 없으면 표시 안 함
+
+    //    // 방어코드
+    //    if(outline != null ) {outline.enabled = equipped;}
+    //}
+
+    //// 아이템이 빠질 때
+    //public void Clear()
+    //{
+    //    //uiInventory.playerInventory.slots[index].ItemData = null;
+    //    icon.gameObject.SetActive(false);
+    //    quantityText.text = string.Empty;
+    //}
+
     public void UpdateUI()
     {
         for (int i = 0; i < uiSlots.Length; i++)
         {
-            if (playerInventory.slots[i].ItemData == null) return;
+           //if (playerInventory.slots[i].ItemData == null) return;
 
-            if (uiSlots[i].Index == playerInventory.slots[i].index)
+            if (playerInventory.slots[i].ItemData != null && uiSlots[i].Index == playerInventory.slots[i].index)
             {
                 uiSlots[i].ItemData = playerInventory.slots[i].ItemData;
                 uiSlots[i].icon.sprite = playerInventory.slots[i].ItemData.icon;
@@ -94,6 +114,8 @@ public class UIInventory : MonoBehaviour
             }
             else
             {
+                
+                uiSlots[i].ItemData = null;
                 uiSlots[i].icon.sprite = null;
                 uiSlots[i].quantityText.text = string.Empty;
             }
@@ -138,13 +160,18 @@ public class UIInventory : MonoBehaviour
         //    selectedItemStatValue.text += selectedItem.ItemsConsumables[i].value.ToString() + "\n";
         //}
 
-        if (selectedItem is ConsumableItemData consumableItem)
+        if (selectedItem.type == ItemType.Consumable)
         {
-            selectedItemStatName.text = consumableItem.consumableType.ToString();
-            selectedItemStatValue.text = consumableItem.value.ToString();
+
+            for (int i = 0; i < selectedItem.ConsumableType.Count; i++)
+            {
+                selectedItemStatName.text += selectedItem.consumableTypes[i].ToString() + "\n";
+                selectedItemStatValue.text += selectedItem.value[i].ToString() + "\n";
+            }
         }
 
-        useButton.SetActive(selectedItem.type == ItemType.Consumable);
+
+                useButton.SetActive(selectedItem.type == ItemType.Consumable);
         equipButton.SetActive(selectedItem.type == ItemType.Equipable && !uiSlots[index].equipped);
         unEquipButton.SetActive(selectedItem.type == ItemType.Equipable && uiSlots[index].equipped);
         
@@ -168,60 +195,59 @@ public class UIInventory : MonoBehaviour
             // 장비가 아니라면, 슬롯을 비워준다.
             playerInventory.slots[selectedItemIndex].quantity = 0;
             playerInventory.slots[selectedItemIndex].ItemData = null;
-            UpdateUI();
-         }
-        else
-        {
-            UpdateUI();
+            ClearSelectedItemWindow();
         }
+            UpdateUI();
     }
 
     // 1.사용하기버튼 
 
     public void OnUseButton()
     {
-        if (selectedItem is ConsumableItemData consumableItem)
+        if (selectedItem.type == ItemType.Consumable)
         {
 
-            for (int i = 0; i < consumableItem.consumableType.Length; i++)
+            for (int i = 0; i < selectedItem.ConsumableType.Count; i++)
             {
-                ConsumableType type = consumableItem.consumableType[i];
-                float amount = consumableItem.value[i];
 
-                if (conditions.Conditions.TryGetValue((ConditionType)type, out Condition condition))
+
+                //if (conditions.Conditions.TryGetValue((ConditionType)type, out Condition condition))
+                //{
+                //    condition.ChangCondition(amount);
+                //    Debug.Log(type + "회복");
+                //}
+                switch(selectedItem.consumableTypes[i])
                 {
-                    condition.ChangCondition(amount);
-                }
+                    case ConsumableType.Health:
+                        if (conditions.Conditions.TryGetValue(ConditionType.Health, out Condition health))
+                        {
+                            health.ChangCondition(selectedItem.value[i]);
+                        }
+                        break;
+                    case ConsumableType.Stamina:
+                        if (conditions.Conditions.TryGetValue(ConditionType.Stamina, out Condition stamina))
+                        {
+                            stamina.ChangCondition(selectedItem.value[i]);
+                        }
+                        break;
+                    case ConsumableType.Water:
+                        if (conditions.Conditions.TryGetValue(ConditionType.Water, out Condition water))
+                        {
+                            water.ChangCondition(selectedItem.value[i]);
+                        }
+                        break;
+                    case ConsumableType.Hunger:
+                        if (conditions.Conditions.TryGetValue(ConditionType.Hunger, out Condition hunger))
+                        {
+                            hunger.ChangCondition(selectedItem.value[i]);
+                        }
+                        break;
+                }   
             }
-            //case consumabletype.health:
-            //    if (conditions.conditions.trygetvalue(conditiontype.health, out condition health))
-            //    {
-            //        health.changcondition(consumableitem.value);
-            //    }
-            //    break;
-            //case consumabletype.stamina:
-            //    if (conditions.conditions.trygetvalue(conditiontype.stamina, out condition stamina))
-            //    {
-            //        stamina.changcondition(consumableitem.value);
-            //    }
-            //    break;
-            //case consumabletype.water:
-            //    if (conditions.conditions.trygetvalue(conditiontype.water, out condition water))
-            //    {
-            //        water.changcondition(consumableitem.value);
-            //    }
-            //    break;
-            //case consumabletype.hunger:
-            //    if (conditions.conditions.trygetvalue(conditiontype.hunger, out condition hunger))
-            //    {
-            //        hunger.changcondition(consumableitem.value);
-            //    }
-            //    break;
-        
+            // 사용한 뒤에 selectItem을 초기화한다.
+            RemoveSelectedItem();
         }
-        // 사용한 뒤에 selectItem을 초기화한다.
-        RemoveSelectedItem();
-        }
+    }
     
 
     // 2. 착용하기 버튼
@@ -249,7 +275,8 @@ public class UIInventory : MonoBehaviour
     // 버리기 버튼
     public void OnDropButton() 
     {
-        playerInventory.ThrowItem(selectedItem);
+        if (selectedItem.drobPrefab != null) { playerInventory.ThrowItem(selectedItem); }
+       // else { playerInventory.TriggerUpdateUI(); }
         RemoveSelectedItem();
     }
 

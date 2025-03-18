@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8662384548010565118}
+  - component: {fileID: 7012517738186211410}
   m_Layer: 0
   m_Name: Equip_IronSword
   m_TagString: Untagged
@@ -32,6 +33,42 @@ Transform:
   - {fileID: 267842601749688959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -0.769, y: 84.814, z: 25.03}
+--- !u!114 &7012517738186211410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414269951353866753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e795795b1b21c4297ef0b68b934cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemKey: 
+    displayName: 
+    description: 
+    type: 0
+    icon: {fileID: 0}
+    iconName: 
+    drobPrefab: {fileID: 0}
+    drobPrefabName: 
+    equipPrefab: {fileID: 0}
+    equipPrefabName: 
+    canStack: 0
+    maxStackAmount: 0
+    neededQuantity: 0
+    nextItemIdx: 0
+    ConsumableType: []
+    consumableTypes: 
+    value: []
+  attackRate: 0
+  attacking: 0
+  doesGatherResources: 0
+  doesDealDamage: 0
+  attackDistance: 0
+  attackPower: 0
 --- !u!1001 &443129518054867671
 PrefabInstance:
   m_ObjectHideFlags: 0

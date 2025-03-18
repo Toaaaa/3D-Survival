@@ -34,7 +34,7 @@ public class PlayerEquipment : MonoBehaviour
         if (curEquip != null)
         {               
             Destroy(curEquip.gameObject);
-            // PlayerAttack의 attackPower 및 attackDistance 초기화 필요
+            
             CharacterManager.Instance.Player.handler.isWeopon = false;
             curEquip = null;
         }
