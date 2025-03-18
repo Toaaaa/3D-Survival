@@ -197,6 +197,7 @@ public class UIInventory : MonoBehaviour
 
     public void OnUseButton()
     {
+        if (selectedItem == null) { return; }
         if (selectedItem.type == ItemType.Consumable)
         {
 
@@ -239,6 +240,7 @@ public class UIInventory : MonoBehaviour
     // 2. 착용하기 버튼
     public void OnEquipButton()
     {
+        if (selectedItem == null) { return; }
         selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
         if (uiSlots[selectedItemIndex].equipped) { playerEquipment.UnEquip(); }
             else
@@ -261,6 +263,7 @@ public class UIInventory : MonoBehaviour
     // 3. 해제하기 버튼
     public void OnUnEquipButton()
     {
+        if (selectedItem == null) { return; }
         selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
         playerEquipment.UnEquip();
         
