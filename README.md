@@ -1,5 +1,7 @@
 # Sparta's Survival
 
+![타이틀 씬](https://github.com/Toaaaa/3D-Survival/blob/main/startscene.PNG)
+
 ## 🎮 게임 개요 및 소개
 **Sparta's Survival**은 플레이어가 오픈 월드에서 식물을 채집하고 몬스터를 잡아 얻은 재료로 배고픔과 갈증을 해소하며 가공과 크래프팅 시스템으로 생존해야 하는 게임입니다.
 
@@ -63,3 +65,25 @@
   
 - **방어진 구축**: 크래프팅 시스템을 활용하여 몬스터 및 기타 위험 요소로부터 자신을 보호할 수 있습니다.
 - https://github.com/user-attachments/assets/cc3d2e20-0983-4af9-aac1-aa193507acff
+
+
+## 개발 플로우
+1. 프로젝트의 대략적인 구상 이후 기능 분배 및 디렉토리 분류.
+2. 메인 씬 제작 후 메인 씬을 기반으로 Dev 브랜치를 생성.
+3. Dev 브랜치에서 각자 맡은 기능을 구현.
+4. 일정 주기마다 Dev 브랜치로 머지를 하여 충돌 및 기능 연결 진행.
+
+
+
+## 기술 스택
+- C#, GIT, Notion, Figma
+- Figma 주소 : https://www.figma.com/board/CM5Mx03a0usw6NznEHNlON/22%EC%A1%B0-Unity-%EC%88%99%EB%A0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=152-87&t=tubtpR1Dn3VBoaw7-0
+
+  
+## 커밋 컨벤션
++ feat : 기능추가
++ comment : 주석 추가,수정
++ style : {}위치 공백추가,삭제,단순 변수명 변경
++ refactor : 코드 최적화
++ fix : 버그수정
++ asset : 에셋 추가
