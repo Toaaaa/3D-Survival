@@ -102,17 +102,20 @@ public class RadialMenu : MonoBehaviour
 
     private void Rearrange()
     {
+        // 원 좌표 필요한 아이콘 갯수만큼 분할
         float radianOfSeparation = (Mathf.PI * 2) / entries.Count;
         for (int i = 0; i < entries.Count; i++)
         {
             float x = Mathf.Sin(radianOfSeparation * i) * radius;
             float y = Mathf.Cos(radianOfSeparation * i) * radius;
-
-            // entries[i].GetComponent<RectTransform>().anchoredPosition = new Vector3(x, y, 0);
+            
             RectTransform rect = entries[i].GetComponent<RectTransform>();
             
+            // 아이콘 크기를 0으로 만들어 원래 크기로 점점 키움
             rect.localScale = Vector3.zero;
             rect.DOScale(Vector3.one, .3f).SetEase(Ease.OutQuad).SetDelay(.05f * i);
+            
+            // 아이콘을 지정된 위치로 이동
             rect.DOAnchorPos(new Vector3(x, y, 0), .3f).SetEase(Ease.OutQuad)
                 .SetDelay(.05f * i);
         }

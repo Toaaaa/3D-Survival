@@ -58,7 +58,7 @@ public class Proccesser : MonoBehaviour, IInteractable
 
     private void OnDisable()
     {
-        UIProccesser.Instance.CloseUI();
-        cameraController.CursorToggle();
+        if(UIProccesser.Instance != null)
+            OffProccesserWindow();
     }
 }

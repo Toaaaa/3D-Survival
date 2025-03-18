@@ -188,12 +188,12 @@ public class Building : MonoBehaviour
             // 물체 회전 계산 (법선 방향으로 회전)
             Quaternion rotation = Quaternion.FromToRotation(Vector3.up, normal);
             
-            // previewPrefab은 isTrigger로 충돌하지 않게 해놔서 생성시 trigger off로 충돌가능하게
+            // 오브젝트 생성
             GameObject newObject = Instantiate(buildPrefabs, currentPreview.transform.position, rotation);
             newObject.transform.Rotate(previewRotation);
             
             BuildObject buildObject = buildPrefabs.gameObject.GetComponent<BuildObject>();
-            ResumeInventoryItems(buildObject);
+            ResumeInventoryItems(buildObject);      // 인벤토리에서 필요한 아이템 소모
             
             previewMaterials = null;
             previewPrefab = null;
