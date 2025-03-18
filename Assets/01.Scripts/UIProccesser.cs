@@ -113,11 +113,13 @@ public class UIProccesser : Singleton<UIProccesser>
 
     public void OpenUI()
     {
-        backGround.SetActive(true);
+        if(backGround != null)
+            backGround.SetActive(true);
     }
 
     public void CloseUI()
     {
-        backGround.SetActive(false);
+        if(backGround != null)
+            backGround.SetActive(false);
     }
 }
