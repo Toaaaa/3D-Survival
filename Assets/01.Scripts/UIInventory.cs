@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,6 +37,8 @@ public class UIInventory : MonoBehaviour
     public Action onClickUseBtn;
 
     public Button slotButton;
+
+    public CanvasGroup uiInventoryCanvasGroup;
 
     private InputController controller;
     private PlayerCondition conditions;
@@ -131,7 +134,32 @@ public class UIInventory : MonoBehaviour
     public void Toggle()
     {
         bool isOpen = inventoryWindow.activeSelf;
-        inventoryWindow.SetActive(!isOpen);
+        //inventoryWindow.SetActive(!isOpen);
+        if(!isOpen) 
+        {
+            isOpen = true;
+
+            // 판넬 활성화
+            uiInventoryCanvasGroup.gameObject.SetActive(true);
+
+            // DOtween 애니메이션 
+            // 2초동안 확대 애니메이션
+            uiInventoryCanvasGroup.DOFade(1, 0.2f).SetEase(Ease.OutBack);
+
+            uiInventoryCanvasGroup.blocksRaycasts = true; // 클릭 활성화
+            uiInventoryCanvasGroup.interactable = true;
+        }
+        else
+        {
+            isOpen = false;
+            uiInventoryCanvasGroup.gameObject.SetActive(false);
+            // 크기 줄어들면서 팝업 사라짐
+            uiInventoryCanvasGroup.DOFade(0, 0.2f).SetEase(Ease.InBack).OnComplete(() =>
+            {
+                uiInventoryCanvasGroup.blocksRaycasts = false;
+                uiInventoryCanvasGroup.interactable = false;
+            });
+        }
     }
 
 

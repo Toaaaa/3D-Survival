@@ -242,6 +242,7 @@ MonoBehaviour:
   dropButton: {fileID: 1957924325434387346}
   slotButton: {fileID: 934797795225942653, guid: 6a3a93c2479935a4097d84662258bb0c,
     type: 3}
+  uiInventoryCanvasGroup: {fileID: 508400423253837860}
 --- !u!1 &1218578694364835075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,6 +1524,7 @@ GameObject:
   - component: {fileID: 7934019520423063173}
   - component: {fileID: 7809955125526520894}
   - component: {fileID: 8968205531885936295}
+  - component: {fileID: 4435282959137259283}
   m_Layer: 5
   m_Name: InventoryUI
   m_TagString: Untagged
@@ -1613,6 +1615,33 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!54 &4435282959137259283
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7259768119793081676}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7702625058000473131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,6 +2004,7 @@ GameObject:
   - component: {fileID: 8336387136687742852}
   - component: {fileID: 7952545721755729503}
   - component: {fileID: 6942062032976813970}
+  - component: {fileID: 508400423253837860}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -2041,3 +2071,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &508400423253837860
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8505614355954015793}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
