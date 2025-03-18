@@ -22,7 +22,7 @@ public class DataManager : MonoBehaviour
         else { Destroy(gameObject); }
 
         dataPath = Path.Combine(Application.dataPath + "/Json", "ItemData.Json");
-        Debug.Log($"datapath는 {dataPath}");
+        //Debug.Log($"datapath는 {dataPath}");
        
         LoadItemDataFromJson();
     }
@@ -56,7 +56,7 @@ public class DataManager : MonoBehaviour
                 if (itemData.equipPrefabName != null) { itemData.equipPrefab = UnityEngine.Resources.Load<GameObject>(itemData.equipPrefabName); }
                 if (itemData.ConsumableType != null)
                 {
-                    Debug.Log("확인");
+                    
                     itemData.consumableTypes = new List<ConsumableType>();
                     foreach (var typeString in itemData.ConsumableType)
                     {
@@ -72,11 +72,8 @@ public class DataManager : MonoBehaviour
                     }
                 }
             }
-
-
-            Debug.Log($"Loaded JSON: {json}");
+            //Debug.Log($"Loaded JSON: {json}");
         }
-
     }
 
     public ItemData GetItemDataByID(string id)

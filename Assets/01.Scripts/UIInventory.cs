@@ -64,7 +64,7 @@ public class UIInventory : MonoBehaviour
             //slots[i] = slotPanel.GetChild(i).GetComponent<UIItemSlots>();
             uiSlots[i].Index = i;
             //slots[i].uiInventory = this;
-            //slots[i].Clear();
+            uiSlots[i].quantityText.text = string.Empty;
         }
 
         ClearSelectedItemWindow();
@@ -79,7 +79,7 @@ public class UIInventory : MonoBehaviour
         selectedItemStatValue.text = string.Empty;
     }
 
-    // 슬롯 정렬 메서드
+    // 참고:슬롯 정렬 메서드
 
     // 아이템이 들어왔을 때
     //public void Set(int index)
@@ -110,30 +110,25 @@ public class UIInventory : MonoBehaviour
             {
                 uiSlots[i].ItemData = playerInventory.slots[i].ItemData;
                 uiSlots[i].icon.sprite = playerInventory.slots[i].ItemData.icon;
-                uiSlots[i].quantityText.text = playerInventory.slots[i].quantity.ToString();
+                uiSlots[i].quantityText.text = playerInventory.slots[i].quantity > 1 ? playerInventory.slots[i].quantity.ToString() : string.Empty;
             }
             else
             {
-                
                 uiSlots[i].ItemData = null;
                 uiSlots[i].icon.sprite = null;
                 uiSlots[i].quantityText.text = string.Empty;
             }
         }
+        ClearSelectedItemWindow();
     }
 
     // 인벤토리 창 열고 닫기
     public void Toggle()
     {
-
         bool isOpen = inventoryWindow.activeSelf;
         inventoryWindow.SetActive(!isOpen);
     }
 
-    //public bool IsOpen()
-    //{
-    //    return inventoryWindow.activeInHierarchy;
-    //}
 
     public void OnClick(int index)
     {
@@ -153,16 +148,10 @@ public class UIInventory : MonoBehaviour
         selectedItemStatName.text = string.Empty;
         selectedItemStatValue.text = string.Empty;
 
+        
         // 소비 아이템일 때만 StatName, StatValue 나타내기
-        //for (int i = 0; i < selectedItem.ItemsConsumables.Length; i++)
-        //{
-        //    selectedItemStatName.text += selectedItem.ItemsConsumables[i].type.ToString() + "\n";
-        //    selectedItemStatValue.text += selectedItem.ItemsConsumables[i].value.ToString() + "\n";
-        //}
-
         if (selectedItem.type == ItemType.Consumable)
         {
-
             for (int i = 0; i < selectedItem.ConsumableType.Count; i++)
             {
                 selectedItemStatName.text += selectedItem.consumableTypes[i].ToString() + "\n";
@@ -170,8 +159,7 @@ public class UIInventory : MonoBehaviour
             }
         }
 
-
-                useButton.SetActive(selectedItem.type == ItemType.Consumable);
+        useButton.SetActive(selectedItem.type == ItemType.Consumable);
         equipButton.SetActive(selectedItem.type == ItemType.Equipable && !uiSlots[index].equipped);
         unEquipButton.SetActive(selectedItem.type == ItemType.Equipable && uiSlots[index].equipped);
         
@@ -209,13 +197,6 @@ public class UIInventory : MonoBehaviour
 
             for (int i = 0; i < selectedItem.ConsumableType.Count; i++)
             {
-
-
-                //if (conditions.Conditions.TryGetValue((ConditionType)type, out Condition condition))
-                //{
-                //    condition.ChangCondition(amount);
-                //    Debug.Log(type + "회복");
-                //}
                 switch(selectedItem.consumableTypes[i])
                 {
                     case ConsumableType.Health:
@@ -263,21 +244,15 @@ public class UIInventory : MonoBehaviour
     public void OnUnEquipButton()
     {
         selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
-        uiSlots[selectedItemIndex].equipped = false;
         playerEquipment.UnEquip(selectedItem);
         UpdateUI();
-
-        //if (selectedItemIndex == )
-        //{
-        //    SelectItem(selectedItemIndex);
-        //}
+        uiSlots[selectedItemIndex].equipped = false;
     }
-    // 버리기 버튼
+    // 4. 버리기 버튼
     public void OnDropButton() 
     {
+        if (selectedItem == null) { return; }
         if (selectedItem.drobPrefab != null) { playerInventory.ThrowItem(selectedItem); }
-       // else { playerInventory.TriggerUpdateUI(); }
         RemoveSelectedItem();
     }
-
 }

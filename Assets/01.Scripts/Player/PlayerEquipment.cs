@@ -18,10 +18,6 @@ public class PlayerEquipment : MonoBehaviour
         UnEquip(equipItemData);
         curEquip = Instantiate(equipItemData.equipPrefab, equipParent).GetComponent<Equip>();
 
-        // 1인칭인 경우 - 포지션바꿔주기
-        // curEquip = 
-        // 3인칭인 경우 - 포지션바꿔주기
-
         if (curEquip is EquipTool equipTool)
         {
             CharacterManager.Instance.Player.handler.isWeopon = true;

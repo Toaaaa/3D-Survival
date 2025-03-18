@@ -72,27 +72,26 @@ public class ItemDatas
 
 }
 
-[System.Serializable]
 
-public class ConsumableItemData : ItemData
-{
-    //public ConsumableItemData[] ItemsConsumables; -> 확인필요
+//public class ConsumableItemData : ItemData
+//{
+//    //public ConsumableItemData[] ItemsConsumables; -> 확인필요
 
-    public ConsumableType[] consumableType;
-    public float[] value;
-}
-[System.Serializable]
-public class ResourceItemData : ItemData
-{
+//    public ConsumableType[] consumableType;
+//    public float[] value;
+//}
+//[System.Serializable]
+//public class ResourceItemData : ItemData
+//{
     
 
-}
+//}
 
-[System.Serializable]
-public class EquiptableItemData : ItemData
-{
-    //public int attackPower; equiptool 공격력/사거리 가져오기
-}
+//[System.Serializable]
+//public class EquiptableItemData : ItemData
+//{
+//    //public int attackPower; equiptool 공격력/사거리 가져오기
+//}
 
 // Newtonsoft.json 사용하지 않을 시에 필요함
 //[System.Serializable]

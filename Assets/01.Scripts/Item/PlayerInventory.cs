@@ -24,23 +24,15 @@ public class PlayerInventory : MonoBehaviour
 
     private void Awake()
     {
-        //CharacterManager.Instance.Player.AddItem += AddItem;
-
+        
         slots = new ItemSlot[slotNumber];
 
         InventoryUpdated += CheckEmptySlot;
-
-        //dropPosition = CharacterManager.Instance.Player.dropPosition;
 
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i] = new ItemSlot(null, 0, i);
         }
-    }
-
-    void Update()
-    {
-        
     }
 
     public void AddItem(ItemData itemData)
@@ -85,6 +77,10 @@ public class PlayerInventory : MonoBehaviour
         Instantiate(itemdata.drobPrefab, dropPosition.position, Quaternion.identity);
         TriggerUpdateUI();
     }
+    public void TriggerUpdateUI()
+    {
+        InventoryUpdated?.Invoke();
+    }
 
     ItemSlot GetItemStack(ItemData data)
     {
@@ -112,11 +108,6 @@ public class PlayerInventory : MonoBehaviour
             { return slots[i]; }
         }
         return null;
-    }
-
-    public void TriggerUpdateUI()
-    {
-        InventoryUpdated?.Invoke();
     }
 
     public void CheckEmptySlot()

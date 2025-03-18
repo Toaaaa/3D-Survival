@@ -29,16 +29,16 @@ public class UIItemSlots : MonoBehaviour // UI아이템슬롯
     }
     private void OnEnable()
     {
-        outline.enabled = equipped; // equipped가 true일 때 ( = 착용했을 때) 아웃라인 활성
+        if (outline != null)
+        {
+            outline.enabled = equipped; // equipped가 true일 때 ( = 착용했을 때) 아웃라인 활성
+        }
     }
 
     private void OnClickButton()
     {
         uiInventory.SelectItem(Index);
     }
-
-
-
 
     // 슬롯 정렬 메서드
 
