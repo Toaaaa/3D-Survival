@@ -15,7 +15,7 @@ public class ItemObject : MonoBehaviour, IInteractable
     //public static ItemObject instance;
     public ItemData itemData;
     public string itemKey;
-    public int amount =1;
+    public int amount;
 
     private void Start()
     {

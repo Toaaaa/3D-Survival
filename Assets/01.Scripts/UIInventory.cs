@@ -106,7 +106,7 @@ public class UIInventory : MonoBehaviour
         {
            //if (playerInventory.slots[i].ItemData == null) return;
 
-            if (playerInventory.slots[i].ItemData != null)
+            if (playerInventory.slots[i].ItemData != null && uiSlots[i].Index == playerInventory.slots[i].index)
             {
                 uiSlots[i].ItemData = playerInventory.slots[i].ItemData;
                 uiSlots[i].icon.sprite = playerInventory.slots[i].ItemData.icon;
@@ -114,8 +114,8 @@ public class UIInventory : MonoBehaviour
             }
             else
             {
-                //playerInventory.slots[i].ItemData = null;
-
+                
+                uiSlots[i].ItemData = null;
                 uiSlots[i].icon.sprite = null;
                 uiSlots[i].quantityText.text = string.Empty;
             }
@@ -195,12 +195,9 @@ public class UIInventory : MonoBehaviour
             // 장비가 아니라면, 슬롯을 비워준다.
             playerInventory.slots[selectedItemIndex].quantity = 0;
             playerInventory.slots[selectedItemIndex].ItemData = null;
-            UpdateUI();
-         }
-        else
-        {
-            UpdateUI();
+            ClearSelectedItemWindow();
         }
+            UpdateUI();
     }
 
     // 1.사용하기버튼 
@@ -278,7 +275,8 @@ public class UIInventory : MonoBehaviour
     // 버리기 버튼
     public void OnDropButton() 
     {
-        playerInventory.ThrowItem(selectedItem);
+        if (selectedItem.drobPrefab != null) { playerInventory.ThrowItem(selectedItem); }
+       // else { playerInventory.TriggerUpdateUI(); }
         RemoveSelectedItem();
     }
 
