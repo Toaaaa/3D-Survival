@@ -35,7 +35,6 @@ public class SoundManager : MonoBehaviour
 
     public void SetMasterVolume(float volume)
     {
-        Debug.Log("볼륨 값: " + volume); // 디버깅용
         audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
     }
 }
