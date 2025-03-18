@@ -57,6 +57,8 @@
   - ### 다양한 수집품   
 ![image](https://github.com/user-attachments/assets/c7443b5d-a5c4-4933-a0c1-b9b320ea0297)
 
+https://github.com/user-attachments/assets/2b7bc338-e041-4a85-bf33-924549408ba9
+
 
 ## 🛠 가공 및 크래프팅
 
