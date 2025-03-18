@@ -135,5 +135,8 @@ MonoBehaviour:
     maxStackAmount: 0
     neededQuantity: 0
     nextItemIdx: 0
+    ConsumableType: []
+    consumableTypes: 
+    value: []
   itemKey: 11
   amount: 1

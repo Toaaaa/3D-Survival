@@ -12,7 +12,11 @@ public class FieldResource : ItemObject
     {
         itemData = DataManager.Instance.GetItemDataByID(itemKey);
         spawner = GetComponentInParent<FieldResourceSpawner>();
-        respawn = spawner.Respawn;
+        if(spawner != null)
+        {
+            respawn = spawner.Respawn;
+        }
+
     }
 
     public override void OnInteract()
