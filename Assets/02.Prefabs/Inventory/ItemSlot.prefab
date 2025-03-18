@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
+  m_EffectColor: {r: 1, g: 0, b: 0.6713314, a: 0.5}
+  m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 1
 --- !u!114 &1249932679814932002
 MonoBehaviour:
@@ -226,7 +226,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75a7604f3752484a930667477e71fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemData: {fileID: 0}
+  ItemData:
+    itemKey: 
+    displayName: 
+    description: 
+    type: 0
+    icon: {fileID: 0}
+    iconName: 
+    drobPrefab: {fileID: 0}
+    drobPrefabName: 
+    equipPrefab: {fileID: 0}
+    equipPrefabName: 
+    canStack: 0
+    maxStackAmount: 0
+    neededQuantity: 0
+    nextItemIdx: 0
+    ConsumableType: []
+    consumableTypes: 
+    value: []
   uiInventory: {fileID: 0}
   button: {fileID: 934797795225942653}
   icon: {fileID: 7672788368877845465}

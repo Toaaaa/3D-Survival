@@ -64,7 +64,7 @@ public class UIInventory : MonoBehaviour
             //slots[i] = slotPanel.GetChild(i).GetComponent<UIItemSlots>();
             uiSlots[i].Index = i;
             //slots[i].uiInventory = this;
-            //slots[i].Clear();
+            uiSlots[i].quantityText.text = string.Empty;
         }
 
         ClearSelectedItemWindow();
@@ -79,7 +79,7 @@ public class UIInventory : MonoBehaviour
         selectedItemStatValue.text = string.Empty;
     }
 
-    // 슬롯 정렬 메서드
+    // 참고:슬롯 정렬 메서드
 
     // 아이템이 들어왔을 때
     //public void Set(int index)
@@ -110,30 +110,30 @@ public class UIInventory : MonoBehaviour
             {
                 uiSlots[i].ItemData = playerInventory.slots[i].ItemData;
                 uiSlots[i].icon.sprite = playerInventory.slots[i].ItemData.icon;
-                uiSlots[i].quantityText.text = playerInventory.slots[i].quantity.ToString();
+                uiSlots[i].quantityText.text = playerInventory.slots[i].quantity > 1 ? playerInventory.slots[i].quantity.ToString() : string.Empty;
+                if (uiSlots[i].outline != null)
+                {
+                    uiSlots[i].outline.enabled = uiSlots[i].equipped;
+                }
             }
             else
             {
-                
                 uiSlots[i].ItemData = null;
                 uiSlots[i].icon.sprite = null;
                 uiSlots[i].quantityText.text = string.Empty;
+                
             }
         }
+        ClearSelectedItemWindow();
     }
 
     // 인벤토리 창 열고 닫기
     public void Toggle()
     {
-
         bool isOpen = inventoryWindow.activeSelf;
         inventoryWindow.SetActive(!isOpen);
     }
 
-    //public bool IsOpen()
-    //{
-    //    return inventoryWindow.activeInHierarchy;
-    //}
 
     public void OnClick(int index)
     {
@@ -153,16 +153,10 @@ public class UIInventory : MonoBehaviour
         selectedItemStatName.text = string.Empty;
         selectedItemStatValue.text = string.Empty;
 
+        
         // 소비 아이템일 때만 StatName, StatValue 나타내기
-        //for (int i = 0; i < selectedItem.ItemsConsumables.Length; i++)
-        //{
-        //    selectedItemStatName.text += selectedItem.ItemsConsumables[i].type.ToString() + "\n";
-        //    selectedItemStatValue.text += selectedItem.ItemsConsumables[i].value.ToString() + "\n";
-        //}
-
         if (selectedItem.type == ItemType.Consumable)
         {
-
             for (int i = 0; i < selectedItem.ConsumableType.Count; i++)
             {
                 selectedItemStatName.text += selectedItem.consumableTypes[i].ToString() + "\n";
@@ -170,8 +164,7 @@ public class UIInventory : MonoBehaviour
             }
         }
 
-
-                useButton.SetActive(selectedItem.type == ItemType.Consumable);
+        useButton.SetActive(selectedItem.type == ItemType.Consumable);
         equipButton.SetActive(selectedItem.type == ItemType.Equipable && !uiSlots[index].equipped);
         unEquipButton.SetActive(selectedItem.type == ItemType.Equipable && uiSlots[index].equipped);
         
@@ -189,7 +182,7 @@ public class UIInventory : MonoBehaviour
             // 장비라면, 벗어준다.
             if (uiSlots[selectedItemIndex].equipped)
             {
-                playerEquipment.UnEquip(playerInventory.slots[selectedItemIndex].ItemData);
+                playerEquipment.UnEquip();
             }
 
             // 장비가 아니라면, 슬롯을 비워준다.
@@ -209,13 +202,6 @@ public class UIInventory : MonoBehaviour
 
             for (int i = 0; i < selectedItem.ConsumableType.Count; i++)
             {
-
-
-                //if (conditions.Conditions.TryGetValue((ConditionType)type, out Condition condition))
-                //{
-                //    condition.ChangCondition(amount);
-                //    Debug.Log(type + "회복");
-                //}
                 switch(selectedItem.consumableTypes[i])
                 {
                     case ConsumableType.Health:
@@ -248,36 +234,44 @@ public class UIInventory : MonoBehaviour
             RemoveSelectedItem();
         }
     }
-    
+
 
     // 2. 착용하기 버튼
     public void OnEquipButton()
     {
         selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
-        if (uiSlots[selectedItemIndex].equipped) { playerEquipment.UnEquip(selectedItem); }
-        uiSlots[selectedItemIndex].equipped = true;
-        playerEquipment.Equip(selectedItem);
+        if (uiSlots[selectedItemIndex].equipped) { playerEquipment.UnEquip(); }
+            else
+            {
+                // 모든 슬롯의 equipped 상태를 false로 초기화
+                // 중복 착용 방지 위함
+                for (int i = 0; i < uiSlots.Length; i++)
+                {
+                    uiSlots[i].equipped = false;
+                }
+
+            uiSlots[selectedItemIndex].equipped = true;
+            playerEquipment.Equip(selectedItem);
+            }
         UpdateUI();
+
+        SelectItem(selectedItemIndex);
+
     }
     // 3. 해제하기 버튼
     public void OnUnEquipButton()
     {
         selectedItem = playerInventory.slots[selectedItemIndex].ItemData;
+        playerEquipment.UnEquip();
+        
         uiSlots[selectedItemIndex].equipped = false;
-        playerEquipment.UnEquip(selectedItem);
         UpdateUI();
-
-        //if (selectedItemIndex == )
-        //{
-        //    SelectItem(selectedItemIndex);
-        //}
     }
-    // 버리기 버튼
+    // 4. 버리기 버튼
     public void OnDropButton() 
     {
+        if (selectedItem == null) { return; }
         if (selectedItem.drobPrefab != null) { playerInventory.ThrowItem(selectedItem); }
-       // else { playerInventory.TriggerUpdateUI(); }
         RemoveSelectedItem();
     }
-
 }
