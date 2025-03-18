@@ -59,6 +59,7 @@ public class Proccesser : MonoBehaviour, IInteractable
     private void OnDisable()
     {
         if(UIProccesser.Instance != null)
-            OffProccesserWindow();
+            if(UIProccesser.Instance.backGround.activeSelf)
+                OffProccesserWindow();
     }
 }
