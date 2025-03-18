@@ -3513,6 +3513,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3581,6 +3586,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173081926298823244, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7029780671710181648, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
         type: 3}
@@ -3734,6 +3744,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4139,6 +4154,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4262,6 +4282,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4411,6 +4436,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4484,6 +4514,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4559,6 +4594,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4632,6 +4672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402061533587037890, guid: 199ecabf70a4e0d42a49709c55e917f9,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5003,6 +5048,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5026,6 +5076,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
@@ -5150,6 +5205,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5411,6 +5471,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5479,6 +5544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173081926298823244, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7029780671710181648, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
         type: 3}
@@ -5855,6 +5925,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6002,6 +6077,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6190,6 +6270,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6314,6 +6399,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6411,6 +6501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree2 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
@@ -6915,6 +7010,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7137,6 +7237,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7210,6 +7315,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7601,6 +7711,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7674,6 +7789,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8391,6 +8511,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8459,6 +8584,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090124184460180712, guid: 630ff5d16d3e6e34da2e6a421905c642,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8820430900874413848, guid: 630ff5d16d3e6e34da2e6a421905c642,
         type: 3}
@@ -8627,6 +8757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9181,6 +9316,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9254,6 +9394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree1 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9812,6 +9957,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4402061533587037890, guid: 199ecabf70a4e0d42a49709c55e917f9,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9886,6 +10036,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9959,6 +10114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10256,6 +10416,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10329,6 +10494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10478,6 +10648,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10552,6 +10727,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10625,6 +10805,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10843,6 +11028,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5173081926298823244, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7029780671710181648, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
         type: 3}
       propertyPath: m_Name
@@ -10871,6 +11061,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
@@ -11232,6 +11427,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173081926298823244, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7029780671710181648, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
         type: 3}
@@ -12004,6 +12204,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12151,6 +12356,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12310,6 +12520,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12383,6 +12598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12490,6 +12710,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree2 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
@@ -12615,6 +12840,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12638,6 +12868,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree2 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
@@ -13112,6 +13347,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13135,6 +13375,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
@@ -13422,6 +13667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14267,6 +14517,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14340,6 +14595,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14852,6 +15112,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14875,6 +15140,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree2 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
@@ -15311,6 +15581,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4402061533587037890, guid: 199ecabf70a4e0d42a49709c55e917f9,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15384,6 +15659,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15696,6 +15976,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15764,6 +16049,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173081926298823244, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7029780671710181648, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
         type: 3}
@@ -15918,6 +16208,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15941,6 +16236,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
@@ -16143,6 +16443,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090124184460180712, guid: 630ff5d16d3e6e34da2e6a421905c642,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8820430900874413848, guid: 630ff5d16d3e6e34da2e6a421905c642,
         type: 3}
@@ -16519,6 +16824,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16756,6 +17066,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16925,7 +17240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8820d19aacf453c4c85be9905da6891b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  environmentType: 0
+  environmentType: 3
 --- !u!1001 &5081015214850890157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17062,6 +17377,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17211,6 +17531,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17279,6 +17604,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173081926298823244, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7029780671710181648, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
         type: 3}
@@ -17987,6 +18317,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5173081926298823244, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7029780671710181648, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
         type: 3}
       propertyPath: m_Name
@@ -18208,6 +18543,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173081926298823244, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7029780671710181648, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
         type: 3}
@@ -18943,6 +19283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19106,6 +19451,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19179,6 +19529,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19860,6 +20215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19933,6 +20293,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20433,6 +20798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20798,6 +21168,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree2 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20921,6 +21296,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21159,6 +21539,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21233,6 +21618,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21306,6 +21696,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21850,6 +22245,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7090124184460180712, guid: 630ff5d16d3e6e34da2e6a421905c642,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8820430900874413848, guid: 630ff5d16d3e6e34da2e6a421905c642,
         type: 3}
       propertyPath: m_Name
@@ -22013,6 +22413,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22087,6 +22492,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22155,6 +22565,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173081926298823244, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7029780671710181648, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
         type: 3}
@@ -22541,6 +22956,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22852,6 +23272,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23019,6 +23444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23242,6 +23672,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23315,6 +23750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23464,6 +23904,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23537,6 +23982,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree1 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23691,6 +24141,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23764,6 +24219,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24076,6 +24536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24150,6 +24615,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24218,6 +24688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090124184460180712, guid: 630ff5d16d3e6e34da2e6a421905c642,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8820430900874413848, guid: 630ff5d16d3e6e34da2e6a421905c642,
         type: 3}
@@ -24382,6 +24857,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24450,6 +24930,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173081926298823244, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7029780671710181648, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
         type: 3}
@@ -24530,6 +25015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree1 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24598,6 +25088,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173081926298823244, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7029780671710181648, guid: 4a4bbd8d5dea95e47a5abfe54be0ca4d,
         type: 3}
@@ -24726,6 +25221,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1998643586694140281}
     m_Modifications:
+    - target: {fileID: 4969471289121849627, guid: 650a114d7c6949c4ebc6b2e41ede0808,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5154042533897169019, guid: 650a114d7c6949c4ebc6b2e41ede0808,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24855,6 +25355,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24928,6 +25433,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097404313079293186, guid: 14dfa6d6140c6724e9bbb5170d1a4418,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25393,6 +25903,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25556,6 +26071,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4402061533587037890, guid: 199ecabf70a4e0d42a49709c55e917f9,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25629,6 +26149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25738,6 +26263,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1998643586694140281}
     m_Modifications:
+    - target: {fileID: 4969471289121849627, guid: 650a114d7c6949c4ebc6b2e41ede0808,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5154042533897169019, guid: 650a114d7c6949c4ebc6b2e41ede0808,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25940,6 +26470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree3 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26163,6 +26698,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26311,6 +26851,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26330,6 +26875,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1998643586694140281}
     m_Modifications:
+    - target: {fileID: 4969471289121849627, guid: 650a114d7c6949c4ebc6b2e41ede0808,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5154042533897169019, guid: 650a114d7c6949c4ebc6b2e41ede0808,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26459,6 +27009,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26532,6 +27087,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26720,6 +27280,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Tree2 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26793,6 +27358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree2 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
@@ -27086,6 +27656,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27109,6 +27684,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Tree2 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385822393775004456, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5919818145563916907, guid: 2c28c36b6d3fcd44cae642ed7ab9ad8c,
         type: 3}
@@ -27316,6 +27896,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27669,6 +28254,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658713253442223391, guid: 33f4d25031606e1479b40efa099e414d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27979,6 +28569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747989335245350826, guid: 524f650cd116f7644a2dc98c72c5954b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
