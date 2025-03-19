@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4976034756058906483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3876079293929771030}
+  - component: {fileID: -8371587845466094009}
+  m_Layer: 0
+  m_Name: Equip_BlackSword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3876079293929771030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976034756058906483}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.14129706, y: 0.65942746, z: 0.1644164, w: 0.71983176}
+  m_LocalPosition: {x: -0.064, y: 0.058, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6695928136698813592}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -0.769, y: 84.814, z: 25.03}
+--- !u!114 &-8371587845466094009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976034756058906483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e795795b1b21c4297ef0b68b934cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemKey: 
+    displayName: 
+    description: 
+    type: 0
+    icon: {fileID: 0}
+    iconName: 
+    drobPrefab: {fileID: 0}
+    drobPrefabName: 
+    equipPrefab: {fileID: 0}
+    equipPrefabName: 
+    canStack: 0
+    maxStackAmount: 0
+    neededQuantity: 0
+    nextItemIdx: 0
+    ConsumableType: []
+    consumableTypes: 
+    value: []
+  attackRate: 0
+  attacking: 0
+  doesGatherResources: 0
+  doesDealDamage: 0
+  attackDistance: 0
+  attackPower: 0
+--- !u!1001 &6475924471866437259
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3876079293929771030}
+    m_Modifications:
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682958165896577834, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+        type: 3}
+      propertyPath: m_Name
+      value: BlackSword
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0e13d46e9ee127943a70ea4b8831fe4f, type: 3}
+--- !u!4 &6695928136698813592 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 374834332472341011, guid: 0e13d46e9ee127943a70ea4b8831fe4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6475924471866437259}
+  m_PrefabAsset: {fileID: 0}

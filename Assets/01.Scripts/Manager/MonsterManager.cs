@@ -17,6 +17,8 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
+    public MonsterDropManager monsterDropManager;
+
     private void Awake()
     {
         if (instance == null)
@@ -28,5 +30,7 @@ public class MonsterManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        monsterDropManager = GetComponent<MonsterDropManager>();
     }
 }
