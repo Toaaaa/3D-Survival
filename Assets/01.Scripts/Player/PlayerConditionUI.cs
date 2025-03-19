@@ -20,6 +20,7 @@ public class PlayerConditionUI : MonoBehaviour
         uiBar.fillAmount = condition.GetPercentage();
     }
 
+    //플레이어 컨디션 확인 후 세팅
     private void SetType()
     {
         var _condition = CharacterManager.Instance.Player.condition.Conditions;

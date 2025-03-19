@@ -46,6 +46,7 @@ public class PlayerCondition : MonoBehaviour
         }
     }
 
+    //플레이어 condition 지속적으로 감소
     private void PassiveCondition()
     {
         if (conditions.TryGetValue(ConditionType.Water, out Condition water))
@@ -74,6 +75,7 @@ public class PlayerCondition : MonoBehaviour
         }
     }
 
+    //스테미나 사용
     public bool UseStamina(float value)
     {
         if(conditions.TryGetValue(ConditionType.Stamina, out Condition stamina))
