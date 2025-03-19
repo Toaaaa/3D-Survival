@@ -87,6 +87,7 @@ public class PlayerHandler : MonoBehaviour
         {
             if(!CharacterManager.Instance.Player.condition.UseStamina(runStamina * Time.deltaTime))
             {
+                //사용 가능스태미나 없을시 종료
                 if (!CharacterManager.Instance.Player.condition.UseStamina(runStamina))
                 {
                     isRun = false;
@@ -103,6 +104,7 @@ public class PlayerHandler : MonoBehaviour
         animator.Gather();
     }
 
+    //지면 확인
     private bool IsGrounded()
     {
         Ray[] rays = new Ray[4]
