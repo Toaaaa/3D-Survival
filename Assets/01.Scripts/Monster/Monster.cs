@@ -62,7 +62,6 @@ public class Monster : MonoBehaviour
     protected virtual void Update()
     {
         HpStatus();// 체력 상태 관리 전반.
-
         // 몬스터 AI
         if (isDead) return;
         if(Vector3.Distance(originPos,this.transform.position) >= AwayDistance || state == State.Return)// 만약 처음 위치에서 awayDistance 이상 떨어지면 원래 구역으로 우선적으로 복귀.
@@ -85,6 +84,10 @@ public class Monster : MonoBehaviour
         if (target == null) return; // 타겟이 없거나, 범위 밖일때는 return.
         navMeshAgent.SetDestination(target.position);
     }
+    private void LateUpdate()
+    {
+        anim.SetBool("IsJump", navMeshAgent.isOnOffMeshLink);
+    }
 
     protected virtual void HpStatus()
     {
@@ -96,6 +99,7 @@ public class Monster : MonoBehaviour
     }// 처치시 아이템 드랍.
     protected void ChangeState(State newState)
     {
+        if(anim.GetBool("IsJump") && state == State.Chase) return; // 점프 중일 때는 상태 변경 불가.
         state = newState;
     }
     public void OnHit(float dmg) // 피격시 호출되는 메서드.
@@ -129,7 +133,8 @@ public class Monster : MonoBehaviour
 
         if (curAnimStateInfo.IsName("Chase") == false)
         {
-            anim.Play("Chase", 0, 0);
+            if(!anim.GetBool("IsJump"))
+                anim.Play("Chase", 0, 0);
             yield return null;// SetDestination 을 위해 frame.
         }
 
@@ -138,12 +143,16 @@ public class Monster : MonoBehaviour
         {
             if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
             {
+                if (anim.GetBool("IsJump")) yield break;
                 ChangeState(State.Attack);
                 yield break;
             }
             else if (navMeshAgent.remainingDistance > lostDistance)
             {
+                if(anim.GetBool("IsJump")) yield break;
+                if (navMeshAgent.remainingDistance == float.PositiveInfinity || navMeshAgent.remainingDistance == float.NegativeInfinity) yield break;
                 target = null;
+                Debug.Log("Target Lost!"); // 타겟을 잃어버림.
                 ChangeState(State.Idle);
                 yield break;
             }
@@ -163,7 +172,8 @@ public class Monster : MonoBehaviour
         if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
         {
             // StateMachine을 추적으로 변경
-            ChangeState(State.Chase);
+            if (!anim.GetBool("IsJump"))
+                ChangeState(State.Chase);
         }
         else
         {
